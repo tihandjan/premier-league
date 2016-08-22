@@ -1,2 +1,36 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+    background: url("/images/bg/bg.jpg") no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    // background: #e7e7e7;
+}
+
+
+// navbar start
+
+.navbar {
+    background-color: transparent;
+    border-color: transparent;
+    .container-fluid {
+        .navbar-header {
+            a {
+                position: relative;
+                top: 30px;
+            }
+        }
+        .glyphicon {
+            padding-right: 5px;
+        }
+        ul {
+            li {
+                a {
+                    color: #FFF;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
