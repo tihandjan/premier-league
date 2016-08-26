@@ -23,7 +23,7 @@ body {
 .navbar {
     background-color: rgba(0,0,0,0.27);
     border-color: transparent;
-    margin-bottom: 220px;
+    margin-bottom: 280px;
     .navbar-toggle {
         .icon-bar {
             background-color: #fff;
@@ -60,13 +60,29 @@ body {
 // navbar-end
 
 // match onlain start
-.white-line {
-    padding: 15px 0;
-    border-top: 5px solid #FFF;
-    border-bottom: 5px solid #FFF;
-    .row {
-        padding-top: 15px;
-        background: #FFF;
+
+.row-onlain {
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+    .col-md-4 {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .col-sm-6 {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    background: #FFF;
+    .table {
+        margin-bottom: 0;
+        tr {
+            td {
+                padding: 10px 0;
+                vertical-align: middle;
+            }
+        }
     }
 }
+
 // match onlain end
