@@ -8,6 +8,10 @@ body {
     // background: #e7e7e7;
 }
 
+h3 {
+    font-size: 21px;
+}
+
 // LOGO
 @media only screen and (max-width: 768px) {
     .navbar-brand {
@@ -65,30 +69,44 @@ body {
     -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+    margin-bottom: 50px;
+    text-align: center;
     .a-onlain {
-        display: block;
         color: inherit;
         &:hover {
             text-decoration: none;
-            color: #38003D;
+            .col-onlain {
+                background: #e90052;
+            }
+            .table {
+                background: #e90052;
+                color: #FFF;
+               .time {
+                    color: #e90052;
+                    background: #FFF;
+                } 
+            }
         }
     }
-    .col-md-4 {
+    .col-onlain {
         padding-left: 50px;
         padding-right: 50px;
-        btborder-top: 1px solid #e7e7e7;
-    }
-    .col-sm-6 {
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         border-top: 1px solid #e7e7e7;
     }
     background: #FFF;
     .table {
         margin-bottom: 0;
         tr {
+            .time {
+                background: #76766f;
+                color: #FFF;
+                padding: 0 10px;
+                text-align: center;
+            }
             td {
-                padding: 10px 0;
+                padding: 0;
                 vertical-align: middle;
                 border-top: none;
             }
@@ -97,3 +115,28 @@ body {
 }
 
 // match onlain end
+
+// article items start
+.row-article {
+    .col-article {
+        padding-left: 15px;
+        .a-article {
+            color: inherit;
+            &:hover {
+                text-decoration: none;
+                color: #38003D;
+            }
+            .thumbnail {
+                padding: 0;
+                border: none;
+                box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.75);
+                .caption {
+                    &:hover {
+                        color: #38003D;
+                    }
+                }
+            }
+        }
+    }
+}
+// article items end
