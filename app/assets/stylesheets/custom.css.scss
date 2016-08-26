@@ -65,13 +65,23 @@ body {
     -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+    .a-onlain {
+        display: block;
+        color: inherit;
+        &:hover {
+            text-decoration: none;
+            color: #38003D;
+        }
+    }
     .col-md-4 {
         padding-left: 50px;
         padding-right: 50px;
+        btborder-top: 1px solid #e7e7e7;
     }
     .col-sm-6 {
         padding-left: 50px;
         padding-right: 50px;
+        border-top: 1px solid #e7e7e7;
     }
     background: #FFF;
     .table {
@@ -80,6 +90,7 @@ body {
             td {
                 padding: 10px 0;
                 vertical-align: middle;
+                border-top: none;
             }
         }
     }
