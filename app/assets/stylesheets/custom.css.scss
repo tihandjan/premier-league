@@ -95,8 +95,8 @@ h3 {
     .col-onlain {
         padding-left: 50px;
         padding-right: 50px;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        padding-top: 2px;
+        padding-bottom: 2px;
         border-top: 1px solid #e7e7e7;
     }
     background: #FFF;
@@ -136,7 +136,7 @@ h3 {
                 box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.75);
                 .caption {
                     &:hover {
-                        color: #38003D;
+                        color: #777777;
                     }
                 }
             }
@@ -144,3 +144,28 @@ h3 {
     }
 }
 // article items end
+
+// article 2 item start
+.row-article2 {
+    .col-article {
+        .a-article {
+            .thumbnail {
+                position: relative;
+                img {
+                    
+                }
+                .caption {
+                    position: absolute;
+                    bottom: 0;
+                    color: #FFF;
+                    background: linear-gradient(to top,rgba(26,26,26,.7)0%,rgba(26,26,26,.5)70%,transparent);
+                    width: 100%;
+                    &:hover {
+                        color: #777777;
+                    }
+                }
+            }
+        }
+    }
+}
+// article item 2 end
