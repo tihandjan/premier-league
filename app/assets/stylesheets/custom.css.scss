@@ -8,17 +8,40 @@ body {
     // background: #e7e7e7;
 }
 
+// LOGO
+@media only screen and (max-width: 768px) {
+    .navbar-brand {
+        padding: 0;
+        img {
+            width: 80%;
+        }
+    }
+}
 
 // navbar start
 
 .navbar {
-    background-color: transparent;
+    background-color: rgba(0,0,0,0.27);
     border-color: transparent;
+    margin-bottom: 220px;
+    .navbar-toggle {
+        .icon-bar {
+            background-color: #fff;
+        }
+    }
     .container-fluid {
+        padding: 0;
+        .navbar-collapse {
+            margin-right: 0;
+            margin-left: 0;
+        }
         .navbar-header {
+        margin-right: 0;
+        margin-left: 0;
             a {
                 position: relative;
-                top: 30px;
+                top: 52px;
+                left: 20px;
             }
         }
         .glyphicon {
@@ -34,3 +57,16 @@ body {
         }
     }
 }
+// navbar-end
+
+// match onlain start
+.white-line {
+    padding: 15px 0;
+    border-top: 5px solid #FFF;
+    border-bottom: 5px solid #FFF;
+    .row {
+        padding-top: 15px;
+        background: #FFF;
+    }
+}
+// match onlain end
