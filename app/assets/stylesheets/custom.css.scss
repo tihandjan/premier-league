@@ -207,6 +207,7 @@ i {
 ///////////////////////
 @media only screen and (max-width: 1200px) {
     .panel-default {
+        border-bottom: 2px solid;
         .panel-heading {
         }
         .panel-body {
@@ -249,3 +250,29 @@ i {
     }
 }
 // table end
+
+// top players start
+.panel-body-custom {
+    position: relative;
+    color: #FFF;
+    .number-one {
+        position: absolute;
+        top: 40px;
+        left: 10px;
+        .footballer-name {
+            font-size: 1.2em;
+        }
+        .first {
+            color: #ff5b5a;
+            font-size: 1.3em;
+        }
+        .boals {
+            color: #ff5b5a;
+            font-size: 1.7em;
+        }
+    }
+}
+.team-score {
+    color: #ff5b5a;
+}
+// end
