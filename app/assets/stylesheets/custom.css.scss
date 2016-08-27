@@ -22,12 +22,13 @@ h3 {
     }
 }
 
+
 // navbar start
 
 .navbar {
     background-color: rgba(0,0,0,0.27);
     border-color: transparent;
-    margin-bottom: 280px;
+    margin-bottom: 200px;
     .navbar-toggle {
         .icon-bar {
             background-color: #fff;
@@ -181,9 +182,21 @@ h3 {
     .panel-body {
         padding: 0;
         .tab-pane{
-            height: 470px;
+            height: 612px;
             overflow-y: scroll;
             width: 100%;
+        }
+    }
+}
+///////////////////////
+@media only screen and (max-width: 1200px) {
+    .panel-default {
+        .panel-heading {
+        }
+        .panel-body {
+            .tab-pane{
+                height: 500px;
+            }
         }
     }
 }
