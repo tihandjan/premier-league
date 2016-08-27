@@ -218,3 +218,34 @@ i {
 }
 
 // lenta novostey end
+
+// table start
+.row-table {
+    padding: 15px;
+    thead {
+        tr {
+            th {
+                text-align: center;
+            }
+        }
+    }
+    tbody {
+        tr {
+            td {
+                padding-top: 0;
+                padding-bottom: 0;
+                vertical-align: middle;
+            }
+        }
+    }
+    .team-name {
+        text-align: left;
+    }
+    .team-score {
+        color: #ff5b5a;
+    }
+    .team-icon {
+        padding: 2px 0px 8px 2px;
+    }
+}
+// table end
