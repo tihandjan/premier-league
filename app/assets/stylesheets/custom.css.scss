@@ -11,6 +11,10 @@ body {
 h3 {
     font-size: 21px;
 }
+i {
+    font-size: 13px;
+    color: #9e9e9e;
+}
 
 // LOGO
 @media only screen and (max-width: 768px) {
@@ -163,6 +167,18 @@ h3 {
                     width: 100%;
                     &:hover {
                         color: #777777;
+                    }
+                    .create-time {
+                        font-size: 13px;
+                        padding: 2px;
+                        background: #ff5b5a;
+                        color: #000;
+                        border-radius: 2px;
+                        margin-right: 5px;
+                    }
+                    .time-pos {
+                        position: relative;
+                        bottom: -12px;
                     }
                 }
             }
