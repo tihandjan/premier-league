@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 body {
     background: url("/images/bg/bg.jpg") no-repeat;
@@ -257,7 +259,7 @@ i {
     color: #FFF;
     .number-one {
         position: absolute;
-        top: 40px;
+        top: 20px;
         left: 10px;
         .footballer-name {
             font-size: 1.2em;
@@ -274,5 +276,26 @@ i {
 }
 .team-score {
     color: #ff5b5a;
+}
+// end
+
+// footer
+.footer {
+    width: 100%;
+    background-color: #2f343a;
+    margin-top: 80px;
+    color: #FFF;
+    .container {
+        i {
+            color: #FFF;
+            font-size: 1.2em;
+        }
+        .custom-footer-col {
+            padding: 20px 0;
+            a {
+                color: #FFF;
+            }   
+        }
+    }
 }
 // end
