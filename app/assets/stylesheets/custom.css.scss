@@ -299,3 +299,33 @@ i {
     }
 }
 // end
+
+// auth modal
+.btn-group {
+    .fa {
+        font-size: 1.4em;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        color: #FFF;
+    }
+}
+// end
+
+// books start
+.row-books {
+    padding: 15px;
+    margin-top: 40px;
+    .books {
+        margin-bottom: 25px;
+        padding: 0;
+        -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+        &:hover {
+            box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.35);
+        }
+    }
+}
+
+// end
