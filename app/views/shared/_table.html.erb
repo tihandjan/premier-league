@@ -1,0 +1,62 @@
+<div class="row row-table hidden-xs">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+        <div class="panel-heading">Premier <img src="/images/logo.png"width="80px"> League</div>
+      
+    
+      <!-- Table -->
+        <table class="table table-hover">
+            <thead class="text-center">
+                <tr>
+                    <th></th>
+                    <th>#</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>Матчей</th>
+                    <th>В</th>
+                    <th>Н</th>
+                    <th>П</th>
+                    <th>Заб</th>
+                    <th>Про</th>
+                    <th></th>
+                    <th>Очков</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <% @number = 0 %>
+                <% 20.times do %>
+                <tr>
+                    <td></td>
+                    <td><%= @number += 1 %></td>
+                    <td class="team-icon"><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="25px" /></td>
+                    <td class="team-name">Манчестер Юнайтед</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td></td>
+                    <td class="team-score">0</td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
