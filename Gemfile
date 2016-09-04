@@ -8,7 +8,6 @@ gem 'rails', '4.2.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
-gem 'rails_admin'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -57,4 +56,10 @@ group :production do
 end
 
 gem 'font-awesome-sass'
+
+# admin panel
+gem 'activeadmin', github: 'activeadmin'
+
+# authentication
+gem 'devise'
 
