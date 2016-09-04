@@ -10,9 +10,12 @@
 <body>
   
   <%= render 'layouts/header' %>
-  <div class="clearfix"></div>
-  
+    
   <div class="container">
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </div>
   
