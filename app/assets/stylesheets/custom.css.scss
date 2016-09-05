@@ -117,7 +117,8 @@ i {
 // article items start
 .row-article {
     .col-article {
-        padding-left: 15px;
+        padding-left: 5px;
+        padding-right: 5px;
         .a-article {
             color: inherit;
             &:hover {
@@ -134,8 +135,17 @@ i {
                     }
                 }
             }
+            .custom-thumbnail {
+                max-height: 300px;
+                overflow: hidden;
+            }
         }
     }
+}
+
+.col-article {
+    padding-left: 5px;
+    padding-right: 5px;
 }
 // article items end
 
@@ -157,24 +167,27 @@ i {
                     &:hover {
                         color: #777777;
                     }
-                    .create-time {
-                        font-size: 13px;
-                        padding: 2px;
-                        background: #ff5b5a;
-                        color: #000;
-                        border-radius: 2px;
-                        margin-right: 5px;
-                    }
-                    .time-pos {
-                        position: relative;
-                        bottom: -12px;
-                    }
                 }
             }
         }
     }
 }
 // article item 2 end
+
+// label fot article start
+.create-time {
+    font-size: 13px;
+    padding: 2px;
+    background: #ff5b5a;
+    color: #000;
+    border-radius: 2px;
+    margin-right: 5px;
+}
+.time-pos {
+    position: relative;
+    bottom: -12px;
+}
+// end
 
 // lenta novostey start
 .panel-default {
@@ -187,7 +200,7 @@ i {
     .panel-body {
         padding: 0;
         .tab-pane{
-            height: 612px;
+            height: 800px;
             overflow-y: scroll;
             width: 100%;
         }
@@ -211,7 +224,7 @@ i {
 
 // table start
 .row-table {
-    padding: 15px;
+    padding: 5px;
     thead {
         tr {
             th {
