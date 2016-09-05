@@ -63,3 +63,7 @@ gem 'activeadmin', github: 'activeadmin'
 # authentication
 gem 'devise'
 
+# image upload
+gem 'carrierwave'
+gem 'mini_magick'
+
