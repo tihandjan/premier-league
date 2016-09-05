@@ -2,60 +2,21 @@
    
    
    <div class="row">
-       <div class="col-md-5"><%= render 'shared/onlain' %> </div>
-       <div class="col-md-7"><%= render 'shared/my_team' %></div>
-   </div>
-   
-    <div class="row row-article">
+       <div class="col-md-4"><%= render 'shared/onlain' %> <%= render 'shared/last_news' %><%= render 'shared/my_team' %></div>
+       <div class="col-md-8">
+           
+           <div class="row row-article">
         
-        <% 3.times do %>
-        <div class="col-sm-12 col-md-4 col-article">
-            <a class="a-article" href="#">
-                <div class="thumbnail">
-                    <img src="http://manutd.one/uploads/posts/2016-08/1472210327_585724424.jpg" alt="...">
-                    <div class="caption">
-                        <h3><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, maiores, iure, doloremque, ducimus accusamus sapiente fugiat...</p>
-                        <i class="glyphicon glyphicon-time"></i><i> 21.02.16</i> 
-                    </div>
-                </div>
-            </a>
-        </div>
-        <% end %>
-        
-    </div>
-    
-    <div class="row row-article row-article2">
-        
-        <% 2.times do %>
-        <div class="col-md-6 col-article col-sm-6">
-            <a class="a-article" href="#">
-                <div class="thumbnail">
-                    <img src="http://manutd.one/uploads/posts/2016-08/1472210327_585724424.jpg" alt="...">
-                    <div class="caption">
-                        <span class="create-time time-pos">Статья</span><span class="time-pos"><i class="glyphicon glyphicon-time"></i><i> 21.02.16</i></span> 
-                        <h3><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, maiores, iure, doloremque, ducimus accusamus sapiente fugiat...</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <% end %>
-    </div>
-    
-    <div class="row">
-        <div class="col-md-6">
-            <div class="row row-article row-article2">
-                
-                <% 2.times do %>
-                <div class="col-md-12 col-article col-sm-6">
+                <% 4.times do %>
+                <div class="col-sm-6 col-article">
                     <a class="a-article" href="#">
+                        <span style="position: absolute; top: 10px; left: 15px" class="create-time">Новости</span>
                         <div class="thumbnail">
                             <img src="http://manutd.one/uploads/posts/2016-08/1472210327_585724424.jpg" alt="...">
                             <div class="caption">
-                                <span class="create-time time-pos">Статья</span><span class="time-pos"><i class="glyphicon glyphicon-time"></i><i> 21.02.16</i></span>  
                                 <h3><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong></h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, maiores, iure, doloremque, ducimus accusamus sapiente fugiat...</p>
+                                <i class="glyphicon glyphicon-time"></i><i> 21.02.16</i> 
                             </div>
                         </div>
                     </a>
@@ -63,14 +24,30 @@
                 <% end %>
                 
             </div>
-        </div>
-        <div class="col-md-6">
-            <%= render 'shared/last_news' %>
-        </div>
-    </div>
-    
-    <%= render 'shared/table' %>
-    
+            
+            <div class="row row-article row-article2">
+        
+                <% 3.times do %>
+                <div class="col-article col-sm-12">
+                    <a class="a-article" href="#">
+                        <div class="thumbnail custom-thumbnail">
+                            <img src="http://manutd.one/uploads/posts/2016-08/1472210327_585724424.jpg" alt="...">
+                            <div class="caption">
+                                <span class="create-time time-pos">Статья</span><span class="time-pos"><i class="glyphicon glyphicon-time"></i><i> 21.02.16</i></span> 
+                                <h3><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong></h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, maiores, iure, doloremque, ducimus accusamus sapiente fugiat...</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <% end %>
+            </div>
+            
+            <%= render 'shared/table' %>
+           
+       </div>
+   </div>
+
     <%= render 'shared/top_players' %>
     
     <%= render 'shared/books' %>
