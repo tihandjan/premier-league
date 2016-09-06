@@ -35,16 +35,14 @@ class PictureUploader < CarrierWave::Uploader::Base
   
     
   process :resize_to_fit => [1024, 768]
-  process optimize: [{ quiet: true }]
+  process :optimize
 
   version :thumb do
-    process :resize_to_fill => [400, 210] 
-    process optimize: [{ quiet: true }]
+    process :resize_to_fill => [400, 210]
   end
 
   version :thumb_big do
-    process :resize_to_fill => [770, 320]
-    process optimize: [{ quiet: true }] 
+    process :resize_to_fill => [770, 320] 
   end
 
 
