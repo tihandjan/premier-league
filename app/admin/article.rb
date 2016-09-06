@@ -3,13 +3,14 @@ ActiveAdmin.register Article do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :title, :summary, :description, :picture, pictures_attributes: [:picture, :description]
+permit_params :category, :title, :summary, :description, :picture, pictures_attributes: [:picture, :description]
 #
 # or
 
     form do |f|
         
         inputs 'Article' do
+          input :category, as: :select, collection: ['news', 'article']
           input :picture, as: :file
           input :title
           input :summary
