@@ -8,3 +8,4 @@ CarrierWave.configure do |config|
   config.fog_directory =   Rails.application.secrets.aws_bucket_name
   
 end
+
