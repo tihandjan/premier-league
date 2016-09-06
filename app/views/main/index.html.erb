@@ -2,15 +2,15 @@
    
    
    <div class="row">
-       <div class="col-md-4"><%= render 'shared/onlain' %> <%= render 'shared/last_news' %><%= render 'shared/my_team' %></div>
+       <div class="col-md-4"><%= render 'shared/onlain' %><%= render 'shared/my_team' %><%= render 'shared/last_news' %></div>
        <div class="col-md-8">
            
            <div class="row row-article">
         
-                <% @news.each do |article| %>
+                <% @news.first(4).each do |article| %>
                 <div class="col-sm-6 col-article">
                     <a class="a-article" href="#">
-                        <span style="position: absolute; top: 10px; left: 15px" class="create-time">Новости</span>
+                        <span style="position: absolute; bottom: 227px; left: 15px" class="create-time">Новости</span>
                         <div class="thumbnail">
                             <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
                             <div class="caption custom-caption">
