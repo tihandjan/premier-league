@@ -10,7 +10,7 @@ permit_params :category, :title, :summary, :description, :picture, pictures_attr
     form do |f|
         
         inputs 'Article' do
-          input :category, as: :select, collection: ['news', 'article']
+          input :category, as: :select, collection: ['news', 'article'], selected: 'news'
           input :picture, as: :file
           input :title
           input :summary
