@@ -66,5 +66,7 @@ gem 'devise'
 # image upload
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'carrierwave-imageoptimizer'
 
+# image upload amazon
 gem 'fog'

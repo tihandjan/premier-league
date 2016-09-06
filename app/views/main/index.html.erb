@@ -32,7 +32,7 @@
                 <div class="col-article col-sm-12">
                     <a class="a-article" href="#">
                         <div class="thumbnail custom-thumbnail">
-                            <%= image_tag(article.picture.url(:thumb_big), :alt => 'football') %>
+                            <%= image_tag(article.picture, :alt => 'football') %>
                             <div class="caption">
                                 <span class="create-time time-pos">Статья</span><span class="time-pos"><i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m/%d/%Y") %></i></span> 
                                 <h3><strong><%= truncate(article.title, length: 70) %></strong></h3>
