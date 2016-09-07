@@ -62,6 +62,9 @@ gem 'activeadmin', github: 'activeadmin'
 
 # authentication
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 # image upload
 gem 'carrierwave'
