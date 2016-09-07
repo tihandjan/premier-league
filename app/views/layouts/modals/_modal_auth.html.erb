@@ -18,35 +18,11 @@
             <hr>
             <div class="text-center" style="font-size: 1.4em">Или</div>
             <hr>
-        <%= form_for(:user, :url => user_registration_path) do |f| %>
-    
-            <div class="form-group">
-              <label for="user_Ваше имя">Ваше имя</label><br>
-              <%= f.text_field :username, autofocus: true, class: "form-control" %>
+            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                <div class="btn-group" role="group">
+                  <a href="<%= new_user_registration_path %>" class="btn btn-lg btn-info">Зарегистрироваться вручную</a>
+                </div>
             </div>
-          
-            <div class="form-group">
-              <label for="user_Почта">Почта</label><br>
-              <%= f.email_field :email, class: "form-control" %>
-            </div>
-          
-            <div class="form-group">
-              <label for="user_Пароль">Пароль</label>
-              <em>(минимум 6 символов)</em>
-              <br />
-              <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-            </div>
-          
-            <div class="form-group">
-              <label for="user_Повторите пароль">Повторите пароль</label><br>
-              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-            </div>
-          
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
-              <%= f.submit "Регистрация", class: "btn btn-primary" %>
-            </div>
-        <% end %>
       </div>
     </div>
   </div>
