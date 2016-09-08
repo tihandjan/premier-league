@@ -6,7 +6,7 @@
   
   <div class="text-center registration"><span>Обновить</span></div>
   
-  <%= form_for @user, html: { method: :put }) do |f| %>
+  <%= form_for @user, method: :put do |f| %>
     
     <div class="form-group">
       <%= f.label "Ваше имя" %><br />
