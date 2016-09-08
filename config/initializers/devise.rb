@@ -108,6 +108,23 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
   
   config.omniauth :facebook, Rails.application.secrets.facebook_app_id, Rails.application.secrets.facebook_app_key
+  
+  if Rails.env=="production"
+    CALLBACK_URL='https://prem-leag.herokuapp.com/users/auth/google_oauth2/callback'
+  else
+    CALLBACK_URL='https://premier-league-new-tihandjan.c9users.io/users/auth/google_oauth2/callback'
+  end
+  
+  config.omniauth :google_oauth2, Rails.application.secrets.google_app_id, Rails.application.secrets.google_app_key, {
+    :client_options => {:ssl => {:ca_file => 'C:\Ruby21\cacert.pem'}},
+    :provider_ignores_state => true,
+    :prompt => "select_account",
+    :redirect_uri => CALLBACK_URL,
+    setup: (lambda do |env|
+      request = Rack::Request.new(env)
+      env['omniauth.strategy'].options['token_params'] = {:redirect_uri => CALLBACK_URL}
+    end)
+    }
   # Set up a pepper to generate the hashed password.
   # config.pepper = 'b04703a41c7be68374b38cbbe61a5fb2fca0743682c75255c3118f10f3361720b6ef8e506e6e24dac1ae6e2af004548d7f7ff3b765d24994da130cf06d09fc9d'
 

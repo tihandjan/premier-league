@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   post 'users/update' => 'main#update', as: :update_new
   resources :users, only: [:edit, :update]
   
+  namespace :users do
+      get 'omniauth_callbacks/google_oauth2'
+  end
+  
   
 
   
