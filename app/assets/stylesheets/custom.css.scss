@@ -19,7 +19,10 @@ i {
 }
 
 // LOGO
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
+    .header-link {
+        color: #FFF;
+    }
     .navbar-brand {
         padding: 0;
         img {
@@ -63,6 +66,23 @@ i {
                 a {
                     color: #FFF;
                     text-transform: uppercase;
+                    &:hover {
+                        color: #e7e7e7;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.navbar {
+    .container-fluid {
+        .navbar-right {
+            ul {
+                li {
+                    a {
+                        color: #2f343a;
+                    }
                 }
             }
         }
@@ -371,3 +391,4 @@ i {
 }
 }
 // end
+

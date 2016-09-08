@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
+
+  root 'main#index'
   
   devise_for :admin_users, ActiveAdmin::Devise.config
-  
   ActiveAdmin.routes(self)
   
-  devise_for :users
+  # authentication start
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  namespace :users do
+    get 'omniauth_callbacks/facebook'
+  end
+  # authentication end
+  get 'users/update' => 'main#edit', as: :update
+  post 'users/update' => 'main#update', as: :update_new
+  resources :users, only: [:edit, :update]
   
-  root 'main#index'
+  
 
   
   # The priority is based upon order of creation: first created -> highest priority.
