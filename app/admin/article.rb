@@ -11,6 +11,7 @@ permit_params :category, :title, :summary, :description, :picture, pictures_attr
         
         inputs 'Article' do
           input :category, as: :select, collection: ['news', 'article'], selected: 'news'
+          input :team, as: :select, collection: ["Manchester City FC", "Chelsea FC", "Manchester United FC", "Everton FC", "Tottenham Hotspur FC", "Arsenal FC", "Leicester City FC", "Liverpool FC", "West Ham United FC", "Swansea City FC" ]
           input :picture, as: :file
           input :title
           input :summary

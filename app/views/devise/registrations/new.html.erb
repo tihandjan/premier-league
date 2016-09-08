@@ -31,6 +31,11 @@
       <%= f.label :avatar, 'Загрузите аватарку...', class: 'btn btn-info' %>
       <%= f.file_field :avatar, class: 'form-control', onchange: "readURL(this)" %>
     </div>
+    
+    <div class="form-group">
+      <%= f.label :team, "Выберите ваш любимый клуб АПЛ" %>
+      <%= f.select :team, ["Manchester City FC", "Chelsea FC", "Manchester United FC", "Everton FC", "Tottenham Hotspur FC", "Arsenal FC", "Leicester City FC", "Liverpool FC", "West Ham United FC", "Swansea City FC" ], {}, { class: "form-control" } %>
+    </div>
   
     <div class="form-group">
       <%= f.label "Пароль" %>
