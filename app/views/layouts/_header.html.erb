@@ -24,7 +24,7 @@
         
         <% if signed_in? %>
           <li>
-            <% if current_user.avatar.presence %>
+            <% if current_user && current_user.avatar.presence %>
               <%= image_tag current_user.avatar.url(:thumb), :style => "height: 50px;" %>
             <% else %>
               <img src="/images/default-avatar.png" alt="foto" style="height: 50px;" />
