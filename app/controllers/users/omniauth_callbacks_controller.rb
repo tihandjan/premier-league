@@ -6,7 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         flash[:notice] = "Вы успешно вошли с помощью Facebook"
         sign_in_and_redirect @user, :event => :authentication
       else
-        flash[:alert] = "Что то пошло не так дразяка, попробуй позже)))"
+        flash[:alert] = "Что то пошло, возможно #{devise_error_messages!}"
         redirect_to root_path
       end
     end
