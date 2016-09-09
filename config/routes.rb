@@ -11,8 +11,6 @@ Rails.application.routes.draw do
     get 'omniauth_callbacks/facebook'
   end
   # authentication end
-  get 'users/update' => 'main#edit', as: :update
-  post 'users/update' => 'main#update', as: :update_new
   resources :users, only: [:edit, :update]
   
   namespace :users do
