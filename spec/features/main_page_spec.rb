@@ -25,17 +25,22 @@ feature 'main page' do
     end
     
     scenario 'registered user can sign in' do
-       User.create!(email: 'test@mail.com', password: 'password')
-       visit root_path 
-       click_on 'Войти'
-       click_on 'Войти вручную'
-       
-       fill_in 'user_email', with: 'test@mail.com'
-       fill_in 'user_password', with: 'password'
-       find('input[name="commit"]').click
+       user_sign_in
        
        expect(current_path).to eq root_path
        expect(page).to have_content('Вход в систему выполнен.')
+    end
+    
+    scenario 'registered user can edit his profile info' do 
+        user_sign_in
+        visit root_path
+        click_on 'Профиль'
+        click_on 'Редактировать'
+        
+        fill_in 'user_username', with: 'changed name'
+        click_on 'Обновить'
+        expect(page).to have_content('Профиль успешно обновлен')
+        expect(User.last.username).to eq 'changed name'
     end
     
 end
