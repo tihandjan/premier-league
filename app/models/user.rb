@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
     end
   end
   
+  # google
   def self.find_for_google_oauth auth
     
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
