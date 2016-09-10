@@ -3,11 +3,17 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+@font-face {
+  font-family: "Kaushan Script Regular";
+  src: url(/assets/Proxima_Nova_Alt_Regular.otf) format("truetype");
+}
+
 body {
-    background: url("/images/bg/bg.jpg") no-repeat;
+    // background: url("/images/bg/bg.jpg") no-repeat;
     -webkit-background-size: 100%;
     background-size: 100%;
-    // background: #e7e7e7;
+    background: #FFF;
+    font-family: 'ProximaNova-Regular';
 }
 
 h3 {
@@ -16,6 +22,16 @@ h3 {
 i {
     font-size: 13px;
     color: #9e9e9e;
+}
+h2 {
+    font-size: 20px;
+}
+p {
+    font-size: 18px;
+}
+hr {
+    border-top: 1px solid #333;
+    margin-top: 0;
 }
 
 // LOGO
