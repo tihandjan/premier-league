@@ -39,11 +39,10 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'database_cleaner'
 end
 
-group :test do
-  gem 'launchy'
-end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
