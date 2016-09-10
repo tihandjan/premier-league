@@ -8,10 +8,10 @@
 <div class="row show-row">
     <div class="col-md-9">
         <h2 class="text-left"><strong><%= @article.summary %></strong></h2>
-        <p class="text-center"><%= simple_format(@article.description) %></p>
+        <p class="text-center"><%= raw simple_format(@article.description) %></p>
         <% @article.pictures.each do |subarticle| %>
             <%= image_tag subarticle.picture, class: 'img-responsive' %>
-            <p><%= simple_format(subarticle.description) %></p>
+            <p><%= raw simple_format(subarticle.description) %></p>
         <% end %>
         
         <% if @article.source.presence %>
