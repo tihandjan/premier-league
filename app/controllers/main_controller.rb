@@ -6,8 +6,8 @@ class MainController < ApplicationController
     end
     
     def show
-        @news = Article.order('created_at DESC').where("category = 'news'").all
         @article = Article.find(params[:id])
+        @news = Article.order('created_at DESC').where("category = 'news'").all_except(@article)
     end
     
 end

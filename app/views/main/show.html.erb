@@ -25,7 +25,7 @@
         </div>
         
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 hidden-sm">
         <div class="read-us">
             <p class="text-left-lenta"><b>Читайте нас</b></p>
             <hr/>
@@ -49,4 +49,22 @@
             
         </div> 
     </div>
+</div>
+
+<div class="row row-article">
+    <% @news.first(3).each do |article| %>
+    <div class="col-sm-6 col-md-4 col-article">
+        <a class="a-article" href="<%= article_path(article) %>">
+            <span style="position: absolute; bottom: 227px; left: 15px" class="create-time">Новости</span>
+            <div class="thumbnail">
+                <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
+                <div class="caption custom-caption">
+                    <h3><strong><%= truncate(article.title, length: 70) %></strong></h3>
+                    <p><%= truncate(article.summary,length: 130) %></p>
+                    <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m/%d/%Y") %></i></span> 
+                </div>
+            </div>
+        </a>
+    </div>
+    <% end %>
 </div>

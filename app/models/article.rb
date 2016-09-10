@@ -8,4 +8,8 @@ class Article < ActiveRecord::Base
     
     accepts_nested_attributes_for :pictures
     
+    
+    
+    scope :all_except, ->(article) { where.not(id: article) }
+    
 end
