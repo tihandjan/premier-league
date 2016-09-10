@@ -10,7 +10,6 @@
                 <% @news.first(4).each do |article| %>
                 <div class="col-sm-6 col-article">
                     <a class="a-article" href="<%= article_path(article) %>">
-                        <span style="position: absolute; bottom: 227px; left: 15px" class="create-time">Новости</span>
                         <div class="thumbnail">
                             <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
                             <div class="caption custom-caption">
