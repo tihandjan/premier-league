@@ -18,4 +18,5 @@ RSpec.describe MainController, type: :controller do
            expect(assigns(:articles)).to match_array([articles])
         end
     end
+    
 end
