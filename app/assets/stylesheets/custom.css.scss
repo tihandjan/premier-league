@@ -76,6 +76,7 @@ hr {
         }
         .glyphicon {
             padding-right: 5px;
+            color: #FFF;
         }
         ul {
             li {
@@ -84,6 +85,9 @@ hr {
                     text-transform: uppercase;
                     &:hover {
                         color: #e7e7e7;
+                        .glyphicon {
+                            color: #e7e7e7;
+                        }
                     }
                 }
             }

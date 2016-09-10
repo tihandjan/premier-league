@@ -1,7 +1,7 @@
 <% @title = @article.title %>
 
 
-<div class="show-bg"><%= image_tag @article.picture, class: 'img-responsive' %></div>
+<div class="show-bg"><%= image_tag @article.picture.url(:thumb_big), class: 'img-responsive' %></div>
 <h1 class="text-center show-h1"><%= @article.title %></h1>
 
 

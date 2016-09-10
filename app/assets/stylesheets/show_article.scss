@@ -36,9 +36,11 @@
 
 .show-row {
     margin-top: 180px;
+    img {
+        margin: 0 auto;
+    }
     p {
         margin: 0 0 .5em 0;
-        text-indent: 1.3125em;
         font-size: 1.4em;
         line-height: 1.5em;
         color: #1B1B1B;
