@@ -1,0 +1,84 @@
+// background for show view start
+
+.show-bg {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    z-index: -1;
+    height: 400px;
+    overflow: hidden;
+    background: #2f343a;
+    img {
+        width: 100%;
+        margin: 0 auto;
+        opacity: 0.8;
+    }
+}
+
+.show-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #FFF;
+    z-index: -2;
+}
+
+.show-h1 {
+    color: #FFF;
+}
+
+.show-row {
+    margin-top: 180px;
+    p {
+        margin: 0 0 .5em 0;
+        text-indent: 1.3125em;
+        font-size: 1.4em;
+        line-height: 1.5em;
+        color: #1B1B1B;
+    }
+    .text-left-lenta {
+        margin-left: -15px;
+        margin-bottom: 0;
+        font-size: 1em;
+    }
+    .read-us {
+        margin-bottom: 20px;
+        p {
+            font-size: 1em;
+        }
+        hr {
+            margin-bottom: 5px;
+        }
+        .fa {
+            font-size: 1.5em;
+            margin-bottom: 50px;
+        }
+    }
+    .text-center {
+        margin-top: 4px;
+    }
+    .list-group {
+        .list-group-item {
+            padding: 5px 4px;
+            border: none;
+            .glyphicon {
+                margin-right: 4px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .show-row {
+        margin-top: 150px;
+    }
+}
+@media only screen and (max-width: 859px) {
+    .show-row {
+        margin-top: 75px;
+    }
+}
+// end

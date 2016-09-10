@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'omniauth_callbacks/google_oauth2'
   end
   
+  get 'articles/:id' => 'main#show', as: :article
   
 
   

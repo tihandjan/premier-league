@@ -1,6 +1,6 @@
     
    
-   
+   <div style="position: absolute; top: 0; left: 0; right: 0; z-index: -1;"><%= image_tag '/images/bg/background.jpg', class: 'img-responsive' %></div>
    <div class="row">
        <div class="col-md-4"><%= render 'shared/onlain' %><%= render 'shared/my_team' %><%= render 'shared/last_news' %></div>
        <div class="col-md-8">
@@ -9,7 +9,7 @@
         
                 <% @news.first(4).each do |article| %>
                 <div class="col-sm-6 col-article">
-                    <a class="a-article" href="#">
+                    <a class="a-article" href="<%= article_path(article) %>">
                         <span style="position: absolute; bottom: 227px; left: 15px" class="create-time">Новости</span>
                         <div class="thumbnail">
                             <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
@@ -30,7 +30,7 @@
         
                 <% @articles.each do |article| %>
                 <div class="col-article col-sm-12">
-                    <a class="a-article" href="#">
+                    <a class="a-article" href="<%= article_path(article) %>">
                         <div class="thumbnail custom-thumbnail">
                             <%= image_tag(article.picture.url(:thumb_big), :alt => 'football') %>
                             <div class="caption">
