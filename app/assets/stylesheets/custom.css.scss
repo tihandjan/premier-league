@@ -2,12 +2,12 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@font-face {
-    font-family: 'PT Sans Web Regular';
-    src: font-url('/assets/PT_Sans-Web-Regular.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
-}
+// @font-face {
+//     font-family: 'PT Sans Web Regular';
+//     src: font-url('/assets/PT_Sans-Web-Regular.ttf') format('truetype');
+//     font-style: normal;
+//     font-weight: normal;
+// }
 
 
 body {
@@ -15,7 +15,7 @@ body {
     -webkit-background-size: 100%;
     background-size: 100%;
     background: #F5F5F1;
-    font-family: 'PT Sans Web Regular';
+    font-family: 'PT Sans', sans-serif;
 }
 
 h3 {
