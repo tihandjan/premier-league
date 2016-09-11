@@ -35,7 +35,7 @@ Rails.application.configure do
   config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   
   # Precompile additional assets
-  config.assets.precompile += %w( .svg .eot .woff .ttf )
+  config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
 
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
