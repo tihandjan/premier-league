@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'articles/show'
+
   root 'main#index'
   
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -17,8 +19,8 @@ Rails.application.routes.draw do
       get 'omniauth_callbacks/google_oauth2'
   end
   
-  get 'articles/:id' => 'main#show', as: :article
-  
+  # get 'articles/:id' => 'main#show', as: :article
+  resources :articles, only: [:show]
 
   
   # The priority is based upon order of creation: first created -> highest priority.
