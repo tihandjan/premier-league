@@ -41,12 +41,15 @@
     }
     p {
         margin: 0 0 .5em 0;
-        font-size: 1.4em;
+        font-size: 18px;
         line-height: 1.5em;
         color: #1B1B1B;
     }
+    h2 {
+        font-size: 18px;
+    }
     .text-left-lenta {
-        margin-left: -15px;
+        margin-left: 0px;
         margin-bottom: 0;
         font-size: 1em;
     }
@@ -56,7 +59,7 @@
             font-size: 1em;
         }
         hr {
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
         .fa {
             font-size: 1.5em;

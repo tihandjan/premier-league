@@ -51,6 +51,11 @@
     </div>
 </div>
 
+<div style="margin-left: -10px;">
+<p class="text-left-lenta"><b>Читайте также</b></p>
+<hr/>
+</div>
+
 <div class="row row-article">
     <% @news.first(3).each do |article| %>
     <div class="col-sm-6 col-md-4 col-article">
@@ -60,7 +65,7 @@
                 <div class="caption custom-caption">
                     <h3><strong><%= truncate(article.title, length: 70) %></strong></h3>
                     <p><%= truncate(article.summary,length: 130) %></p>
-                    <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m/%d/%Y") %></i></span> 
+                    <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m-%d-%Y") %></i></span> 
                 </div>
             </div>
         </a>
