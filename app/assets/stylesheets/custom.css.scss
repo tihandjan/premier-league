@@ -2,12 +2,12 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-// @font-face {
-//     font-family: 'PT Sans Web Regular';
-//     src: font-url('/assets/PT_Sans-Web-Regular.ttf') format('truetype');
-//     font-style: normal;
-//     font-weight: normal;
-// }
+@font-face {
+    font-family: 'PT Sans Web Regular';
+    src: font-url('/assets/PT_Sans-Web-Regular');
+    font-style: normal;
+    font-weight: normal;
+}
 
 
 body {
