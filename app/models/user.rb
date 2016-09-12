@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
          user.provider = access_token.provider
          user.uid = access_token.uid
          user.username = access_token.extra.raw_info.name
-         user.email = access_token.extra.raw_info.email
+         user.email = access_token.info.email
          user.avatarc = access_token.info.image
          user.password = Devise.friendly_token[0,20]
       end
