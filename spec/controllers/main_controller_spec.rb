@@ -18,19 +18,4 @@ RSpec.describe MainController, type: :controller do
         end
     end
     
-    describe "GET show" do
-      it "renders show template" do
-          news = FactoryGirl.create(:article)
-          get :show, id: news
-          
-          expect(response).to render_template(:show)
-      end
-      it "assigns article to article variable" do
-          article = FactoryGirl.create(:article)
-            get :show, id: article
-            
-            expect(assigns(:article)).to eq(article)
-      end
-    end
-    
 end
