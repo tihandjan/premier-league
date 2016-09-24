@@ -2,20 +2,14 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@font-face {
-    font-family: 'PT Sans Web Regular';
-    src: font-url('/assets/PT_Sans-Web-Regular');
-    font-style: normal;
-    font-weight: normal;
-}
+
 
 
 body {
     // background: url("/images/bg/bg.jpg") no-repeat;
     -webkit-background-size: 100%;
     background-size: 100%;
-    background: #F5F5F1;
-    font-family: 'PT Sans', sans-serif;
+    background: #E9EBEE;
 }
 
 h3 {
@@ -112,6 +106,17 @@ hr {
 }
 // navbar-end
 
+// left and right blocks start
+.left-block {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.right-block {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+// end
+
 // match onlain start
 .container-onlain {
     padding: 15px;
@@ -157,10 +162,42 @@ hr {
 // match onlain end
 
 // article items start
-.row-article {
-    .col-article {
+.row-line-one {
+    background-color: #394750;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 10px;
+    img {
+        height: 100%;
+        width: 100%;
+    }
+    .col-line-one-first {
+        padding-left: 0;
+        padding-right: 0;
+        overflow: hidden;
+    }
+    .col-line-one-second {
+        color: #FFF;
+        &:hover {
+            text-decoration: none;
+            color: #e7e7e7;
+        }
+    }
+}
+
+.row-line-two {
+    margin-left: 0;
+    margin-right: 0;
+    
+    .three-article {
         padding-left: 5px;
         padding-right: 5px;
+        &:first-child {
+        padding-left: 0;
+        }
+        &:last-child {
+            padding-right: 0;
+        }
         .a-article {
             color: inherit;
             &:hover {
@@ -176,7 +213,7 @@ hr {
                 }
                 .caption {
                     &:hover {
-                        color: #777777;
+                        color: rgba(51, 51, 51, 0.92);
                     }
                 }
                 .custom-caption {
@@ -189,18 +226,11 @@ hr {
                     }
                 }
             }
-            .custom-thumbnail {
-                max-height: 300px;
-                overflow: hidden;
-            }
         }
     }
 }
 
-.col-article {
-    padding-left: 5px;
-    padding-right: 5px;
-}
+
 // article items end
 
 // article 2 item start

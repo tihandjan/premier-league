@@ -2,26 +2,43 @@
    
    <%= render 'shared/bg' %>
    <div class="row">
-       <div class="col-md-4"><%= render 'shared/onlain' %><%= render 'shared/my_team' %><%= render 'shared/last_news' %></div>
-       <div class="col-md-8">
+       <div class="col-md-3 left-block"><%= render 'shared/onlain' %><%= render 'shared/my_team' %><%= render 'shared/last_news' %></div>
+       <div class="col-md-9 right-block">
            
-           <div class="row row-article">
-        
-                <% @news.first(4).each do |article| %>
-                <div class="col-sm-6 col-article">
-                    <a class="a-article" href="<%= article_path(article) %>">
-                        <div class="thumbnail">
+            <div class="row row-line-one">
+            
+                <% @news.first(1).each do |article| %>
+                    <a class="a-article" href="<%= article_path(article) %>"> 
+                        <div class="col-sm-7 col-line-one-first">
                             <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
-                            <div class="caption custom-caption">
-                                <h3><strong><%= truncate(article.title, length: 70) %></strong></h3>
-                                <p><%= truncate(article.summary,length: 130) %></p>
-                                <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m-%d-%Y") %></i></span> 
-                            </div>
+                        </div>
+                        <div class="col-sm-5 col-line-one-second">
+                            <h3><strong><%= truncate(article.title, length: 70) %></strong></h3>
+                            <p><%= truncate(article.summary,length: 130) %></p>
                         </div>
                     </a>
-                </div>
                 <% end %>
                
+            </div>
+            
+            <div class="row row-line-two">
+                
+                    <!--copy start-->
+                <% @news[1, 3].each do |article| %>
+                    <div class="col-sm-4 three-article">
+                        <a class="a-article" href="<%= article_path(article) %>">
+                            <div class="thumbnail">
+                                <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
+                                <div class="caption custom-caption">
+                                    <h3><strong><%= truncate(article.title, length: 55) %></strong></h3>
+                                    <p><%= truncate(article.summary,length: 90) %></p>
+                                    <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m-%d-%Y") %></i></span> 
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% end %>
+                <!--end-->
                 
             </div>
             
@@ -31,7 +48,7 @@
                 <div class="col-article col-sm-12">
                     <a class="a-article" href="<%= article_path(article) %>">
                         <div class="thumbnail custom-thumbnail">
-                            <%= image_tag(article.picture.url(:thumb_big), :alt => 'football') %>
+                            <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
                             <div class="caption">
                                 <span class="create-time time-pos">Статья</span><span class="time-pos"><i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m-%d-%Y") %></i></span> 
                                 <h3><strong><%= truncate(article.title, length: 70) %></strong></h3>
