@@ -5,8 +5,8 @@
     <div class="panel-body">
         <div class="list-group">
             
-          <% if @news[4, 8] %>  
-            <% @news[4, 8].each do |article| %>
+          <% if @news[4, 14] %>  
+            <% @news[4, 14].each do |article| %>
             <a href="<%= article_path(article) %>" class="list-group-item text-left">
               <h4 class="list-group-item-heading"><%= truncate(article.title, length: 120) %></h4>
                <i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m-%d-%Y") %></i> 
