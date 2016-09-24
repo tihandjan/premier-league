@@ -2,7 +2,6 @@
    
    <%= render 'shared/bg' %>
    <div class="row">
-       <div class="col-md-3 left-block"><%= render 'shared/onlain' %><%= render 'shared/my_team' %><%= render 'shared/last_news' %></div>
        <div class="col-md-9 right-block">
            
             <div class="row row-line-one">
@@ -13,6 +12,7 @@
                             <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
                         </div>
                         <div class="col-sm-5 col-line-one-second">
+                            <p style="font-size: 13px; margin-bottom: -12px; padding-top: 10px">Главные новости</p>
                             <h3><strong><%= truncate(article.title, length: 70) %></strong></h3>
                             <p><%= truncate(article.summary,length: 130) %></p>
                         </div>
@@ -28,7 +28,7 @@
                     <div class="col-sm-4 three-article">
                         <a class="a-article" href="<%= article_path(article) %>">
                             <div class="thumbnail">
-                                <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
+                                <%= image_tag(article.picture.url(:mini), :alt => 'football') %>
                                 <div class="caption custom-caption">
                                     <h3><strong><%= truncate(article.title, length: 55) %></strong></h3>
                                     <p><%= truncate(article.summary,length: 90) %></p>
@@ -42,10 +42,11 @@
                 
             </div>
             
-            <div class="row row-article row-article2">
+            <div class="article-title"><span>Статьи</span></div>
+            <div class="row row-article">
         
                 <% @articles.each do |article| %>
-                <div class="col-article col-sm-12">
+                <div class="col-article col-sm-6">
                     <a class="a-article" href="<%= article_path(article) %>">
                         <div class="thumbnail custom-thumbnail">
                             <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
@@ -60,9 +61,48 @@
                 <% end %>
             </div>
             
+            <div class="article-title"><span>Видео</span></div>
+            
+            <div class="row row-line-two video">
+                
+                <div class="col-sm-6 video-col">
+                    <div class="col-xs-12 video-one">
+                        <a class="a-video" href="<%= video_path(@videos.first) %>">
+                            <div class="thumbnail">
+                                <%= image_tag(@videos.first.picture.url(:thumb), :alt => 'video') %>
+                                <div class="caption ">
+                                    <h4 class="video-title-one"><strong><%= truncate(@videos.first.title, length: 100) %></strong></h3>
+                                    <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= @videos.first.created_at.strftime("%m-%d-%Y") %></i></span> 
+                                    <span class="video-icon-one"><i class="glyphicon glyphicon-play"></i></span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6 video-col">
+                    <% @videos[1, 4].each do |video| %>
+                    <div class="col-xs-6 video-four">
+                        <a class="a-video" href="<%= video_path(video) %>">
+                            <div class="thumbnail">
+                                <%= image_tag(video.picture.url(:mini), :alt => 'video') %>
+                                <div class="caption video-caption">
+                                    <h4 class="video-title-four"><strong><%= truncate(video.title, length: 55) %></strong></h3>
+                                    <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= video.created_at.strftime("%m-%d-%Y") %></i></span> 
+                                    <span class="video-icon-four"><i class="glyphicon glyphicon-play"></i></span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% end %>
+                </div>
+                
+            </div>
+            
             <%= render 'shared/table' %>
            
        </div>
+       <div class="col-md-3 left-block"><%= render 'shared/onlain' %><%= render 'shared/my_team' %><%= render 'shared/last_news' %></div>
    </div>
 
     <%= render 'shared/top_players' %>
