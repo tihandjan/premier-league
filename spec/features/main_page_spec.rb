@@ -2,6 +2,10 @@ require 'rails_helper'
 
 feature 'main page' do
     
+    before(:each) do
+        FactoryGirl.create(:news)
+    end
+    
     scenario 'main page have title' do
        visit '/'
        

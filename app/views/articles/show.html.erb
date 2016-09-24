@@ -1,7 +1,7 @@
 <% @title = @article.title %>
 
 
-<div class="show-bg"><%= image_tag @article.picture.url(:thumb_big), class: 'img-responsive' %></div>
+<div class="show-bg"><%= image_tag @article.picture, class: 'img-responsive' %></div>
 <h1 class="text-center show-h1"><%= @article.title %></h1>
 
 
@@ -10,7 +10,7 @@
         <h2 class="text-left"><strong><%= @article.summary %></strong></h2>
         <p class="text-center"><%= raw simple_format(@article.description) %></p>
         <% @article.pictures.each do |subarticle| %>
-            <%= image_tag subarticle.picture, class: 'img-responsive' %>
+            <%= image_tag subarticle.picture.url(:thumb), class: 'img-responsive' %>
             <p><%= raw simple_format(subarticle.description) %></p>
         <% end %>
         
@@ -58,19 +58,36 @@
 <hr/>
 </div>
 
-<div class="row row-article">
+<div class="row row-line-two">
+                
+        <!--copy start-->
     <% @news.first(3).each do |article| %>
-    <div class="col-sm-6 col-md-4 col-article" style="padding-left: 15px; padding-right: 15px;">
-        <a class="a-article" href="<%= article_path(article) %>">
-            <div class="thumbnail" style="border: 1px solid #ddd;">
-                <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
-                <div class="caption custom-caption">
-                    <h3><strong><%= truncate(article.title, length: 70) %></strong></h3>
-                    <p><%= truncate(article.summary,length: 130) %></p>
-                    <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m-%d-%Y") %></i></span> 
+        <div class="col-sm-4 three-article">
+            <a class="a-article" href="<%= article_path(article) %>">
+                <div class="thumbnail" style="border: 1px solid #ddd;">
+                    <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
+                    <div class="caption custom-caption">
+                        <h3><strong><%= truncate(article.title, length: 55) %></strong></h3>
+                        <p><%= truncate(article.summary,length: 90) %></p>
+                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m-%d-%Y") %></i></span> 
+                    </div>
                 </div>
-            </div>
-        </a>
-    </div>
+            </a>
+        </div>
     <% end %>
-</div>
+    <!--end-->
+    
+    </div>
+<div id="mc-container"></div>
+<script type="text/javascript">
+cackle_widget = window.cackle_widget || [];
+cackle_widget.push({widget: 'Comment', id: 47359});
+(function() {
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cackle.me/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+})();
+</script>
+<a id="mc-link" href="http://cackle.me">Комментарии для сайта <b style="color:#4FA3DA">Cackl</b><b style="color:#F65077">e</b></a>
