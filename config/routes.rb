@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   
   # get 'articles/:id' => 'main#show', as: :article
   resources :articles, only: [:show]
+  resources :videos, only: [:show]
 
   
   # The priority is based upon order of creation: first created -> highest priority.
