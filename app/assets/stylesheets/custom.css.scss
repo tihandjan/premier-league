@@ -47,9 +47,12 @@ hr {
 // navbar start
 
 .navbar {
-    background-color: rgba(0,0,0,0.27);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(0,0,0,.4)),to(rgba(0,0,0,0)));
+    background: -webkit-linear-gradient(top,rgba(0,0,0,.4)0,rgba(0,0,0,0)100%);
+    background: linear-gradient(to bottom,rgba(0,0,0,.4)0,rgba(0,0,0,0)100%);
     border-color: transparent;
     margin-bottom: 200px;
+    border: none;
     .navbar-toggle {
         .icon-bar {
             background-color: #fff;
@@ -539,6 +542,7 @@ hr {
 .custom-form {
     padding: 20px;
     border-radius: 5px;
+    background: #FFF;
 }
 
 .registration {
