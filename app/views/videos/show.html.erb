@@ -1,0 +1,79 @@
+<% @title = @video.title %>
+
+
+<div class="show-bg"><%= image_tag @video.picture, class: 'img-responsive' %></div>
+<h1 class="text-center show-h1"><%= @video.title %></h1>
+
+
+<div class="row show-row">
+    <div class="col-md-9">
+        
+        <div class="block-center text-center"><%= raw @video.code %></div>
+        <div class="block-center text-center"><a href="<%= videos_path %>" style="border-radius: 0px;" class="btn btn-info">Больше видео</a></div>
+        
+    </div>
+    <div class="col-md-3 hidden-sm hidden-xs">
+        <div class="read-us">
+            <p class="text-left-lenta"><b>Читайте нас</b></p>
+            <hr/>
+            <a class="btn btn-primary social-btn" href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a>
+            <a class="btn btn-primary social-btn vk-btn" href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
+            <a class="btn btn-info social-btn" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a class="btn btn-info social-btn pocket-btn" href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+        </div>
+            
+        <p class="text-left-lenta"><b>Лента новостей</b></p>
+        <hr/>
+        <div class="list-group">
+            
+            <% if @news %>  
+                <% @news.last(12).each do |article| %>
+            <a href="<%= article_path(article) %>" class="list-group-item">
+              <h4 class="list-group-item-heading" style="font-size: 14px;"><b><%= truncate(article.title, length: 100) %></b></h4>
+               <i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m-%d-%Y") %></i> 
+            </a>
+                <% end %>
+            <% end %>
+            
+        </div> 
+    </div>
+</div>
+
+<div>
+<p class="text-left-lenta"><b>Читайте также</b></p>
+<hr/>
+</div>
+
+<div class="row row-line-two">
+                
+        <!--copy start-->
+    <% @news.first(3).each do |article| %>
+        <div class="col-sm-4 three-article">
+            <a class="a-article" href="<%= article_path(article) %>">
+                <div class="thumbnail" style="border: 1px solid #ddd;">
+                    <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
+                    <div class="caption custom-caption">
+                        <h3><strong><%= truncate(article.title, length: 55) %></strong></h3>
+                        <p><%= truncate(article.summary,length: 90) %></p>
+                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m-%d-%Y") %></i></span> 
+                    </div>
+                </div>
+            </a>
+        </div>
+    <% end %>
+    <!--end-->
+    
+    </div>
+<div id="mc-container"></div>
+<script type="text/javascript">
+cackle_widget = window.cackle_widget || [];
+cackle_widget.push({widget: 'Comment', id: 47359});
+(function() {
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cackle.me/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+})();
+</script>
+<a id="mc-link" href="http://cackle.me">Комментарии для сайта <b style="color:#4FA3DA">Cackl</b><b style="color:#F65077">e</b></a>

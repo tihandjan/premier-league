@@ -1,0 +1,27 @@
+<%= render 'shared/bg' %>
+
+<div class="row">
+    <div class="col-md-9 right-block">
+        <div class="row row-line-two video">
+            
+            <% @videos.each do |video| %>
+            <div class="video-col">
+                <div style="padding-left:5px;padding-right:5px;margin-bottom: 10px;" class="col-xs-6 col-sm-4 video-one">
+                    <a class="a-video" href="<%= video_path(video) %>">
+                        <div class="thumbnail">
+                            <%= image_tag(video.picture.url(:thumb), :alt => 'video') %>
+                            <div class="caption ">
+                                <h4 class="video-title-one"><strong><%= truncate(video.title, length: 100) %></strong></h3>
+                                <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= video.created_at.strftime("%m-%d-%Y") %></i></span> 
+                                <span class="video-icon-one"><i class="glyphicon glyphicon-play"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <% end %>
+            
+        </div>
+    </div>
+    <div class="col-md-3 left-block"><%= render 'shared/onlain' %><%= render 'shared/my_team' %><%= render 'shared/last_news' %></div>
+</div>
