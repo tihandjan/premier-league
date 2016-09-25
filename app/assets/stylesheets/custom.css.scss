@@ -565,3 +565,29 @@ hr {
 }
 // end
 
+// my team start
+.my-team {
+    select {
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        width: 90%;
+        margin: 0 auto;
+    }
+    label {
+        margin-top: 10px;
+    }
+    .btn-group {
+        .btn-reg {
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            border-radius: 0px;
+            .fa {
+                top: 7px;
+            }
+        }
+    }
+}
+
+// end
+
