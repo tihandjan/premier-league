@@ -4,6 +4,7 @@ feature 'main page' do
     
     before(:each) do
         FactoryGirl.create(:news)
+        FactoryGirl.create(:video)
     end
     
     scenario 'main page have title' do
