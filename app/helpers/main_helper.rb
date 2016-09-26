@@ -15,4 +15,8 @@ module MainHelper
         ].map{ |team| [team] }
     end
     
+    def change_blank current_user
+        current_user.team.blank? ? "Выберите команду" : "Поменять команду"
+    end
+    
 end

@@ -7,10 +7,10 @@
             <%= form_for current_user, url: change_my_team_path, method: :put, remote: true do |f| %>
                 <div class="form-group text-center">
                   <%= f.label :team, "Выберите ваш любимый клуб АПЛ" %>
-                  <%= f.select :team, options_for_select(select_team), {:include_blank => "Выберите команду"}, {:onchange=>'$(this.form).submit();', class: "form-control"} %>
+                  <%= f.select :team, options_for_select(select_team), {:include_blank => change_blank(current_user)}, {:onchange=>'$(this.form).submit();', class: "form-control"} %>
                 </div>
             <% end %>
-            <div class="my-team-content"><%= render 'main/my_team_content' %></div>
+            <div id="my-team-content"><%= render 'main/my_team_content' %></div>
         <% else %>
             <div class="text-center">Войти с помощью</div>
             <div class="btn-group btn-group-justified" role="group" aria-label="...">
