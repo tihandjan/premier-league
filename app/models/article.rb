@@ -12,4 +12,6 @@ class Article < ActiveRecord::Base
     
     scope :all_except, ->(article) { where.not(id: article) }
     
+    scope :my_team_news, ->(current_user) { where(team: current_user.team) }
+    
 end
