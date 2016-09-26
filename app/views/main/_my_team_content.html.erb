@@ -1,19 +1,21 @@
-<div><i>Последние матчи</i></div>
+<%= raw display_team_if_choosen(current_user) %>
+<!--<div><i>Последние матчи</i></div>-->
 <% 5.times do %>
-<a class="a-onlain" href="#">
-    <div class="table">
-        <table class="table">
-            <tr>
-                <td>MU_FC</td>
-                <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>
-                <td class="time">21-30</td>
-                <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>
-                <td>MU_FC</td>
-            </tr>
-        </table>
-    </div>
-</a>
+<!--<a class="a-onlain" href="#">-->
+<!--    <div class="table">-->
+<!--        <table class="table">-->
+<!--            <tr>-->
+<!--                <td>MU_FC</td>-->
+<!--                <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>-->
+<!--                <td class="time">21-30</td>-->
+<!--                <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>-->
+<!--                <td>MU_FC</td>-->
+<!--            </tr>-->
+<!--        </table>-->
+<!--    </div>-->
+<!--</a>-->
 <% end %>
+
 <div class="list-group">
     
     <% Article.my_team_news(current_user).each do |article| %>

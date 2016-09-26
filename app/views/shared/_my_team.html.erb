@@ -6,7 +6,7 @@
         <% if user_signed_in? %>
             <%= form_for current_user, url: change_my_team_path, method: :put, remote: true do |f| %>
                 <div class="form-group text-center">
-                  <%= f.label :team, "Выберите ваш любимый клуб АПЛ" %>
+                  <%= f.label :team, "Новости вашего клуба" %>
                   <%= f.select :team, options_for_select(select_team), {:include_blank => change_blank(current_user)}, {:onchange=>'$(this.form).submit();', class: "form-control"} %>
                 </div>
             <% end %>
