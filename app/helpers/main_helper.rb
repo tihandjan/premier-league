@@ -19,4 +19,10 @@ module MainHelper
         current_user.team.blank? ? "Выберите команду" : "Поменять команду"
     end
     
+    def display_team_if_choosen current_user
+        if current_user.team.presence
+            "<img src='http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg' width='60px' />" + "<div><i>#{current_user.team}</i></div>"
+        end
+    end
+    
 end
