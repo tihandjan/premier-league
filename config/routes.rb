@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'articles/show'
-
   root 'main#index'
   
   devise_for :admin_users, ActiveAdmin::Devise.config

@@ -16,11 +16,13 @@
 <% end %>
 <div class="list-group">
     
-  <a href="#" class="list-group-item text-left">
-    <h4 class="list-group-item-heading">List group item heading</h4>
-    <i class="glyphicon glyphicon-time"></i><i> 21.02.16</i> 
-  </a>
-  
-  <a href="#" class="btn btn-info block-center">Все о команде</a>
+    <% Article.my_team_news(current_user).each do |article| %>
+        <a href="<%= article_path(article) %>" class="list-group-item text-left">
+          <h4 class="list-group-item-heading"><%= truncate(article.title, length: 120) %></h4>
+           <i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m-%d-%Y") %></i> 
+        </a>
+    <% end %>
+    
+    <a href="#" class="btn btn-info block-center">Все о команде</a>
   
 </div>

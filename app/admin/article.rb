@@ -3,7 +3,7 @@ ActiveAdmin.register Article do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :category, :title, :summary, :description, :picture, :source, pictures_attributes: [:picture, :description]
+permit_params :category, :title, :summary, :description, :picture, :source, :team, pictures_attributes: [:picture, :description]
 #
 # or
 
