@@ -77,3 +77,6 @@ gem 'carrierwave-imageoptimizer'
 
 # image upload amazon
 gem 'fog'
+
+# football onlain
+gem 'httparty'

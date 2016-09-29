@@ -128,19 +128,13 @@ hr {
 .row-onlain {
     text-align: center;
     .a-onlain {
-        color: inherit;
+        cursor: pointer;
         &:hover {
-            text-decoration: none;
-            .col-onlain {
-                background: #e90052;
-            }
-            .table {
-                background: #e90052;
-                color: #FFF;
-               .time {
-                    color: #e90052;
-                    background: #FFF;
-                } 
+            background: #e90052;
+            color: #FFF;
+           .time {
+                color: #e90052;
+                background: #FFF;
             }
         }
     }
@@ -150,7 +144,7 @@ hr {
             .time {
                 background: #76766f;
                 color: #FFF;
-                padding: 0 5px;
+                padding: 0 0;
                 text-align: center;
             }
             td {
@@ -453,7 +447,9 @@ hr {
         color: #ff5b5a;
     }
     .team-icon {
-        
+        img {
+            width: 18px;
+        }
     }
 }
 // table end
