@@ -6,21 +6,24 @@
         </div> 
         <div class="panel-body">
             <div><i>Cегодня</i></div>
-            <% 3.times do %>
-            <a class="a-onlain" href="#">
+            
+            
                 <div class="table">
                     <table class="table">
-                        <tr>
-                            <td>MU_FC</td>
-                            <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>
-                            <td class="time">21-30</td>
-                            <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>
-                            <td>MU_FC</td>
-                        </tr>
+                        <% @response['fixtures'].each do |team| %>
+                            <% if 2+2==4 %>
+                            <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
+                                <td><%= team['homeTeamName'].slice!(0, 10) %></td>
+                                <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>
+                                <td class="time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], team['date'].to_time.strftime('%H:%M')  %></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
+                                <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>
+                                <td><%= team['awayTeamName'].slice!(0, 10) %></td>
+                            </tr>
+                            <% end %>
+                        <% end %>
                     </table>
                 </div>
-            </a>
-            <% end %>
+            
             <div><i>Завтра</i></div>
             <% 3.times do %>
             <a class="a-onlain" href="#">
