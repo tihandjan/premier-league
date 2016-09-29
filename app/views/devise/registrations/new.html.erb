@@ -34,7 +34,7 @@
     
     <div class="form-group">
       <%= f.label :team, "Выберите ваш любимый клуб АПЛ" %>
-      <%= f.select :team, ["Manchester City FC", "Chelsea FC", "Manchester United FC", "Everton FC", "Tottenham Hotspur FC", "Arsenal FC", "Leicester City FC", "Liverpool FC", "West Ham United FC", "Swansea City FC" ], {}, { class: "form-control" } %>
+      <%= f.select :team, options_for_select(select_team), {:include_blank => "Выбрать клуб"}, { class: "form-control" } %>
     </div>
   
     <div class="form-group">
