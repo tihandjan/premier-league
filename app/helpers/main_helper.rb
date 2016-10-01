@@ -36,7 +36,7 @@ module MainHelper
     end
     
     def time_or_result status, result1, result2, time
-        if status == 'FINISHED'
+        if status == 'FINISHED' || status == "IN_PLAY"
             result1.to_s + " - " + result2.to_s
         else
             time
