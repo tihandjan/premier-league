@@ -5,61 +5,79 @@
             <h3 class="panel-title text-left">Матчи недели</h3> 
         </div> 
         <div class="panel-body">
-            <div><i>Сегодня</i></div>
-            
                 <div class="table">
                     <table class="table">
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><i>Сегодня</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
                         <% @response['fixtures'].each do |team| %>
                             <% if team['date'].to_time.strftime('%d %b %Y') == Time.now.to_time.strftime('%d %b %Y') %>
                             <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
-                                <td><%= team['homeTeamName'].slice!(0, 10) %></td>
-                                <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>
+                                <td><%= team_translater(team['homeTeamName']) %></td>
+                                <td><i class="<%= show_team_icon(team['homeTeamName']) %> icon-small"></i></td>
                                 <td class="time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
-                                <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>
-                                <td><%= team['awayTeamName'].slice!(0, 10) %></td>
-                                <td style="width: 3px;"><i style="color: <%= 'red' if team['status'] == "IN_PLAY" %>;" class="glyphicon glyphicon-play-circle"></i></td>
+                                <td><i class="<%= show_team_icon(team['awayTeamName']) %> icon-small"></i></td>
+                                <td><%= team_translater(team['awayTeamName']) %></td>
+                                <td style="width: 3px;"><i style="color: <%= 'red' if team['status'] == "IN_PLAY" %>;right: 1px;" class="glyphicon glyphicon-play-circle"></i></td>
                             </tr>
                             <% end %>
                         <% end %>
-                    </table>
-                </div>
-            
-            <div><i>Завтра</i></div>
-            
-                <div class="table">
-                    <table class="table">
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><i>Завтра</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
                         <% @response['fixtures'].each do |team| %>
                             <% if (Time.now.to_time+1.day).strftime('%d %b %Y')  == (team['date'].to_time).strftime('%d %b %Y') %>
                             <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
-                                <td><%= team['homeTeamName'].slice!(0, 10) %></td>
-                                <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>
+                                <td><%= team_translater(team['homeTeamName']) %></td>
+                                <td><i class="<%= show_team_icon(team['homeTeamName']) %> icon-small"></i></td>
                                 <td class="time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
-                                <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>
-                                <td><%= team['awayTeamName'].slice!(0, 10) %></td>
-                                <td style="width: 3px;"><i style="color: <%= 'red' if team['status'] == "IN_PLAY" %>;" class="glyphicon glyphicon-play-circle"></i></td>
+                                <td><i class="<%= show_team_icon(team['awayTeamName']) %> icon-small"></i></td>
+                                <td><%= team_translater(team['awayTeamName']) %></td>
+                                <td style="width: 3px;"><i style="color: <%= 'red' if team['status'] == "IN_PLAY" %>;right: 1px;" class="glyphicon glyphicon-play-circle"></i></td>
                             </tr>
                             <% end %>
                         <% end %>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><i>Прошли</i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <% @response['fixtures'].each do |team| %>
+                            <% if (Time.now.to_time-10.day..Time.now.to_time-1.day).cover?(team['date'].to_time) %>
+                            <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
+                                <td><%= team_translater(team['homeTeamName']) %></td>
+                                <td><i class="<%= show_team_icon(team['homeTeamName']) %> icon-small"></i></td>
+                                <td class="time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
+                                <td><i class="<%= show_team_icon(team['awayTeamName']) %> icon-small"></i></td>
+                                <td><%= team_translater(team['awayTeamName']) %></td>
+                                <td style="width: 3px;"><i style="color: <%= 'red' if team['status'] == "IN_PLAY" %>;right: 1px;" class="glyphicon glyphicon-play-circle"></i></td>
+                            </tr>
+                            <% end %>
+                        <% end %>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><i>Все</i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     </table>
                 </div>
-            <div><i>Сыгранные</i></div>
-            <div class="table">
-                <table class="table">
-                    <% @response['fixtures'].each do |team| %>
-                        <% if (Time.now.to_time-10.day..Time.now.to_time-1.day).cover?(team['date'].to_time) %>
-                        <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
-                            <td><%= team['homeTeamName'].slice!(0, 10) %></td>
-                            <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>
-                            <td class="time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
-                            <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>
-                            <td><%= team['awayTeamName'].slice!(0, 10) %></td>
-                            <td style="width: 3px;"><i style="color: <%= 'red' if team['status'] == "IN_PLAY" %>;" class="glyphicon glyphicon-play-circle"></i></td>
-                        </tr>
-                        <% end %>
-                    <% end %>
-                </table>
-            </div>
-            <div><i>Вот и все</i></div>
+            
         </div>
     </div>
             
