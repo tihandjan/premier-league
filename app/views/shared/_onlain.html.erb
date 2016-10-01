@@ -23,7 +23,7 @@
                                 <td class="time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
                                 <td><i class="<%= show_team_icon(team['awayTeamName']) %> icon-small"></i></td>
                                 <td><%= team_translater(team['awayTeamName']) %></td>
-                                <td style="width: 3px;"><i style="color: <%= 'red' if team['status'] == "IN_PLAY" %>;right: 1px;" class="glyphicon glyphicon-play-circle"></i></td>
+                                
                             </tr>
                             <% end %>
                         <% end %>
@@ -43,30 +43,11 @@
                                 <td class="time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
                                 <td><i class="<%= show_team_icon(team['awayTeamName']) %> icon-small"></i></td>
                                 <td><%= team_translater(team['awayTeamName']) %></td>
-                                <td style="width: 3px;"><i style="color: <%= 'red' if team['status'] == "IN_PLAY" %>;right: 1px;" class="glyphicon glyphicon-play-circle"></i></td>
+                                
                             </tr>
                             <% end %>
                         <% end %>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td><i>Прошли</i></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <% @response['fixtures'].each do |team| %>
-                            <% if (Time.now.to_time-10.day..Time.now.to_time-1.day).cover?(team['date'].to_time) %>
-                            <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
-                                <td><%= team_translater(team['homeTeamName']) %></td>
-                                <td><i class="<%= show_team_icon(team['homeTeamName']) %> icon-small"></i></td>
-                                <td class="time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
-                                <td><i class="<%= show_team_icon(team['awayTeamName']) %> icon-small"></i></td>
-                                <td><%= team_translater(team['awayTeamName']) %></td>
-                                <td style="width: 3px;"><i style="color: <%= 'red' if team['status'] == "IN_PLAY" %>;right: 1px;" class="glyphicon glyphicon-play-circle"></i></td>
-                            </tr>
-                            <% end %>
-                        <% end %>
+                        
                         <tr>
                             <td></td>
                             <td></td>
