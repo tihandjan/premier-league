@@ -87,7 +87,7 @@ module MainHelper
             ["West Ham United FC",   "Вест Хем",     "sprite sprite-west_ham"],
             ["West Bromwich Albion FC","Вест Бром", "sprite sprite-west_brom"],
             ["Sunderland AFC",       "Сандерл",      "sprite sprite-sunderland"],
-            ["Swansea City FC",      "Свонси",       "sprite sprite-swansea"],
+            ["Swansea City FC",      "Суонси",       "sprite sprite-swansea"],
             ["Crystal Palace FC",    "КПЛ",          "sprite sprite-crystal"],
             ["Southampton FC",       "Саунгемп",     "sprite sprite-southampton"],
             ["Watford FC",           "Уотфорд",      "sprite sprite-watford"],
@@ -100,7 +100,7 @@ module MainHelper
             if team_en_ru[0] == team
                 return team_en_ru[2]
             else
-                'sprite-default'
+                "sprite sprite-stoke_city"
             end
         end
     end
