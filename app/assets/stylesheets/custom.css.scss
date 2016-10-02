@@ -133,23 +133,27 @@ hr {
             background: #e90052;
             color: #FFF;
            .time {
-                color: #e90052;
-                background: #FFF;
+                background: #e90052;
             }
         }
     }
     .table {
         margin-bottom: 0;
         tr {
+            border-bottom: 1px solid #e8e8e8;
             .time {
-                background: #76766f;
                 color: #FFF;
                 padding: 0 0;
                 text-align: center;
-                width: 35px;
+                .score_or_time {
+                    margin: 0 auto;
+                    width: 50px;
+                    background: #38003c;
+                    line-height: 25px;
+                }
             }
             td {
-                padding: 2px 0;
+                padding: 6px 0;
                 vertical-align: middle;
                 border-top: none;
             }
