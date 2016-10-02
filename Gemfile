@@ -80,3 +80,6 @@ gem 'fog'
 
 # football onlain
 gem 'httparty'
+
+# plugin for select box
+gem 'bootstrap-select-rails'
