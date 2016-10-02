@@ -7,14 +7,14 @@
         <div class="panel-body">
                 <div class="table">
                     <table class="table">
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td><i>Сегодня</i></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            <i>
+                                <% @response['fixtures'].each do |team| %>
+                                    <% if team['date'].to_time.strftime('%d %b %Y') == (Time.now.to_time+3.hour).strftime('%d %b %Y') %>
+                                        <%= team['matchday'].to_s+'-'+'й'+' тур '+ team['date'].to_time.strftime('%d %b %Y') %>
+                                        <% break %>
+                                    <% end %>
+                                <% end %>
+                            </i>
                         <% @response['fixtures'].each do |team| %>
                             <% if team['date'].to_time.strftime('%d %b %Y') == (Time.now.to_time+3.hour).strftime('%d %b %Y') %>
                             <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
@@ -27,16 +27,16 @@
                             </tr>
                             <% end %>
                         <% end %>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td><i>Завтра</i></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            <i class="text-left">
+                                <% @response['fixtures'].each do |team| %>
+                                    <% if team['date'].to_time.strftime('%d %b %Y') == (Time.now.to_time+1.day+3.hour).strftime('%d %b %Y') %>
+                                        <%= team['matchday'].to_s+'-'+'й'+' тур '+ team['date'].to_time.strftime('%d %b %Y') %>
+                                        <% break %>
+                                    <% end %>
+                                <% end %>
+                            </i>
                         <% @response['fixtures'].each do |team| %>
-                            <% if (Time.now.to_time-1.day+3.hour).strftime('%d %b %Y')  == (team['date'].to_time).strftime('%d %b %Y') %>
+                            <% if (Time.now.to_time+1.day+3.hour).strftime('%d %b %Y')  == (team['date'].to_time).strftime('%d %b %Y') %>
                             <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
                                 <td><%= team_translater(team['homeTeamName']) %></td>
                                 <td><i class="<%= show_team_icon(team['homeTeamName']) %> icon-small"></i></td>
@@ -47,15 +47,6 @@
                             </tr>
                             <% end %>
                         <% end %>
-                        
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td><i>Все</i></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
                     </table>
                 </div>
             

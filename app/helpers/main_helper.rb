@@ -13,7 +13,7 @@ module MainHelper
             ["West Ham United FC", "Вест Хем"],
             ["West Bromwich Albion FC", "Вест Бром"],
             ["Sunderland AFC", "Сандерл"],
-            ["Swansea City FC", "Свонси"],
+            ["Swansea City FC", "Суонси"],
             ["Crystal Palace FC", "КПЛ"],
             ["Southampton FC", "Саунгемп"],
             ["Watford FC", "Уотфорд"],
@@ -56,7 +56,7 @@ module MainHelper
             ["West Ham United FC", "Вест Хем"],
             ["West Bromwich Albion FC", "Вест Бром"],
             ["Sunderland AFC", "Сандерл"],
-            ["Swansea City FC", "Свонси"],
+            ["Swansea City FC", "Суонси"],
             ["Crystal Palace FC", "КПЛ"],
             ["Southampton FC", "Саунгемп"],
             ["Watford FC", "Уотфорд"],
@@ -110,6 +110,12 @@ module MainHelper
             'green'
         elsif status == "FINISHED"
             '#76766f'
+        end
+    end
+    
+    def show_match_day team
+        if team['date'].to_time.strftime('%d %b %Y') == (Time.now.to_time).strftime('%d %b %Y')
+            team['matchday']
         end
     end
     
