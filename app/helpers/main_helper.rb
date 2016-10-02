@@ -105,4 +105,12 @@ module MainHelper
         end
     end
     
+    def in_play_or_finished status
+        if status == "IN_PLAY"
+            'green'
+        elsif status == "FINISHED"
+            '#76766f'
+        end
+    end
+    
 end

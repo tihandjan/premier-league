@@ -16,11 +16,11 @@
                                 <td></td>
                             </tr>
                         <% @response['fixtures'].each do |team| %>
-                            <% if team['date'].to_time.strftime('%d %b %Y') == Time.now.to_time.strftime('%d %b %Y') %>
+                            <% if team['date'].to_time.strftime('%d %b %Y') == (Time.now.to_time+3.hour).strftime('%d %b %Y') %>
                             <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
                                 <td><%= team_translater(team['homeTeamName']) %></td>
                                 <td><i class="<%= show_team_icon(team['homeTeamName']) %> icon-small"></i></td>
-                                <td class="time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
+                                <td class="time"><div style="background:<%= in_play_or_finished(team['status']) %>" class="score_or_time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></div></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
                                 <td><i class="<%= show_team_icon(team['awayTeamName']) %> icon-small"></i></td>
                                 <td><%= team_translater(team['awayTeamName']) %></td>
                                 
@@ -36,11 +36,11 @@
                                 <td></td>
                             </tr>
                         <% @response['fixtures'].each do |team| %>
-                            <% if (Time.now.to_time+1.day).strftime('%d %b %Y')  == (team['date'].to_time).strftime('%d %b %Y') %>
+                            <% if (Time.now.to_time-1.day+3.hour).strftime('%d %b %Y')  == (team['date'].to_time).strftime('%d %b %Y') %>
                             <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
                                 <td><%= team_translater(team['homeTeamName']) %></td>
                                 <td><i class="<%= show_team_icon(team['homeTeamName']) %> icon-small"></i></td>
-                                <td class="time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
+                                <td class="time"><div style="background:<%= in_play_or_finished(team['status']) %>" class="score_or_time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></div></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
                                 <td><i class="<%= show_team_icon(team['awayTeamName']) %> icon-small"></i></td>
                                 <td><%= team_translater(team['awayTeamName']) %></td>
                                 
@@ -61,6 +61,7 @@
             
         </div>
     </div>
-            
+    
+        
 </div>
        
