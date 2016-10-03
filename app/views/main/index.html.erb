@@ -79,6 +79,7 @@
                                     <h4 class="video-title-one"><strong><%= truncate(@videos.first.title, length: 100) %></strong></h3>
                                     <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= @videos.first.created_at.strftime("%m-%d-%Y") %></i></span> 
                                     <span class="video-icon-one"><i class="glyphicon glyphicon-play"></i></span>
+                                    <span class="video-icon-one video-icon-four-time">00:29</span>
                                 </div>
                             </div>
                         </a>
@@ -97,6 +98,7 @@
                                         <h4 class="video-title-four"><strong><%= truncate(video.title, length: 55) %></strong></h3>
                                         <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= video.created_at.strftime("%m-%d-%Y") %></i></span> 
                                         <span class="video-icon-four"><i class="glyphicon glyphicon-play"></i></span>
+                                        <span class="video-icon-four video-icon-four-time">00:29</span>
                                     </div>
                                 </div>
                             </a>
