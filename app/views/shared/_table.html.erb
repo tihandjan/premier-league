@@ -3,11 +3,11 @@
       <!-- Default panel contents -->
         <div class="panel-heading">Premier League</div>
       
-    
+        <div class="panel-body">
       <!-- Table -->
         <table class="table table-hover">
             <thead class="text-center">
-                <tr>
+                <tr class="tr_first">
                     <th></th>
                     <th>#</th>
                     <th></th>
@@ -27,26 +27,27 @@
             </thead>
             <tbody class="text-center">
                 <% @number = 0 %>
-                <% 20.times do %>
-                <tr>
+                <% @response_table['standing'].each do |team| %>
+                <tr class="<%= change_row_color @number %>">
                     <td></td>
                     <td><%= @number += 1 %></td>
-                    <td class="team-icon"><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="25px" /></td>
-                    <td class="team-name">Манчестер Юнайтед</td>
+                    <td class="team-icon"><i class="<%= show_team_icon(team['teamName']) %> icon-small"></i></td>
+                    <td class="team-name"><%= team_translater(team['teamName']) %></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td><%= team['playedGames'] %></td>
+                    <td><%= team['wins'] %></td>
+                    <td><%= team['draws'] %></td>
+                    <td><%= team['losses'] %></td>
+                    <td><%= team['goals'] %></td>
+                    <td><%= team['goalsAgainst'] %></td>
                     <td></td>
-                    <td class="team-score">0</td>
+                    <td class="team-score"><%= team['points'] %></td>
                 </tr>
                 <% end %>
             </tbody>
         </table>
+        </div>
     </div>
 </div>
