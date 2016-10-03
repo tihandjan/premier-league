@@ -477,9 +477,16 @@ hr {
         color: #ff5b5a;
     }
     .team-icon {
-        img {
-            width: 18px;
-        }
+            padding-left: 0;
+            padding-right: 0;
+    }
+    .team-goals {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .team-goals-against {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
