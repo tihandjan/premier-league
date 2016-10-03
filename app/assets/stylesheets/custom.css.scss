@@ -370,6 +370,13 @@ hr {
         color: #FFF;
     }
 }
+.video-icon-four-time {
+    left: 32px;
+    color: #FFF;
+    background: #e90052;
+    font-size: 13px;
+    padding: 3px;
+}
 
 // video end
 
@@ -456,8 +463,8 @@ hr {
     tbody {
         tr {
             td {
-                padding-top: 1px;
-                padding-bottom: 1px;
+                padding-top: 2px;
+                padding-bottom: 2px;
                 vertical-align: middle;
                 border-top: none;
             }
@@ -597,7 +604,8 @@ hr {
         -webkit-border-radius: 20px;
         -moz-border-radius: 20px;
         border-radius: 20px;
-        width: 90%;
+        width: 80%;
+        height: 30px;
         margin: 0 auto;
     }
     label {
