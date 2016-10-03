@@ -156,8 +156,8 @@ hr {
                 .score_or_time {
                     margin: 0 auto;
                     width: 50px;
-                    background: #38003c;
-                    line-height: 25px;
+                    background: #6a6a6a;
+                    line-height: 23px;
                 }
             }
             td {
@@ -250,7 +250,7 @@ hr {
     margin-bottom: 3px;
     span {
         padding: 5px 20px;
-        background: #394750;
+        background: #243843;
         color: #FFF;
     }
 }
@@ -397,15 +397,15 @@ hr {
 .panel-default {
     border: none;
     border-radius: 0;
-    border-color: #2f343a;
+    border-color: #243843;
     .btn-info {
         border-radius: 0px;  
     }
     .panel-heading {
         border-top-right-radius: 0;
         border-top-left-radius: 0;
-        background-color: #2f343a;
-        border-color: #2f343a;
+        background-color: #243843;
+        border-color: #243843;
         color: #FFF;
         padding: 5px 15px;
     }
@@ -435,12 +435,21 @@ hr {
 
 // table start
 .row-table {
+    .panel-body {
+        margin-right: -1px;
+    }
+    .table {
+        margin-bottom: 0;
+    }
     margin-left: 0;
     margin-right: 0;
     thead {
         tr {
             th {
                 text-align: center;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border-bottom: none;
             }
         }
     }
@@ -450,6 +459,7 @@ hr {
                 padding-top: 1px;
                 padding-bottom: 1px;
                 vertical-align: middle;
+                border-top: none;
             }
         }
     }
@@ -464,6 +474,13 @@ hr {
             width: 18px;
         }
     }
+}
+
+.tr_first {
+    background: #f2f2f4;
+}
+.tr_second {
+    background: #e6e7e9;
 }
 // table end
 

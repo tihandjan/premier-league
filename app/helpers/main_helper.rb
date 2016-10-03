@@ -107,15 +107,23 @@ module MainHelper
     
     def in_play_or_finished status
         if status == "IN_PLAY"
-            'green'
+            '#e90052'
         elsif status == "FINISHED"
-            '#76766f'
+            '#243843'
         end
     end
     
     def show_match_day team
         if team['date'].to_time.strftime('%d %b %Y') == (Time.now.to_time).strftime('%d %b %Y')
             team['matchday']
+        end
+    end
+    
+    def change_row_color number
+        if number % 2 == 0
+            'tr_second'
+        else
+            'tr_first'
         end
     end
     
