@@ -9,14 +9,12 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   namespace :users do
     get 'omniauth_callbacks/facebook'
+    get 'omniauth_callbacks/google_oauth2'
   end
   # authentication end
   resources :users, only: [:edit, :update]
   
-  namespace :users do
-      get 'omniauth_callbacks/google_oauth2'
-  end
-  
+
   # get 'articles/:id' => 'main#show', as: :article
   resources :articles, only: [:show]
   resources :videos, only: [:show, :index]
