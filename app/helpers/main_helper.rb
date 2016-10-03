@@ -2,25 +2,25 @@ module MainHelper
     
     def select_team
         [
-            ["Manchester United FC", "Ман Юн"],
+            ["Manchester United FC", "Манчестер Юнайтед"],
             ["Arsenal FC", "Арсенал"],
             ["Chelsea FC", "Челси"],
-            ["Manchester City FC", "Ман Сити"],
+            ["Manchester City FC", "Манчестер Сити"],
             ["Liverpool FC", "Ливерпуль"],
-            ["Tottenham Hotspur FC", "Тотенхем"],
+            ["Tottenham Hotspur FC", "Тоттенхем"],
             ["Leicester City FC", "Лестер"],
             ["Everton FC", "Эвертон"],
             ["West Ham United FC", "Вест Хем"],
-            ["West Bromwich Albion FC", "Вест Бром"],
-            ["Sunderland AFC", "Сандерл"],
+            ["West Bromwich Albion FC", "Вест Бромвич"],
+            ["Sunderland AFC", "Сандерленд"],
             ["Swansea City FC", "Суонси"],
             ["Crystal Palace FC", "КПЛ"],
-            ["Southampton FC", "Саунгемп"],
+            ["Southampton FC", "Саунгемптон"],
             ["Watford FC", "Уотфорд"],
             ["Burnley FC", "Бернли"],
             ["Hull City FC", "Хал Сити"],
             ["AFC Bournemouth", "Борнмут"],
-            ["Middlesbrough FC", "Мидлсбро"],
+            ["Middlesbrough FC", "Миддлсбро"],
             ["Stoke City FC", "Сток Сити"]
         ].map{ |team_en, team_ru| [team_ru, team_en] }
     end
@@ -50,7 +50,7 @@ module MainHelper
             ["Chelsea FC", "Челси"],
             ["Manchester City FC", "Ман Сити"],
             ["Liverpool FC", "Ливерпуль"],
-            ["Tottenham Hotspur FC", "Тотенхем"],
+            ["Tottenham Hotspur FC", "Тоттенх"],
             ["Leicester City FC", "Лестер"],
             ["Everton FC", "Эвертон"],
             ["West Ham United FC", "Вест Хем"],
@@ -74,6 +74,37 @@ module MainHelper
         end
     end
     
+    def full_team_translater team
+        [
+            ["Manchester United FC", "Манчестер Юнайтед"],
+            ["Arsenal FC", "Арсенал"],
+            ["Chelsea FC", "Челси"],
+            ["Manchester City FC", "Манчестер Сити"],
+            ["Liverpool FC", "Ливерпуль"],
+            ["Tottenham Hotspur FC", "Тоттенхем"],
+            ["Leicester City FC", "Лестер"],
+            ["Everton FC", "Эвертон"],
+            ["West Ham United FC", "Вест Хем"],
+            ["West Bromwich Albion FC", "Вест Бромвич"],
+            ["Sunderland AFC", "Сандерленд"],
+            ["Swansea City FC", "Суонси"],
+            ["Crystal Palace FC", "КПЛ"],
+            ["Southampton FC", "Саунгемптон"],
+            ["Watford FC", "Уотфорд"],
+            ["Burnley FC", "Бернли"],
+            ["Hull City FC", "Хал Сити"],
+            ["AFC Bournemouth", "Борнмут"],
+            ["Middlesbrough FC", "Миддлсбро"],
+            ["Stoke City FC", "Сток Сити"]
+        ].each do |team_en_ru| 
+            if team_en_ru[0] == team
+                return team_en_ru[1]
+            else
+                'команда_1'
+            end
+        end
+    end
+    
     def show_team_icon team
         [
             ["Manchester United FC", "Ман Юн",       "sprite sprite-mu"],
@@ -81,7 +112,7 @@ module MainHelper
             ["Chelsea FC",           "Челси",        "sprite sprite-chelsea"],
             ["Manchester City FC",   "Ман Сити",     "sprite sprite-mc"],
             ["Liverpool FC",         "Ливерпуль",    "sprite sprite-liver"],
-            ["Tottenham Hotspur FC", "Тотенхем",     "sprite sprite-totenhem"],
+            ["Tottenham Hotspur FC", "Тоттенх",     "sprite sprite-totenhem"],
             ["Leicester City FC",    "Лестер",       "sprite sprite-leicester"],
             ["Everton FC",           "Эвертон",      "sprite sprite-everton"],
             ["West Ham United FC",   "Вест Хем",     "sprite sprite-west_ham"],
