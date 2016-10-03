@@ -8,19 +8,18 @@
         <table class="table table-hover">
             <thead class="text-center">
                 <tr class="tr_first">
-                    <th></th>
-                    <th>#</th>
-                    <th></th>
-                    <th></th>
+                    <th class="team-number">#</th>
+                    <th class="team-icon"></th>
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th>Матчей</th>
-                    <th>В</th>
-                    <th>Н</th>
-                    <th>П</th>
-                    <th class="team-goals">Заб</th>
-                    <th class="team-goals-against">Про</th>
+                    <th class="team-td">Матчей</th>
+                    <th class="team-td">В</th>
+                    <th class="team-td">Н</th>
+                    <th class="team-td">П</th>
+                    <th class="team-td">Заб</th>
+                    <th class="team-td">Про</th>
+                    <th class="team-td">Раз</th>
                     <th></th>
                     <th>Очков</th>
                 </tr>
@@ -29,21 +28,20 @@
                 <% @number = 0 %>
                 <% @response_table['standing'].each do |team| %>
                 <tr class="<%= change_row_color @number %>">
-                    <td></td>
-                    <td><%= @number += 1 %></td>
-                    <td class="team-icon"><i class="<%= show_team_icon(team['teamName']) %> icon-small"></i></td>
-                    <td class="team-name"><%= team_translater(team['teamName']) %></td>
-                    <td></td>
+                    <td class="team-number"><%= @number += 1 %></td>
+                    <td class="team-icon"><i class="<%= show_team_icon(team['teamName']) %> icon-table"></i></td>
+                    <td class="team-name"><%= full_team_translater(team['teamName']) %></td>
                     <td></td>
                     <td></td>
-                    <td ><%= team['playedGames'] %></td>
-                    <td><%= team['wins'] %></td>
-                    <td><%= team['draws'] %></td>
-                    <td><%= team['losses'] %></td>
-                    <td class="team-goals"><%= team['goals'] %></td>
-                    <td class="team-goals-against"><%= team['goalsAgainst'] %></td>
+                    <td class="team-td"><%= team['playedGames'] %></td>
+                    <td class="team-td"><%= team['wins'] %></td>
+                    <td class="team-td"><%= team['draws'] %></td>
+                    <td class="team-td"><%= team['losses'] %></td>
+                    <td class="team-td"><%= team['goals'] %></td>
+                    <td class="team-td"><%= team['goalsAgainst'] %></td>
+                    <td class="team-td"><%= team['goalDifference'] %></td>
                     <td></td>
-                    <td class="team-score"><%= team['points'] %></td>
+                    <td class="team-score"><b><%= team['points'] %></b></td>
                 </tr>
                 <% end %>
             </tbody>
