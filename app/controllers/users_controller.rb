@@ -1,7 +1,14 @@
 class UsersController < ApplicationController
+    before_action :authenticate_user!
     
     def edit
-        @user = User.find(params[:id])
+        if current_user.id.to_i == params[:id].to_i
+            @user = User.find(params[:id])
+        else
+            flash[:notice] = "Дружище не усложняй нам жизнь плиз, не ходи сюда. 'May the Force be with you':)"
+            redirect_to root_path
+        end
+        
     end
     
     def update
