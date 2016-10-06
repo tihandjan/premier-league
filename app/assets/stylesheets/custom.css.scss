@@ -3,10 +3,16 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-
+@font-face {
+    font-family: 'PT Sans Regular';
+    font-weight: normal;
+    font-style: normal;
+    src: font-url('/assets/PT_Sans-Web-Regular.ttf') format('truetype');
+}
 
 body {
     // background: url("/images/bg/bg.jpg") no-repeat;
+    font-family: 'PT Sans Regular';
     -webkit-background-size: 100%;
     background-size: 100%;
     background: #E9EBEE;
