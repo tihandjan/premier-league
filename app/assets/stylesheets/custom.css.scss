@@ -286,6 +286,10 @@ hr {
     position: absolute;
     bottom: 5px;
     left: 10px;
+    .glyphicon-time {
+        margin-right: 2px;
+        top: 2px;
+    }
 }
 // article items end
 
@@ -336,6 +340,13 @@ hr {
 }
 // article item 2 end
 
+.image-wrapper {
+    background: #000;
+    img {
+        opacity: 0.9;
+    }
+}
+
 // video start
 .video {
     margin-bottom: 15px;
@@ -347,8 +358,10 @@ hr {
                 text-decoration: none;
                 color: #e7e7e7;
             }
-            img {
-                width: 100%;
+            .image-wrapper {
+                img {
+                    width: 100%;
+                }
             }
         }
     }
@@ -383,7 +396,7 @@ hr {
                 &:hover {
                     background: #f5f5f5;
                 }
-                height: 97px;
+                height: 96px;
                 .video-title-four {
                     font-size: 14px;
                     margin-top: 0;
