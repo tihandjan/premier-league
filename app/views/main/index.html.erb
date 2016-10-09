@@ -8,18 +8,27 @@
            
             <div class="row row-line-one">
             
-                <% @news.first(1).each do |article| %>
-                    <a class="a-article" href="<%= article_path(article) %>"> 
+                        
                         <div class="col-sm-7 col-line-one-first">
-                            <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
+                            <% @news.first(4).each do |article| %>
+                            <%= image_tag(article.picture.url(:thumb), :alt => 'football', class: 'article-four-image', id: article.id) %>
+                            <% end %>
                         </div>
+                        
                         <div class="col-sm-5 col-line-one-second">
-                            <p style="font-size: 13px; margin-bottom: -12px; padding-top: 10px">Главные новости</p>
-                            <h3><strong><%= truncate(article.title, length: 70) %></strong></h3>
-                            <p><%= truncate(article.summary,length: 130) %></p>
+                            <div class="list-group">
+    
+                                <% @news.first(4).each do |article| %>
+                                    <a href="<%= article_path(article) %>" class="list-group-item text-left", onmouseover="$('.article-four-image').hide();$('#<%= article.id %>').show();$('#glyphicon-<%= article.id %>').show();" onmouseleave="$('.article-four-image').hide();$('#<%= @news.first.id %>').show();$('.glyphicon-triangle-right').hide();$('#glyphicon-<%= @news.first.id %>').show();">
+                                       <h3 class="list-group-item-heading"><%= truncate(article.title, length: 70) %></h4>
+                                       <i class="glyphicon glyphicon-triangle-right" id="glyphicon-<%= article.id %>"></i>
+                                       <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m-%d-%Y") %></i></span>
+                                    </a>
+                                <% end %>
+                                
+                            </div>
                         </div>
-                    </a>
-                <% end %>
+                
                
             </div>
             
@@ -118,6 +127,11 @@
     
     <%= render 'shared/books' %>
     
+    <script>
+        $(document).ready(function(){
+            $('#glyphicon-<%= @news.first.id %>').show();
+        });
+    </script>
     
         
         
