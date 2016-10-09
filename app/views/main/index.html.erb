@@ -19,9 +19,8 @@
                             <div class="list-group">
     
                                 <% @news.first(4).each do |article| %>
-                                    <a href="<%= article_path(article) %>" class="list-group-item text-left", onmouseover="$('.article-four-image').hide();$('#<%= article.id %>').show();$('#glyphicon-<%= article.id %>').show();" onmouseleave="$('.article-four-image').hide();$('#<%= @news.first.id %>').show();$('.glyphicon-triangle-right').hide();$('#glyphicon-<%= @news.first.id %>').show();">
+                                    <a href="<%= article_path(article) %>" class="list-group-item text-left", onmouseover="$('.article-four-image').hide();$('#<%= article.id %>').show();" onmouseleave="$('.article-four-image').hide();$('#<%= @news.first.id %>').show();">
                                        <h3 class="list-group-item-heading"><%= truncate(article.title, length: 70) %></h4>
-                                       <i class="glyphicon glyphicon-triangle-right" id="glyphicon-<%= article.id %>"></i>
                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m-%d-%Y") %></i></span>
                                     </a>
                                 <% end %>
@@ -40,7 +39,7 @@
                         <div class="col-sm-4 three-article">
                             <a class="a-article" href="<%= article_path(article) %>">
                                 <div class="thumbnail">
-                                    <%= image_tag(article.picture.url(:mini), :alt => 'football') %>
+                                    <div class="image-wrapper"><%= image_tag(article.picture.url(:mini), :alt => 'football') %></div>
                                     <div class="caption custom-caption">
                                         <h3><strong><%= truncate(article.title, length: 55) %></strong></h3>
                                         <p><%= truncate(article.summary,length: 90) %></p>
@@ -62,7 +61,7 @@
                 <div class="col-article col-sm-6">
                     <a class="a-article" href="<%= article_path(article) %>">
                         <div class="thumbnail custom-thumbnail">
-                            <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
+                            <div class="image-wrapper"><%= image_tag(article.picture.url(:thumb), :alt => 'football') %></div>
                             <div class="caption">
                                 <span class="create-time time-pos">Статья</span><span class="time-pos"><i class="glyphicon glyphicon-time"></i><i><%= article.created_at.strftime("%m-%d-%Y") %></i></span> 
                                 <h3><strong><%= truncate(article.title, length: 70) %></strong></h3>
@@ -83,7 +82,7 @@
                     <div class="col-xs-12 video-one">
                         <a class="a-video" href="<%= video_path(@videos.first) %>">
                             <div class="thumbnail">
-                                <%= image_tag(@videos.first.picture.url(:thumb), :alt => 'video') %>
+                                <div class="image-wrapper"><%= image_tag(@videos.first.picture.url(:thumb), :alt => 'video') %></div>
                                 <div class="caption ">
                                     <h4 class="video-title-one"><strong><%= truncate(@videos.first.title, length: 100) %></strong></h3>
                                     <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= @videos.first.created_at.strftime("%m-%d-%Y") %></i></span> 
@@ -102,7 +101,7 @@
                         <div class="col-xs-6 video-four">
                             <a class="a-video" href="<%= video_path(video) %>">
                                 <div class="thumbnail">
-                                    <%= image_tag(video.picture.url(:mini), :alt => 'video') %>
+                                    <div class="image-wrapper"><%= image_tag(video.picture.url(:mini), :alt => 'video') %></div>
                                     <div class="caption video-caption">
                                         <h4 class="video-title-four"><strong><%= truncate(video.title, length: 55) %></strong></h3>
                                         <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= video.created_at.strftime("%m-%d-%Y") %></i></span> 
@@ -126,12 +125,7 @@
     <%= render 'shared/top_players' %>
     
     <%= render 'shared/books' %>
-    
-    <script>
-        $(document).ready(function(){
-            $('#glyphicon-<%= @news.first.id %>').show();
-        });
-    </script>
+
     
         
         

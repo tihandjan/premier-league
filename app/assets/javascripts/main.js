@@ -8,4 +8,13 @@ jQuery(document).ready(function($) {
     });
 });
 
-
+$(document).ready(function(){
+   $('.image-wrapper img').hover(
+        function () {
+            $(this).animate({opacity: '0.5'}, 200);
+        },
+        function () {
+            $(this).animate({opacity: '0.9'}, 100);
+        }
+    );
+});
