@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009165906) do
+ActiveRecord::Schema.define(version: 20161010043412) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20161009165906) do
     t.integer  "away_win_odds"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "league"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -83,6 +84,33 @@ ActiveRecord::Schema.define(version: 20161009165906) do
   end
 
   add_index "pictures", ["article_id"], name: "index_pictures_on_article_id"
+
+  create_table "players", force: :cascade do |t|
+    t.integer  "team_id"
+    t.string   "name"
+    t.string   "position"
+    t.string   "number"
+    t.string   "date_of_birth"
+    t.string   "nationality"
+    t.string   "contract_until"
+    t.string   "market_value"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "players", ["team_id"], name: "index_players_on_team_id"
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.string   "short_name"
+    t.string   "market_value"
+    t.string   "fixtures"
+    t.string   "icon_url"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "league"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
