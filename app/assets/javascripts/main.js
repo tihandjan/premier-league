@@ -8,6 +8,7 @@ jQuery(document).ready(function($) {
     });
 });
 
+// image hover effect
 $(document).ready(function(){
    $('.image-wrapper img').hover(
         function () {
@@ -18,3 +19,4 @@ $(document).ready(function(){
         }
     );
 });
+

@@ -179,7 +179,7 @@ hr {
 
 // article items start
 .row-line-one {
-    background-color: #1c252e;
+    background-color: #243843;
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 10px;
@@ -207,7 +207,7 @@ hr {
             border-left: none;
             border-right: none;
             border-top: none;
-            border-bottom: 1px solid #9e9e9e;
+            border-bottom: 1px solid #e9e9e9;
             height: 83px;
             color: #FFF;
             background: transparent;
@@ -220,9 +220,6 @@ hr {
                 background: #9C1F3D;
                 border-top-right-radius: 0;
                 border-top-left-radius: 0;
-            }
-            &:hover {
-                background: #9C1F3D;
             }
             .glyphicon-triangle-right {
                 position: absolute;
@@ -285,7 +282,7 @@ hr {
 .article-time {
     position: absolute;
     bottom: 5px;
-    left: 10px;
+    left: 15px;
     .glyphicon-time {
         margin-right: 2px;
         top: 2px;
