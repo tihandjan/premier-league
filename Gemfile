@@ -86,3 +86,6 @@ gem 'bootstrap-select-rails'
 
 # sheldured job
 gem 'whenever', :require => false
+
+# translate to russian
+gem 'russian', '~> 0.6.0'
