@@ -371,8 +371,6 @@ module MainHelper
         ].each do |team_en_ru| 
             if team_en_ru[0] == team
                 return team_en_ru[2]
-            else
-                "sprite sprite-default_icon"
             end
         end
     end
