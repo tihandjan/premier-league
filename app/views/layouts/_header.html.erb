@@ -1,7 +1,7 @@
 <div class="header">
   <div class="container-fluid container-fluid-custom-first">
-    <div class="col-xs-1 text-center search"><i class="glyphicon glyphicon-search"></i></div>
-    <div class="col-xs-5 text-right logo-area"><h1 class="main-logo">euro<span style="color: red">liga</span></h1></div>
+    <div class="col-xs-2 col-sm-1 text-center search"><i class="glyphicon glyphicon-search"></i></div>
+    <div class="col-xs-4 col-sm-5 text-right logo-area"><h1 class="main-logo"><a href="<%= root_path %>">euro<span style="color: red">liga</span></a></h1></div>
     <div class="col-xs-6 header-profile text-right">
       
       <ul class="nav nav-pills">
@@ -19,7 +19,7 @@
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Профиль<span class="caret"></span></a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu custom-dropdown-menu">
               <li><a href="#" class="header-link">Просмотреть</a></li>
               <% if current_user %>
               <li><a href="<%= edit_user_path(current_user) %>">Редактировать</a></li>
@@ -29,7 +29,7 @@
             </ul>
           </li>
         <% else %>
-          <li><a href="#" data-toggle="modal" data-target="#authModal"><i class="fa fa-user" aria-hidden="true"></i> Регистрация</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#authModal"><i class="fa fa-user" aria-hidden="true"></i> Рег<span class="hidden-xs">истрация</span></a></li>
           <li><a href="#" data-toggle="modal" data-target="#signModal"><i class="fa fa-sign-in" aria-hidden="true"></i> Войти</a></li>
         <% end %> 
       </ul>
@@ -37,8 +37,8 @@
     </div>
   </div>
   <div class="container-fluid container-fluid-custom-second">
-    <a href="<%= root_path %>"><div class="col-xs-1 text-center main-link"><div class="main-el">EL</div><div>Главная</div></div></a>
-    <div class="col-xs-11 menu-item">
+    <a href="<%= root_path %>"><div class="col-xs-2 col-sm-1 text-center main-link"><div class="main-el">EL</div><div>Главная</div></div></a>
+    <div class="col-xs-10 col-sm-11 menu-item">
       
     </div>
   </div>
