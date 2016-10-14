@@ -6,6 +6,9 @@
 # Example:
 #
 # set :output, "/path/to/my/cron_log.log"
+require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
+set :path, Rails.root
+set :output, Rails.root.join('log', 'cron.log')
 #
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
