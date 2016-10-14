@@ -21,6 +21,12 @@
             text-transform: uppercase;
             .main-logo {
                 margin: 0;
+                z-index: 2;
+                position: absolute;
+                right: -15%;
+                a {
+                    text-decoration: none;
+                }
             }
         }
         .header-profile {
@@ -29,6 +35,10 @@
             padding-right: 15px;
             .nav {
                 float: right;
+                .custom-dropdown-menu {
+                    top: 125%;
+                    left: -64px;
+                }
             }
         }
     }
@@ -45,6 +55,23 @@
             }
             .main-el {
                 font-size: 22px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 399px) {
+    .main-logo {
+        display: none;
+    }
+}
+@media only screen and (max-width: 750px) {
+    .header {
+        .container-fluid-custom-first {
+            .logo-area {
+                .main-logo {
+                    right: -25%;
+                }
             }
         }
     }
