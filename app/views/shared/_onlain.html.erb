@@ -1,10 +1,10 @@
 <div class="row-onlain center-block">
     
     <div class="panel panel-default"> 
-        <div class="panel-heading"> 
-            <h3 class="panel-title text-left">Матчи недели</h3> 
+        <div class="panel-heading" onclick="$('#match-today').slideToggle('slow');"> 
+            <h3 class="panel-title text-left">Матчи сегодня</h3> 
         </div> 
-        <div class="panel-body">
+        <div class="panel-body" id="match-today">
                 <div class="table">
                     <table class="table">
                         
@@ -14,10 +14,42 @@
                         <%= render 'shared/leagues/seria_a_playing' %>
                         <%= render 'shared/leagues/sp_playing' %>
                         
+                        <%= render 'shared/leagues/chempions_league_playing' %>
+                    </table>
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+    <div class="panel panel-default"> 
+        <div class="panel-heading" onclick="$('#match-tomorrow').slideToggle('slow');"> 
+            <h3 class="panel-title text-left">Матчи завтра</h3> 
+        </div> 
+        <div class="panel-body" id="match-tomorrow">
+                <div class="table">
+                    <table class="table">
+                        
                         <%= render 'shared/leagues/apl_will_play' %>
                         <%= render 'shared/leagues/bl_will_play' %>
                         <%= render 'shared/leagues/seria_a_will_play' %>
                         <%= render 'shared/leagues/sp_will_play' %>
+                        
+                        <%= render 'shared/leagues/chempions_league_will_play' %>
+                    </table>
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+    <div class="panel panel-default"> 
+        <div class="panel-heading" onclick="$('#match-yesterday').slideToggle('slow');"> 
+            <h3 class="panel-title text-left">Матчи вчера</h3> 
+        </div> 
+        <div class="panel-body" id="match-yesterday" style="display: none;">
+                <div class="table">
+                    <table class="table">
                         
                         <%= render 'shared/leagues/apl_played' %>
                         <%= render 'shared/leagues/bl_played' %>
@@ -25,8 +57,6 @@
                         <%= render 'shared/leagues/sp_played' %>
     
                         <%= render 'shared/leagues/chempions_league_played' %>
-                        <%= render 'shared/leagues/chempions_league_playing' %>
-                        <%= render 'shared/leagues/chempions_league_will_play' %>
                     </table>
                     
                 </div>

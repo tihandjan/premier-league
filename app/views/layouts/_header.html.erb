@@ -1,19 +1,10 @@
 <div class="header">
   <div class="container-fluid container-fluid-custom-first">
     <div class="col-xs-1 text-center search"><i class="glyphicon glyphicon-search"></i></div>
-    <div class="col-xs-9 text-center logo-area"><span style="color: red">euro</span><span style="color: black">liga</span></div>
-    <div class="col-xs-2 header-profile">third</div>
-  </div>
-  <div class="container-fluid container-fluid-custom-second">
-    <div class="col-xs-1 text-center main-link">Главная</div>
-    <div class="col-xs-11 menu-item">
+    <div class="col-xs-5 text-right logo-area"><h1 class="main-logo">euro<span style="color: red">liga</span></h1></div>
+    <div class="col-xs-6 header-profile text-right">
       
-    </div>
-  </div>
-</div>
-        
-        
-        
+      <ul class="nav nav-pills">
         <% if signed_in? %>
           <li>
             <% if current_user && current_user.avatar.presence %>
@@ -38,8 +29,21 @@
             </ul>
           </li>
         <% else %>
-          <li><a href="#" data-toggle="modal" data-target="#authModal"><i class="glyphicon glyphicon-user"></i>Регистрация</a></li>
-          <li><a href="#" data-toggle="modal" data-target="#signModal">Войти</a></li>
-        <% end %>
+          <li><a href="#" data-toggle="modal" data-target="#authModal"><i class="fa fa-user" aria-hidden="true"></i> Регистрация</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#signModal"><i class="fa fa-sign-in" aria-hidden="true"></i> Войти</a></li>
+        <% end %> 
+      </ul>
+      
+    </div>
+  </div>
+  <div class="container-fluid container-fluid-custom-second">
+    <a href="<%= root_path %>"><div class="col-xs-1 text-center main-link"><div class="main-el">EL</div><div>Главная</div></div></a>
+    <div class="col-xs-11 menu-item">
+      
+    </div>
+  </div>
+</div>
+
+        
         
    

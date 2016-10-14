@@ -1,4 +1,5 @@
 .header {
+    margin-bottom: 30px;
     .container-fluid-custom-first {
         padding-left: 0;
         padding-right: 0;
@@ -10,18 +11,41 @@
                 color: #FFF;
                 font-size: 22px;
                 &:hover {
-                    color: #292f32;
+                    color: rgb(156, 31, 61);
                     cursor: pointer;
                 }
             }
         }
         .logo-area {
-            padding: 20px 0;
+            padding: 14px 0;
             text-transform: uppercase;
+            .main-logo {
+                margin: 0;
+            }
         }
         .header-profile {
             background-color: #fff;
-            padding: 20px 0;
+            padding: 8px 0;
+            padding-right: 15px;
+            .nav {
+                float: right;
+            }
+        }
+    }
+    .container-fluid-custom-second {
+        padding-left: 0;
+        padding-right: 0;
+        background: #33383c;
+        .main-link {
+            background: #292f32;
+            padding: 20px 5px;
+            color: #FFF;
+            &:hover {
+                color: rgb(156, 31, 61);
+            }
+            .main-el {
+                font-size: 22px;
+            }
         }
     }
 }
