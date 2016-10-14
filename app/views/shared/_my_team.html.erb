@@ -1,8 +1,8 @@
 <div class="panel panel-default row-onlain"> 
     <div class="panel-heading"> 
-        <h3 class="panel-title text-left">Моя команда</h3> 
+        <h3 class="panel-title text-left">Моя команда<i class="hide-show" onclick="$('#my-team').stop().slideToggle('slow');">Скрыть</i></h3> 
     </div> 
-    <div class="panel-body my-team">
+    <div class="panel-body my-team" id="my-team">
         
         <% if user_signed_in? %>
             <%= form_for current_user, url: change_my_team_path, method: :put, remote: true do |f| %>
