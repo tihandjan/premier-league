@@ -51,71 +51,9 @@ hr {
     }
 }
 
+// header 
 
-// navbar start
-
-.navbar {
-    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(0,0,0,.4)),to(rgba(0,0,0,0)));
-    background: -webkit-linear-gradient(top,rgba(0,0,0,.4)0,rgba(0,0,0,0)100%);
-    background: linear-gradient(to bottom,rgba(0,0,0,.4)0,rgba(0,0,0,0)100%);
-    border-color: transparent;
-    margin-bottom: 200px;
-    border: none;
-    .navbar-toggle {
-        .icon-bar {
-            background-color: #fff;
-        }
-    }
-    .container-fluid {
-        padding: 0;
-        .navbar-collapse {
-            margin-right: 0;
-            margin-left: 0;
-        }
-        .navbar-header {
-        margin-right: 0;
-        margin-left: 0;
-            a {
-                position: relative;
-                top: 52px;
-                left: 20px;
-            }
-        }
-        .glyphicon {
-            padding-right: 5px;
-            color: #FFF;
-        }
-        ul {
-            li {
-                a {
-                    color: #FFF;
-                    text-transform: uppercase;
-                    &:hover {
-                        color: #e7e7e7;
-                        .glyphicon {
-                            color: #e7e7e7;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-.navbar {
-    .container-fluid {
-        .navbar-right {
-            ul {
-                li {
-                    a {
-                        color: #2f343a;
-                    }
-                }
-            }
-        }
-    }
-}
-// navbar-end
+// header end
 
 // left and right blocks start
 .left-block {
@@ -150,8 +88,8 @@ hr {
         i {
             text-align: left;
             display: block;
-            padding: 10px 10px 0;
-            text-align: left;
+            padding: 0;
+            text-align: center;
         }
         tr {
             border-bottom: 1px solid #e8e8e8;

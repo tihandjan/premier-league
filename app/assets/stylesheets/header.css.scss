@@ -1,0 +1,27 @@
+.header {
+    .container-fluid-custom-first {
+        padding-left: 0;
+        padding-right: 0;
+        background-color: #fff;
+        .search {
+            padding: 20px 5px;
+            background-color: #69a6a6;
+            .glyphicon-search {
+                color: #FFF;
+                font-size: 22px;
+                &:hover {
+                    color: #292f32;
+                    cursor: pointer;
+                }
+            }
+        }
+        .logo-area {
+            padding: 20px 0;
+            text-transform: uppercase;
+        }
+        .header-profile {
+            background-color: #fff;
+            padding: 20px 0;
+        }
+    }
+}

@@ -8,47 +8,27 @@
                 <div class="table">
                     <table class="table">
                         
-                        <i>
-                            <% @response['fixtures'].each do |team| %>
-                                <% if team['date'].to_time.strftime('%d %b %Y') == (Time.now.to_time+3.hour).strftime('%d %b %Y') %>
-                                    <%= team['matchday'].to_s+'-'+'й'+' тур '+ team['date'].to_time.strftime('%d %b %Y') %>
-                                    <% break %>
-                                <% end %>
-                            <% end %>
-                        </i>
-                        <% @response['fixtures'].each do |team| %>
-                            <% if team['date'].to_time.strftime('%d %b %Y') == (Time.now.to_time+3.hour).strftime('%d %b %Y') %>
-                            <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
-                                <td><%= team_translater(team['homeTeamName']) %></td>
-                                <td><i class="<%= show_team_icon(team['homeTeamName']) %> icon-small"></i></td>
-                                <td class="time"><div style="background:<%= in_play_or_finished(team['status']) %>" class="score_or_time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></div></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
-                                <td><i class="<%= show_team_icon(team['awayTeamName']) %> icon-small"></i></td>
-                                <td><%= team_translater(team['awayTeamName']) %></td>
-                                
-                            </tr>
-                            <% end %>
-                        <% end %>
-                            <i class="text-left">
-                                <% @response['fixtures'].each do |team| %>
-                                    <% if team['date'].to_time.strftime('%d %b %Y') == (Time.now.to_time+1.day+3.hour).strftime('%d %b %Y') %>
-                                        <%= team['matchday'].to_s+'-'+'й'+' тур '+ team['date'].to_time.strftime('%d %b %Y') %>
-                                        <% break %>
-                                    <% end %>
-                                <% end %>
-                            </i>
-                        <% @response['fixtures'].each do |team| %>
-                            <% if (Time.now.to_time+1.day+3.hour).strftime('%d %b %Y')  == (team['date'].to_time).strftime('%d %b %Y') %>
-                            <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
-                                <td><%= team_translater(team['homeTeamName']) %></td>
-                                <td><i class="<%= show_team_icon(team['homeTeamName']) %> icon-small"></i></td>
-                                <td class="time"><div style="background:<%= in_play_or_finished(team['status']) %>" class="score_or_time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></div></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
-                                <td><i class="<%= show_team_icon(team['awayTeamName']) %> icon-small"></i></td>
-                                <td><%= team_translater(team['awayTeamName']) %></td>
-                                
-                            </tr>
-                            <% end %>
-                        <% end %>
+                        
+                        <%= render 'shared/leagues/apl_playing' %>
+                        <%= render 'shared/leagues/bl_playing' %>
+                        <%= render 'shared/leagues/seria_a_playing' %>
+                        <%= render 'shared/leagues/sp_playing' %>
+                        
+                        <%= render 'shared/leagues/apl_will_play' %>
+                        <%= render 'shared/leagues/bl_will_play' %>
+                        <%= render 'shared/leagues/seria_a_will_play' %>
+                        <%= render 'shared/leagues/sp_will_play' %>
+                        
+                        <%= render 'shared/leagues/apl_played' %>
+                        <%= render 'shared/leagues/bl_played' %>
+                        <%= render 'shared/leagues/seria_a_played' %>
+                        <%= render 'shared/leagues/sp_played' %>
+    
+                        <%= render 'shared/leagues/chempions_league_played' %>
+                        <%= render 'shared/leagues/chempions_league_playing' %>
+                        <%= render 'shared/leagues/chempions_league_will_play' %>
                     </table>
+                    
                 </div>
             
         </div>
@@ -56,4 +36,6 @@
     
         
 </div>
-       
+ 
+
+
