@@ -11,7 +11,6 @@
 
 <% @response_bundes_liga['fixtures'].each do |team| %>
     <% if team['date'].to_time.strftime('%d %b %Y') == (Time.zone.now.to_time-1.day+3.hour).strftime('%d %b %Y') %>
-    <tr><td>Вчера</td><td></td><td></td><td></td><td></td></tr>
     <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
         <td><%= team_translater(team['homeTeamName']) %></td>
         <td><i class="<%= show_team_icon(team['homeTeamName']) %> icon-small"></i></td>
