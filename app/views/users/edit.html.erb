@@ -19,7 +19,7 @@
     
     <div class="form-group">
       <%= f.label :team, "Выберите ваш любимый клуб АПЛ" %>
-      <%= f.select :team, options_for_select(select_team), {:include_blank => change_blank(current_user)}, { class: "form-control" } %>
+      <%= f.select :team, options_for_select(select_team), {:include_blank => "Выбрать клуб"}, { class: "selectpicker", "data-live-search"=>"true" } %>
     </div>
   
     <div class="actions">
@@ -46,7 +46,8 @@
 
               reader.readAsDataURL(input.files[0]);
             }
-        }
+          }
+          $('.selectpicker').selectpicker({});
 
 </script>
     <!--/ image preview end-->
