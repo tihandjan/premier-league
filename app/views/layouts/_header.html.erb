@@ -8,12 +8,12 @@
         <% if signed_in? %>
           <li>
             <% if current_user && current_user.avatar.presence %>
-                <%= image_tag current_user.avatar.url(:thumb), :style => "height: 50px;" %>
+                <%= image_tag current_user.avatar.url(:thumb), :style => "height: 40px;" %>
             <% else %>
               <% if current_user && current_user.avatarc.presence %>
-                <%= image_tag current_user.avatarc, :style => "height: 50px;" %>
+                <%= image_tag current_user.avatarc, :style => "height: 40px;" %>
                 <% else %>
-                  <img src="/images/default-avatar.png" alt="foto" style="height: 50px;" />
+                  <img src="/images/default-avatar.png" alt="foto" style="height: 40px;" />
               <% end %>
             <% end %>
           </li>
@@ -39,6 +39,16 @@
   <div class="container-fluid container-fluid-custom-second">
     <a href="<%= root_path %>"><div class="col-xs-2 col-sm-1 text-center main-link"><div class="main-el">EL</div><div>Главная</div></div></a>
     <div class="col-xs-10 col-sm-11 menu-item">
+
+      
+<a href="#"><div class="league league-col-big"><div><i class="sprite_header sprite-chempions_league" style="margin: 0 auto;"></i></div><div>Лига Чемпионов</div></div></a>
+      <a href="#"><div class="league league-col"><div><i class="sprite_header sprite-apl" style="margin: 0 auto;"></i></div><div>Англия</div></div></a>
+      <a href="#"><div class="league league-col"><div><i class="sprite_header sprite-primera" style="margin: 0 auto;"></i></div><div>Испания</div></div></a>
+      <a href="#"><div class="league league-col"><div><i class="sprite_header sprite-bl" style="margin: 0 auto;"></i></div><div>Германия</div></div></a>
+      <a href="#"><div class="league league-col"><div><i class="sprite_header sprite-seria_a" style="margin: 0 auto;"></i></div><div>Италия</div></div></a>
+     <a href="#"> <div class="league league-col"><div><i class="sprite_header sprite-book" style="margin: 0 auto;"></i></div><div>Читать</div></div></a>
+      <a href="#"><div class="league league-col"><div><i class="sprite_header sprite-play" style="margin: 0 auto;"></i></div><div>Смотреть</div></div></a>
+ 
       
     </div>
   </div>

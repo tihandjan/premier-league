@@ -106,7 +106,7 @@ module MainHelper
             ["Atalanta BC", "Аталанта"],
             ["SS Lazio", "Лацио"],
             
-            ["Málaga CF" "Малага",],
+            ["Málaga CF", "Малага"],
             ["CA Osasuna", "Осасуна"],
             ["RC Deportivo La Coruna", "Депор К"],
             ["SD Eibar", "Эйбар"],
@@ -218,7 +218,7 @@ module MainHelper
             ["Atalanta BC", "Аталанта"],
             ["SS Lazio", "Лацио"],
             
-            ["Málaga CF" "Малага",],
+            ["Málaga CF", "Малага"],
             ["CA Osasuna", "Осасуна"],
             ["RC Deportivo La Coruna", "Депортиво К"],
             ["SD Eibar", "Эйбар"],
@@ -309,7 +309,7 @@ module MainHelper
             ["Red Bull Leipzig", "Лейпциг",          "sprite sprite-Leipzig"],
 
             ["AS Roma", "Рома",                      "sprite sprite-roma"],
-            ["Udinese Calcio",                       "Удинезе", "sprite sprite-udineze"],
+            ["Udinese Calcio", "Удинезе",           "sprite sprite-udineze"],
             ["Juventus Turin", "Ювентус",            "sprite sprite-juventus"],
             ["ACF Fiorentina", "Фиорентина",         "sprite sprite-fiorentina"],
             ["AC Milan", "Милан",                    "sprite sprite-milan"],
@@ -329,7 +329,7 @@ module MainHelper
             ["Atalanta BC", "Аталанта",              "sprite sprite-atalanta"],
             ["SS Lazio", "Лацио",                    "sprite sprite-lazio"],
             
-            ["Málaga CF" "Малага",                   "sprite sprite-malaga"],
+            ["Málaga CF", "Малага",                  "sprite sprite-malaga"],
             ["CA Osasuna", "Осасуна",                "sprite sprite-ossasuna"],
             ["RC Deportivo La Coruna", "Депортиво К","sprite sprite-deportivo"],
             ["SD Eibar", "Эйбар",                    "sprite sprite-eibar"],
