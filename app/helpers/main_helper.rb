@@ -2,11 +2,21 @@ module MainHelper
     
     def select_team
         [
+            ["FC Barcelona", "Барселона"],
             ["Manchester United FC", "Манчестер Юнайтед"],
+            ["Real Madrid CF", "Реал М"],
+            ["FC Bayern München", "Бавария"],
+            ["Juventus Turin", "Ювентус"],
+            ["Manchester City FC", "Манчестер Сити"],
             ["Arsenal FC", "Арсенал"],
             ["Chelsea FC", "Челси"],
-            ["Manchester City FC", "Манчестер Сити"],
             ["Liverpool FC", "Ливерпуль"],
+            ["AC Milan", "Милан"],
+            ["Club Atlético de Madrid", "Атлетико"],
+            ["Borussia Dortmund", "Боруссия Д"],
+            ["SSC Napoli", "Наполи"],
+            ["FC Internazionale Milano", "Интер"],
+            ["AS Roma", "Рома"],
             ["Tottenham Hotspur FC", "Тоттенхем"],
             ["Leicester City FC", "Лестер"],
             ["Everton FC", "Эвертон"],
@@ -23,8 +33,6 @@ module MainHelper
             ["Middlesbrough FC", "Миддлсбро"],
             ["Stoke City FC", "Сток Сити"],
             
-            ["FC Bayern München", "Бавария"],
-            ["Borussia Dortmund", "Боруссия Д"],
             ["FC Schalke 04", "Шальке 04"],
             ["Bayer Leverkusen", "Байер"],
             ["Werder Bremen", "Вердер"],
@@ -42,11 +50,6 @@ module MainHelper
             ["TSG 1899 Hoffenheim", "Хоффенхайм"],
             ["Red Bull Leipzig", "Лейпциг"],
 
-            ["Juventus Turin", "Ювентус"],
-            ["AC Milan", "Милан"],
-            ["SSC Napoli", "Наполи"],
-            ["FC Internazionale Milano", "Интер"],
-            ["AS Roma", "Рома"],
             ["SS Lazio", "Лацио"],
             ["Udinese Calcio", "Удинезе"],
             ["ACF Fiorentina", "Фиорентина"],
@@ -63,9 +66,6 @@ module MainHelper
             ["Pescara Calcio", "Пескара"],
             ["Atalanta BC", "Аталанта"],
             
-            ["FC Barcelona", "Барселона"],
-            ["Real Madrid CF", "Реал М"],
-            ["Club Atlético de Madrid", "Атлетико"],
             ["Sevilla FC", "Севилья"],
             ["Valencia CF", "Валенсия"],
             ["Villarreal CF", "Вильяреал"],
@@ -84,24 +84,6 @@ module MainHelper
             ["CD Leganes", "Леганес"],
             ["UD Las Palmas", "Лас-Пальмас"]
         ].map{ |team_en, team_ru| [team_ru, team_en] }
-    end
-    
-    def change_blank current_user
-        current_user.team.blank? ? "Выберите команду" : "Поменять команду"
-    end
-    
-    def display_team_if_choosen current_user
-        if current_user.team.presence
-            "<img src='http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg' width='60px' />" + "<div><i>#{current_user.team}</i></div>"
-        end
-    end
-    
-    def time_or_result status, result1, result2, time
-        if status == 'FINISHED' || status == "IN_PLAY"
-            result1.to_s + " - " + result2.to_s
-        else
-            time
-        end
     end
     
     def team_translater team
@@ -210,8 +192,6 @@ module MainHelper
        ].each do |team_en_ru| 
             if team_en_ru[0] == team
                 return team_en_ru[1]
-            else
-                team
             end
         end
     end
@@ -281,19 +261,19 @@ module MainHelper
             
             ["Málaga CF", "Малага"],
             ["CA Osasuna", "Осасуна"],
-            ["RC Deportivo La Coruna", "Депортиво К"],
+            ["RC Deportivo La Coruna", "Депортиво Коруна"],
             ["SD Eibar", "Эйбар"],
             ["FC Barcelona", "Барселона"],
-            ["Real Betis", "Реал Б"],
+            ["Real Betis", "Реал Бетис"],
             ["Granada CF", "Гранада"],
             ["Villarreal CF", "Вильяреал"],
             ["Sevilla FC", "Севилья"],
             ["RCD Espanyol", "Эспаньол"],
-            ["Sporting Gijón", "Спортинг"],
+            ["Sporting Gijón", "Спортинг Хихон"],
             ["Athletic Club", "Атлетик"],
-            ["Real Sociedad de Fútbol", "Реал С"],
-            ["Real Madrid CF", "Реал М"],
-            ["Club Atlético de Madrid", "Атлетико"],
+            ["Real Sociedad de Fútbol", "Реал Сосьедад"],
+            ["Real Madrid CF", "Реал Мадрид"],
+            ["Club Atlético de Madrid", "Атлетико Мадрид"],
             ["Deportivo Alavés", "Депортиво А"],
             ["RC Celta de Vigo", "Сельта"],
             ["CD Leganes", "Леганес"],
@@ -321,8 +301,6 @@ module MainHelper
         ].each do |team_en_ru| 
             if team_en_ru[0] == team
                 return team_en_ru[1]
-            else
-                team
             end
         end
     end
@@ -437,7 +415,7 @@ module MainHelper
     end
     
     def in_play_or_finished status
-        if status == "IN_PLAY"
+        if status == "IN_PLAY" 
             '#e90052'
         elsif status == "FINISHED"
             '#243843'
@@ -445,7 +423,7 @@ module MainHelper
     end
     
     def show_match_day team
-        if team['date'].to_time.strftime('%d %b %Y') == (Time.now.to_time).strftime('%d %b %Y')
+        if team['date'].to_time.strftime('%d %b %Y') == (Time.current.to_time+3.hour).strftime('%d %b %Y')
             team['matchday']
         end
     end
@@ -455,6 +433,30 @@ module MainHelper
             'tr_second'
         else
             'tr_first'
+        end
+    end
+    
+    def change_blank current_user
+        current_user.team.blank? ? "Выберите команду" : "Поменять команду"
+    end
+    
+    def display_team_if_choosen current_user
+        if current_user.team.presence
+            "<img src='http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg' width='60px' />" + "<div><i>#{current_user.team}</i></div>"
+        end
+    end
+    
+    def time_or_result status, result1, result2, time
+        if status == 'FINISHED' || status == "IN_PLAY"
+            result1.to_s + " - " + result2.to_s
+        else
+            time
+        end
+    end
+    
+    def show_date_of_the_game team
+        if team['date'].to_time >= Time.current.to_time
+            "<tr><td><i>#{Russian::strftime(team['date'].to_time, '%d %b')}</i></td><td></td><td></td><td></td><td></td></tr>"
         end
     end
     

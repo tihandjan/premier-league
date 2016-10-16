@@ -11,6 +11,7 @@
     src: font-url('/assets/PT_Sans-Web-Regular.ttf') format('truetype');
 }
 
+
 body {
     // background: url("/images/bg/bg.jpg") no-repeat;
     font-family: 'PT Sans Regular';
@@ -109,6 +110,12 @@ hr {
                 padding: 6px 0;
                 vertical-align: middle;
                 border-top: none;
+                &:first-child {
+                    width: 100px;    
+                }
+                &:last-child {
+                    width: 100px;    
+                }
             }
         }
     }

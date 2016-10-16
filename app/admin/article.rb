@@ -12,7 +12,7 @@ permit_params :category, :title, :summary, :description, :picture, :source, :tea
         inputs 'Article' do
           input :source
           input :category, as: :select, collection: ['news', 'article'], selected: 'news'
-          input :team, as: :select, collection: select_team
+          input :team, as: :select, collection: select_team 
           input :picture, as: :file
           input :title
           input :summary
