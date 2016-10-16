@@ -12,7 +12,8 @@ class Article < ActiveRecord::Base
     
     scope :all_except, ->(article) { where.not(id: article) }
     
-    scope :my_team_news, ->(current_user) { order('created_at DESC').where(team: current_user.team, category: 'news').first(5) }
+    scope :my_team_news, ->(current_user) { order('created_at DESC').where(team: current_user.team, category: 'news').first(4) }
+    
     
     def to_param
       "#{id} #{title}".parameterize

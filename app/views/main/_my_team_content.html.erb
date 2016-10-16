@@ -1,24 +1,30 @@
 
 <% if current_user && current_user.team.presence %>
-<i class="<%= show_team_icon(current_user.team) %> icon-big"></i>
-<div><i><%= current_user.team %></i></div>
+<i style="margin: 0 auto;" class="<%= show_team_icon(current_user.team) %>"></i>
+<div><b><%= current_user.team %></b></div>
 <% end %>
-<!--<div><i>Последние матчи</i></div>-->
-<% 5.times do %>
-<!--<a class="a-onlain" href="#">-->
-<!--    <div class="table">-->
-<!--        <table class="table">-->
-<!--            <tr>-->
-<!--                <td>MU_FC</td>-->
-<!--                <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>-->
-<!--                <td class="time">21-30</td>-->
-<!--                <td><img src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg" width="20px" /></td>-->
-<!--                <td>MU_FC</td>-->
-<!--            </tr>-->
-<!--        </table>-->
-<!--    </div>-->
-<!--</a>-->
-<% end %>
+ 
+
+<div class="panel-body" id="match-today">
+    <div class="table">
+        <table class="table">
+            <% if @my_team_results = Team.my_team_results(current_user) %>
+                <% @my_team_results['fixtures'].reverse_each do |team| %>
+                    <% if (Time.zone.now.to_time-24.day..Time.zone.now.to_time+7.day).cover?(team['date'].to_time) %>
+                        <%= raw(show_date_of_the_game team) %>
+                        <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
+                            <td><%= team_translater(team['homeTeamName']) %></td>
+                            <td><i class="<%= show_team_icon(team['homeTeamName']) %> icon-small"></i></td>
+                            <td class="time"><div style="background:<%= in_play_or_finished(team['status']) %>" class="score_or_time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></div></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
+                            <td><i class="<%= show_team_icon(team['awayTeamName']) %> icon-small"></i></td>
+                            <td><%= team_translater(team['awayTeamName']) %></td>
+                        </tr>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </table>
+    </div>
+</div>
 
 <div class="list-group">
     
@@ -34,3 +40,4 @@
     <% end %>
     
 </div>
+
