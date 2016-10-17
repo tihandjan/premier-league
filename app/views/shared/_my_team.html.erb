@@ -1,14 +1,36 @@
 <div class="panel panel-default row-onlain"> 
     <div class="panel-heading"> 
-        <h3 class="panel-title text-left">Моя команда<i class="hide-show" onclick="$('#my-team').stop().slideToggle('slow');">Скрыть</i></h3> 
+        <h3 class="panel-title text-left">Моя команда</h3> 
     </div> 
     <div class="panel-body my-team" id="my-team">
         
         <% if user_signed_in? %>
-            <%= form_for current_user, url: change_my_team_path, method: :put, remote: true do |f| %>
+            <%= form_for current_user, url: change_my_team_path, method: :put, remote: true, id: "my-team-form" do |f| %>
                 <div class="form-group text-center">
                   <%= f.label :team, "Новости вашего клуба" %>
-                  <%= f.select :team, options_for_select(select_team), {:include_blank => change_blank(current_user)}, {:onchange=>"$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>
+                  <div class="countries">
+                      <select class="selectpicker" id="country" onchange="changeCountry();">
+                          <option value="england" data-icon="select-box-sprite sprite_header sprite-england_another">Выбрать лигу</option>
+                          <option value="england" data-icon="select-box-sprite sprite_header sprite-england_another">Англия</option>
+                          <option value="spain" data-icon="select-box-sprite sprite_header sprite-spain">Испания</option>
+                          <option value="germany" data-icon="select-box-sprite sprite_header sprite-germany">Германия</option>
+                          <option value="italy" data-icon="select-box-sprite sprite_header sprite-italy">Италия</option>
+                      </select>
+                  </div>
+                  <div class="countries" id="england">
+                      <%= f.select :team, options_for_select(select_apl_teams), {:include_blank => change_blank(current_user)}, {:onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>
+                  </div> 
+                  <div class="countries" id="spain">
+                      <%= f.select :team, options_for_select(select_laliga_teams), {:include_blank => change_blank(current_user)}, {:onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>
+                  </div>
+                  <div class="countries" id="italy">
+                      <%= f.select :team, options_for_select(select_seria_teams), {:include_blank => change_blank(current_user)}, {:onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>
+                  </div>
+                  <div class="countries" id="germany">
+                      <%= f.select :team, options_for_select(select_bundesliga_teams), {:include_blank => change_blank(current_user)}, {:onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>
+                      <%= f.hidden_field :team, class: "hidden-team-field" %>
+                  </div>
+
                 </div>
             <% end %>
          
@@ -39,4 +61,19 @@
         size: 10
      });
       
+     (function(){
+         $('.countries').hide();
+         var country = $('#country').val();
+         $('#' + country).show();
+         
+         
+     })();
+     
+     function changeCountry(){
+         $('.countries').hide();
+         var country = $('#country').val();
+         $('#' + country).show();
+     }
+     
+     
 </script>
