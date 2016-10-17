@@ -75,6 +75,23 @@ hr {
 
 .row-onlain {
     text-align: center;
+    .match-toggle {
+        padding: 8px 0;
+        &:nth-child(2) {
+            span {
+                background: #33383c;
+                color: #FFF;    
+            }
+        }
+        span {
+            padding: 4px 15px;
+            &:hover {
+                cursor: pointer;
+                background: #33383c;
+                color: #FFF;
+            }
+        }
+    }
     .a-onlain {
         cursor: pointer;
         &:hover {
