@@ -666,14 +666,13 @@ hr {
 
 // my team start
 .my-team {
-    select {
-        -webkit-border-radius: 20px;
-        -moz-border-radius: 20px;
-        border-radius: 20px;
-        width: 80%;
-        height: 30px;
-        margin: 0 auto;
+    .select-box-sprite {
+        margin-left: 0;
+        margin-right: 6px;
+        float: left;
+        top: -1px;
     }
+
     label {
         margin-top: 10px;
     }
