@@ -83,12 +83,56 @@
                 .sprite_hover {
                     display: none;
                 }
+                .chemp-leag {
+                    min-width: 105px;
+                }
             }
             .league-col {
                 width: 14%;
             }
             .league-col-big {
                 width: 16%;
+            }
+        }
+        .bar-icon {
+                position: relative;
+                float: right;
+                margin-right: 15px;
+                padding: 6px 10px;
+                margin-top: 27px;
+                margin-bottom: 8px;
+                border-radius: 4px;
+                border: 1px solid #FFF;
+                display: none;
+                &:hover {
+                    background: #2a4951;
+                    cursor: pointer;
+                }
+            .fa-bars {
+                color: #FFF;
+                font-size: 20px;
+            }
+        }
+        .dropdown-menu {
+            border: none;
+            border-top: 4px solid #69a6a6;
+            border-radius: 0 0 3px 3px;
+            margin-top: 91px;
+            width: 200px;
+            li {
+                a {
+                    &:hover {
+                        background: #69a6a6;
+                        color: #FFF;
+                    }
+                }
+            }
+        }
+        .dropdown {
+            &:hover {
+                .dropdown-menu {
+                    display: block;
+                }
             }
         }
     }
@@ -106,6 +150,14 @@
                 .main-logo {
                     right: -25%;
                 }
+            }
+        }
+        .container-fluid-custom-second {
+            .menu-item {
+                display: none;
+            }
+            .bar-icon {
+                display: block;
             }
         }
     }
