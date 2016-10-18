@@ -7,10 +7,9 @@
         <% if user_signed_in? %>
             <%= form_for current_user, url: change_my_team_path, method: :put, remote: true, id: "my-team-form" do |f| %>
                 <div class="form-group text-center">
-                  <%= f.label :team, "Новости вашего клуба" %>
-                  <div class="countries">
+                  <div class="select-league">
                       <select class="selectpicker" id="country" onchange="changeCountry();">
-                          <option value="england" data-icon="select-box-sprite sprite_header sprite-england_another">Выбрать лигу</option>
+                          <option value="england">Выбрать лигу</option>
                           <option value="england" data-icon="select-box-sprite sprite_header sprite-england_another">Англия</option>
                           <option value="spain" data-icon="select-box-sprite sprite_header sprite-spain">Испания</option>
                           <option value="germany" data-icon="select-box-sprite sprite_header sprite-germany">Германия</option>
@@ -36,6 +35,8 @@
          
             <div id="my-team-content"><%= render 'main/my_team_content' %></div>
         <% else %>
+            <label>Здеть будут новости вашего клуба</label>
+            <hr/>
             <div class="text-center">Войти с помощью</div>
             <div class="btn-group btn-group-justified" role="group" aria-label="...">
                 <div class="btn-group" role="group">
