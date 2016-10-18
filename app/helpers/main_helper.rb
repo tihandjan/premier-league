@@ -456,7 +456,7 @@ module MainHelper
     
     def show_date_of_the_game team
         if team['date'].to_time >= Time.current.to_time
-            "<tr><td><i>#{Russian::strftime(team['date'].to_time, '%d %b')}</i></td><td></td><td></td><td></td><td></td></tr>"
+            "<tr><td><i>#{Russian::strftime(team['date'].to_time, '%A %d %b')}</i></td><td></td><td></td><td></td><td></td></tr>"
         end
     end
     
