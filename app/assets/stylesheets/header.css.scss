@@ -28,6 +28,7 @@
                 right: -15%;
                 a {
                     text-decoration: none;
+                    color: #33383c;
                 }
             }
         }
@@ -43,115 +44,14 @@
                 }
             }
         }
-    }
-    .container-fluid-custom-second {
-        padding-left: 0;
-        padding-right: 0;
-        background: #33383c;
-        .main-link {
-            background: #292f32;
-            padding: 20px 5px;
-            color: #FFF;
-            &:hover {
-                color: #4d4d4d;
-            }
-            .main-el {
-                font-size: 22px;
-            }
-        }
-        .menu-item {
-            padding-left: 0;
-            padding-right: 0;
-            .league {
-                float: left;
-                position: relative;
-                color: #FFF;
-                text-align: center;
-                padding: 51px 0 20px;
-                &:hover {
-                    background: #292f32;
-                    .sprite_hover {
-                        display: block;
-                    }
-                }
-                i {
-                    margin: 0 auto;
-                    position: absolute;
-                        top: 18px;
-                        left: 39%;
-                }
-                .sprite_hover {
-                    display: none;
-                }
-                .chemp-leag {
-                    min-width: 105px;
-                }
-            }
-            .league-col {
-                width: 14%;
-            }
-            .league-col-big {
-                width: 16%;
-            }
-        }
-        .bar-icon {
-                position: relative;
-                float: right;
-                margin-right: 15px;
-                padding: 6px 10px;
-                margin-top: 27px;
-                margin-bottom: 8px;
-                border-radius: 4px;
-                border: 1px solid #FFF;
-                display: none;
-                &:hover {
-                    background: #2a4951;
-                    cursor: pointer;
-                }
-            .fa-bars {
-                color: #FFF;
-                font-size: 20px;
-            }
-        }
-        .dropdown-menu {
-            border: none;
-            border-top: 4px solid #69a6a6;
-            border-radius: 0 0 3px 3px;
-            margin-top: 91px;
-            width: 200px;
-            li {
-                a {
-                    &:hover {
-                        background: #69a6a6;
-                        color: #FFF;
-                    }
-                }
-            }
-        }
-        .dropdown {
-            &:hover {
-                .dropdown-menu {
-                    display: block;
-                }
-            }
+        .nav-pills {
+            position: absolute;
+            top: 13px;
+            right: 10px;
         }
     }
-
-
-
-@media only screen and (min-width: 768px){
     
-    .navbar-nav {
-    width: 100%;
-    text-align: center;
-    }
-    .navbar-nav > li {
-    display: table-cell;
-    width: 9%;
-    float: none;
-    }
-}
-
+////////////////////////////////////////////
 
 .header-second {
     .navbar {
@@ -171,7 +71,7 @@
                             margin: 0 auto;
                             position: absolute;
                             bottom: 23px;
-                            left: 36%;
+                            left: 38%;
                         }
                         .sprite_hover {
                             display: none;
@@ -247,9 +147,61 @@
     }
 }
 
+/////////////////////////////////////////
 
-.nav-pills {
-    position: absolute;
-    top: 13px;
-    right: 10px;
+@media only screen and (min-width: 768px){
+    
+    .navbar-nav {
+    width: 100%;
+    text-align: center;
+    }
+    .navbar-nav > li {
+    display: table-cell;
+    width: 9%;
+    float: none;
+    }
+    
+
 }
+
+@media only screen and (max-width: 767px) {
+    .header-second {
+        .navbar {
+            .container-fluid {
+                .navbar-nav {
+                    .dropdown {
+                        float: none !important;
+                        .dropdown-toggle {
+                            margin-left: 85px;
+                            &:hover {
+                                background-color: #33383c;
+                            }
+                        }
+                    }
+                    .league {
+                        .sprite_header {
+                            bottom: -5px !important;
+                            left: -50px !important;
+                        }
+                    }
+                    &:last-child {
+                        .glyphicon {
+                            top: -4px !important;
+                            left: -45px !important;
+                        }
+                    }
+                    .dropdown {
+                        &:hover {
+                            .dropdown-menu {
+                                display: none !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
