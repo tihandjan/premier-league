@@ -1,7 +1,15 @@
 <div class="row row-table hidden-xs">
     <div class="panel panel-default">
       <!-- Default panel contents -->
-        <div class="panel-heading">Premier League</div>
+        <div class="panel-heading">
+            <select class="table-select" id="league-table" onchange="changeTable();">
+                <option value="england-table">Английская Премьер Лига</option>
+                <option value="spain-table">Ла Лига</option>
+                <option value="germany-table">Бундеслига</option>
+                <option value="italy-table">Серия А</option>
+            </select>
+
+        </div>
       
         <div class="panel-body">
       <!-- Table -->
@@ -24,10 +32,11 @@
                     <th>Очков</th>
                 </tr>
             </thead>
-            <tbody class="text-center">
+            
+            <tbody class="text-center league-tables" id="england-table">
                 <% @number = 0 %>
                 <% @response_table['standing'].each do |team| %>
-                <tr class="<%= change_row_color @number %>">
+                <tr class="<%= change_row_color @number %>" style="background: <%= '#69a6a6' if current_user && current_user.team.presence && current_user.team == team['teamName'] %>">
                     <td class="team-number"><%= @number += 1 %></td>
                     <td class="team-icon"><i class="<%= show_team_icon(team['teamName']) %> icon-table"></i></td>
                     <td class="team-name"><%= full_team_translater(team['teamName']) %></td>
@@ -45,7 +54,87 @@
                 </tr>
                 <% end %>
             </tbody>
+            
+            <tbody class="text-center league-tables" id="spain-table">
+                <% @number = 0 %>
+                <% @response_table_pl_sp['standing'].each do |team| %>
+                <tr class="<%= change_row_color @number %>"style="background: <%= '#69a6a6' if current_user && current_user.team.presence && current_user.team == team['teamName'] %>">
+                    <td class="team-number"><%= @number += 1 %></td>
+                    <td class="team-icon"><i class="<%= show_team_icon(team['teamName']) %> icon-table"></i></td>
+                    <td class="team-name"><%= full_team_translater(team['teamName']) %></td>
+                    <td></td>
+                    <td></td>
+                    <td class="team-td"><%= team['playedGames'] %></td>
+                    <td class="team-td"><%= team['wins'] %></td>
+                    <td class="team-td"><%= team['draws'] %></td>
+                    <td class="team-td"><%= team['losses'] %></td>
+                    <td class="team-td"><%= team['goals'] %></td>
+                    <td class="team-td"><%= team['goalsAgainst'] %></td>
+                    <td class="team-td"><%= team['goalDifference'] %></td>
+                    <td></td>
+                    <td class="team-score"><b><%= team['points'] %></b></td>
+                </tr>
+                <% end %>
+            </tbody>
+            
+            <tbody class="text-center league-tables" id="germany-table">
+                <% @number = 0 %>
+                <% @response_table_bundes_liga['standing'].each do |team| %>
+                <tr class="<%= change_row_color @number %>"style="background: <%= '#69a6a6' if current_user && current_user.team.presence && current_user.team == team['teamName'] %>">
+                    <td class="team-number"><%= @number += 1 %></td>
+                    <td class="team-icon"><i class="<%= show_team_icon(team['teamName']) %> icon-table"></i></td>
+                    <td class="team-name"><%= full_team_translater(team['teamName']) %></td>
+                    <td></td>
+                    <td></td>
+                    <td class="team-td"><%= team['playedGames'] %></td>
+                    <td class="team-td"><%= team['wins'] %></td>
+                    <td class="team-td"><%= team['draws'] %></td>
+                    <td class="team-td"><%= team['losses'] %></td>
+                    <td class="team-td"><%= team['goals'] %></td>
+                    <td class="team-td"><%= team['goalsAgainst'] %></td>
+                    <td class="team-td"><%= team['goalDifference'] %></td>
+                    <td></td>
+                    <td class="team-score"><b><%= team['points'] %></b></td>
+                </tr>
+                <% end %>
+            </tbody>
+            
+            <tbody class="text-center league-tables" id="italy-table">
+                <% @number = 0 %>
+                <% @response_table_seria_a['standing'].each do |team| %>
+                <tr class="<%= change_row_color @number %>"style="background: <%= '#69a6a6' if current_user && current_user.team.presence && current_user.team == team['teamName'] %>">
+                    <td class="team-number"><%= @number += 1 %></td>
+                    <td class="team-icon"><i class="<%= show_team_icon(team['teamName']) %> icon-table"></i></td>
+                    <td class="team-name"><%= full_team_translater(team['teamName']) %></td>
+                    <td></td>
+                    <td></td>
+                    <td class="team-td"><%= team['playedGames'] %></td>
+                    <td class="team-td"><%= team['wins'] %></td>
+                    <td class="team-td"><%= team['draws'] %></td>
+                    <td class="team-td"><%= team['losses'] %></td>
+                    <td class="team-td"><%= team['goals'] %></td>
+                    <td class="team-td"><%= team['goalsAgainst'] %></td>
+                    <td class="team-td"><%= team['goalDifference'] %></td>
+                    <td></td>
+                    <td class="team-score"><b><%= team['points'] %></b></td>
+                </tr>
+                <% end %>
+            </tbody>
+            
         </table>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    (function(){
+        var league = $('#league-table').val();
+        $('#' + league).show();
+    })();
+    
+    function changeTable(){
+        $('.league-tables').hide();
+        var league = $('#league-table').val();
+        $('#' + league).show();
+    }
+</script>
