@@ -53,11 +53,22 @@
     
 ////////////////////////////////////////////
 
-.header-second {
     .navbar {
         background-color: #33383c;
         border-radius: 0;
         border: none;
+        position: relative;
+        .main-for-mobile {
+            position: absolute;
+            display: none;
+            left: 20px;
+            top: 20px;
+            color: #9fa0a0;
+            text-decoration: none;
+            &:hover {
+                color: #FFF;
+            }
+        }
         .container-fluid {
             padding-left: 0;
             .navbar-collapse {
@@ -145,7 +156,6 @@
             }
         }   
     }
-}
 
 /////////////////////////////////////////
 
@@ -165,36 +175,38 @@
 }
 
 @media only screen and (max-width: 767px) {
-    .header-second {
-        .navbar {
-            .container-fluid {
-                .navbar-nav {
-                    .dropdown {
-                        float: none !important;
-                        .dropdown-toggle {
-                            margin-left: 85px;
-                            &:hover {
-                                background-color: #33383c;
-                            }
-                        }
-                    }
-                    .league {
-                        .sprite_header {
-                            bottom: -5px !important;
-                            left: -50px !important;
-                        }
-                    }
-                    &:last-child {
-                        .glyphicon {
-                            top: -4px !important;
-                            left: -45px !important;
-                        }
-                    }
-                    .dropdown {
+
+    .navbar {
+        .main-for-mobile {
+            display: block;
+        }
+        .container-fluid {
+            .navbar-nav {
+                .dropdown {
+                    float: none !important;
+                    .dropdown-toggle {
+                        margin-left: 85px;
                         &:hover {
-                            .dropdown-menu {
-                                display: none !important;
-                            }
+                            background-color: #33383c;
+                        }
+                    }
+                }
+                .league {
+                    .sprite_header {
+                        bottom: -5px !important;
+                        left: -50px !important;
+                    }
+                }
+                &:last-child {
+                    .glyphicon {
+                        top: -4px !important;
+                        left: -45px !important;
+                    }
+                }
+                .dropdown {
+                    &:hover {
+                        .dropdown-menu {
+                            display: none !important;
                         }
                     }
                 }
@@ -202,6 +214,7 @@
         }
     }
 }
+
 
 
 

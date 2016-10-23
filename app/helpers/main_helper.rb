@@ -106,7 +106,7 @@ module MainHelper
             ["Burnley FC", "Бернли"],
             ["Hull City FC", "Хал Сити"],
             ["AFC Bournemouth", "Борнмут"],
-            ["Middlesbrough FC", "Мидлсбро"],
+            ["Middlesbrough FC", "Мидлсбр"],
             ["Stoke City FC", "Сток Сити"],
             
             ["FC Bayern München", "Бавария"],
@@ -120,7 +120,7 @@ module MainHelper
             ["Hamburger SV", "Гамбург"],
             ["FC Ingolstadt 04", "Ингольш"],
             ["1. FC Köln", "Кельн"],
-            ["SV Darmstadt 98", "Дармштадт"],
+            ["SV Darmstadt 98", "Дармшт"],
             ["Bor. Mönchengladbach", "Борус М"],
             ["Bayer Leverkusen", "Байер"],
             ["Hertha BSC", "Герта"],
