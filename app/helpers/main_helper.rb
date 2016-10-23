@@ -127,6 +127,7 @@ module MainHelper
             ["SC Freiburg", "Фрайбург"],
             ["TSG 1899 Hoffenheim", "Хоффенх"],
             ["Red Bull Leipzig", "Лейпциг"],
+            ["1. FC Union Berlin", "Берлин"],
 
             ["AS Roma", "Рома"],
             ["Udinese Calcio", "Удинезе"],
@@ -194,6 +195,7 @@ module MainHelper
                 return team_en_ru[1]
             end
         end
+        return team
     end
     
     def full_team_translater team
