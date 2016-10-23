@@ -305,6 +305,7 @@ module MainHelper
                 return team_en_ru[1]
             end
         end
+        return team
     end
     
     def show_team_icon team
@@ -414,6 +415,7 @@ module MainHelper
                 return team_en_ru[2]
             end
         end
+        return "sprite sprite-default_icon"
     end
     
     def in_play_or_finished status
