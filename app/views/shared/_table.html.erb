@@ -7,6 +7,7 @@
                     <option data-icon="select-box-sprite sprite_header sprite-spain" value="spain-table">Ла Лига</option>
                     <option data-icon="select-box-sprite sprite_header sprite-germany" value="germany-table">Бундеслига</option>
                     <option data-icon="select-box-sprite sprite_header sprite-italy" value="italy-table">Серия А</option>
+                    <option data-icon="select-box-sprite sprite_header sprite-europe" value="euro-table">Лига Чемпионов</option>
                 </select>
         </div>
       
@@ -111,6 +112,289 @@
                     <td class="team-td"><%= team['wins'] %></td>
                     <td class="team-td"><%= team['draws'] %></td>
                     <td class="team-td"><%= team['losses'] %></td>
+                    <td class="team-td"><%= team['goals'] %></td>
+                    <td class="team-td"><%= team['goalsAgainst'] %></td>
+                    <td class="team-td"><%= team['goalDifference'] %></td>
+                    <td></td>
+                    <td class="team-score"><b><%= team['points'] %></b></td>
+                </tr>
+                <% end %>
+            </tbody>
+            
+            <tbody class="text-center league-tables" id="euro-table">
+                <tr class="chempleag-devider">
+                    <td class="chempleag-column">A</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <% @number = 0 %>
+                <% @response_table_chemp_liga['standings']['A'].each do |team| %>
+                <tr class="<%= change_row_color @number %>">
+                    <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
+                    <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
+                    <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                    <td></td>
+                    <td></td>
+                    <td class="team-td"><%= team['playedGames'] %></td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
+                    <td class="team-td"><%= team['goals'] %></td>
+                    <td class="team-td"><%= team['goalsAgainst'] %></td>
+                    <td class="team-td"><%= team['goalDifference'] %></td>
+                    <td></td>
+                    <td class="team-score"><b><%= team['points'] %></b></td>
+                </tr>
+                <% end %>
+                
+                <tr class="chempleag-devider">
+                    <td class="chempleag-column">B</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <% @response_table_chemp_liga['standings']['B'].each do |team| %>
+                <tr class="<%= change_row_color @number %>">
+                    <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
+                    <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
+                    <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                    <td></td>
+                    <td></td>
+                    <td class="team-td"><%= team['playedGames'] %></td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
+                    <td class="team-td"><%= team['goals'] %></td>
+                    <td class="team-td"><%= team['goalsAgainst'] %></td>
+                    <td class="team-td"><%= team['goalDifference'] %></td>
+                    <td></td>
+                    <td class="team-score"><b><%= team['points'] %></b></td>
+                </tr>
+                <% end %>
+                
+                <tr class="chempleag-devider">
+                    <td class="chempleag-column">C</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <% @response_table_chemp_liga['standings']['C'].each do |team| %>
+                <tr class="<%= change_row_color @number %>">
+                    <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
+                    <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
+                    <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                    <td></td>
+                    <td></td>
+                    <td class="team-td"><%= team['playedGames'] %></td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
+                    <td class="team-td"><%= team['goals'] %></td>
+                    <td class="team-td"><%= team['goalsAgainst'] %></td>
+                    <td class="team-td"><%= team['goalDifference'] %></td>
+                    <td></td>
+                    <td class="team-score"><b><%= team['points'] %></b></td>
+                </tr>
+                <% end %>
+                
+                <tr class="chempleag-devider">
+                    <td class="chempleag-column">D</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <% @response_table_chemp_liga['standings']['D'].each do |team| %>
+                <tr class="<%= change_row_color @number %>">
+                    <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
+                    <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
+                    <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                    <td></td>
+                    <td></td>
+                    <td class="team-td"><%= team['playedGames'] %></td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
+                    <td class="team-td"><%= team['goals'] %></td>
+                    <td class="team-td"><%= team['goalsAgainst'] %></td>
+                    <td class="team-td"><%= team['goalDifference'] %></td>
+                    <td></td>
+                    <td class="team-score"><b><%= team['points'] %></b></td>
+                </tr>
+                <% end %>
+                
+                <tr class="chempleag-devider">
+                    <td class="chempleag-column">E</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <% @response_table_chemp_liga['standings']['E'].each do |team| %>
+                <tr class="<%= change_row_color @number %>">
+                    <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
+                    <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
+                    <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                    <td></td>
+                    <td></td>
+                    <td class="team-td"><%= team['playedGames'] %></td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
+                    <td class="team-td"><%= team['goals'] %></td>
+                    <td class="team-td"><%= team['goalsAgainst'] %></td>
+                    <td class="team-td"><%= team['goalDifference'] %></td>
+                    <td></td>
+                    <td class="team-score"><b><%= team['points'] %></b></td>
+                </tr>
+                <% end %>
+                
+                <tr class="chempleag-devider">
+                    <td class="chempleag-column">F</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <% @response_table_chemp_liga['standings']['F'].each do |team| %>
+                <tr class="<%= change_row_color @number %>">
+                    <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
+                    <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
+                    <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                    <td></td>
+                    <td></td>
+                    <td class="team-td"><%= team['playedGames'] %></td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
+                    <td class="team-td"><%= team['goals'] %></td>
+                    <td class="team-td"><%= team['goalsAgainst'] %></td>
+                    <td class="team-td"><%= team['goalDifference'] %></td>
+                    <td></td>
+                    <td class="team-score"><b><%= team['points'] %></b></td>
+                </tr>
+                <% end %>
+                
+                <tr class="chempleag-devider">
+                    <td class="chempleag-column">G</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <% @response_table_chemp_liga['standings']['G'].each do |team| %>
+                <tr class="<%= change_row_color @number %>">
+                    <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
+                    <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
+                    <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                    <td></td>
+                    <td></td>
+                    <td class="team-td"><%= team['playedGames'] %></td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
+                    <td class="team-td"><%= team['goals'] %></td>
+                    <td class="team-td"><%= team['goalsAgainst'] %></td>
+                    <td class="team-td"><%= team['goalDifference'] %></td>
+                    <td></td>
+                    <td class="team-score"><b><%= team['points'] %></b></td>
+                </tr>
+                <% end %>
+                
+                <tr class="chempleag-devider">
+                    <td class="chempleag-column">H</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <% @response_table_chemp_liga['standings']['H'].each do |team| %>
+                <tr class="<%= change_row_color @number %>">
+                    <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
+                    <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
+                    <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                    <td></td>
+                    <td></td>
+                    <td class="team-td"><%= team['playedGames'] %></td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
+                    <td class="team-td">-</td>
                     <td class="team-td"><%= team['goals'] %></td>
                     <td class="team-td"><%= team['goalsAgainst'] %></td>
                     <td class="team-td"><%= team['goalDifference'] %></td>
