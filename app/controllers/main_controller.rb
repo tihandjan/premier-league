@@ -36,6 +36,10 @@ class MainController < ApplicationController
             Table.create!(league: 'england', data: en)
             
             
+            @response_table_bundes_liga = eval(Table.find_by(league: 'germany').data)
+            @response_table_chemp_liga = eval(Table.find_by(league: 'cl').data)
+            @response_table_seria_a = eval(Table.find_by(league: 'italy').data)
+            @response_table_pl_sp = eval(Table.find_by(league: 'spain').data)
             @response_table = eval(Table.find_by(league: 'england').data)
             
         else

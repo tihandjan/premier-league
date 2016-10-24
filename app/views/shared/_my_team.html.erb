@@ -10,10 +10,10 @@
                   <div class="select-league">
                       <select class="selectpicker" id="country" onchange="changeCountry();">
                           <option value="england">Выбрать лигу</option>
-                          <option value="england" data-icon="select-box-sprite sprite_header sprite-england_another">Англия</option>
-                          <option value="spain" data-icon="select-box-sprite sprite_header sprite-spain">Испания</option>
-                          <option value="germany" data-icon="select-box-sprite sprite_header sprite-germany">Германия</option>
-                          <option value="italy" data-icon="select-box-sprite sprite_header sprite-italy">Италия</option>
+                          <option value="england" data-icon="select-box-sprite sprite_header sprite-england_another">АПЛ</option>
+                          <option value="spain" data-icon="select-box-sprite sprite_header sprite-spain">Ла Лига</option>
+                          <option value="germany" data-icon="select-box-sprite sprite_header sprite-germany">Бундеслига</option>
+                          <option value="italy" data-icon="select-box-sprite sprite_header sprite-italy">Серия А</option>
                       </select>
                   </div>
                   <div class="countries" id="england">
@@ -35,7 +35,7 @@
          
             <div id="my-team-content"><%= render 'main/my_team_content' %></div>
         <% else %>
-            <label>Здеть будут новости вашего клуба</label>
+            <label>Здесь будут новости вашего клуба</label>
             <hr/>
             <div class="text-center">Войти с помощью</div>
             <div class="btn-group btn-group-justified" role="group" aria-label="...">
@@ -63,7 +63,6 @@
      });
       
      (function(){
-         $('.countries').hide();
          var country = $('#country').val();
          $('#' + country).show();
          
