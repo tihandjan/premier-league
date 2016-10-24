@@ -71,9 +71,9 @@
 }
 .chempleag-devider {
     color: #FFF;
-    background: #33383c;
-}
-.chempleag-column {
-    background-color: #69a6a6;
+    background: #69a6a6;
+    &:hover {
+        background: #69a6a6 !important;
+    }
 }
 // table end
