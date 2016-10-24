@@ -19,40 +19,6 @@ class MainController < ApplicationController
         end
     end
     
-    def choose_league_table
-        if Table.count != 5 || (Time.current - Table.last.created_at)/60 > 60
-           
-            Table.destroy_all
-            en = HTTParty.get("http://api.football-data.org/v1/competitions/426/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})
-            pl_sp = HTTParty.get("http://api.football-data.org/v1/competitions/436/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})
-            seria_a = HTTParty.get("http://api.football-data.org/v1/competitions/438/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})
-            bundes_liga = HTTParty.get("http://api.football-data.org/v1/competitions/430/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})
-            chemp_liga = HTTParty.get("http://api.football-data.org/v1/competitions/440/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})
-            
-            Table.create!(league: 'germany', data: bundes_liga)
-            Table.create!(league: 'cl', data: chemp_liga)
-            Table.create!(league: 'italy', data: seria_a)
-            Table.create!(league: 'spain', data: pl_sp)
-            Table.create!(league: 'england', data: en)
-            
-            
-            @response_table_bundes_liga = eval(Table.find_by(league: 'germany').data)
-            @response_table_chemp_liga = eval(Table.find_by(league: 'cl').data)
-            @response_table_seria_a = eval(Table.find_by(league: 'italy').data)
-            @response_table_pl_sp = eval(Table.find_by(league: 'spain').data)
-            @response_table = eval(Table.find_by(league: 'england').data)
-            
-        else
-            
-            @response_table_bundes_liga = eval(Table.find_by(league: 'germany').data)
-            @response_table_chemp_liga = eval(Table.find_by(league: 'cl').data)
-            @response_table_seria_a = eval(Table.find_by(league: 'italy').data)
-            @response_table_pl_sp = eval(Table.find_by(league: 'spain').data)
-            @response_table = eval(Table.find_by(league: 'england').data)
-            
-        end
-    end
-    
     private
     
     def user_params
@@ -89,6 +55,40 @@ class MainController < ApplicationController
             @response_seria_a = eval(Fixture.find_by(league: 'italy').fixture)
             @response_pl_sp = eval(Fixture.find_by(league: 'spain').fixture)
             @response = eval(Fixture.find_by(league: 'england').fixture)
+        end
+    end
+    
+    def choose_league_table
+        if Table.count != 5 || (Time.current - Table.last.created_at)/60 > 60
+           
+            Table.destroy_all
+            en = HTTParty.get("http://api.football-data.org/v1/competitions/426/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})
+            pl_sp = HTTParty.get("http://api.football-data.org/v1/competitions/436/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})
+            seria_a = HTTParty.get("http://api.football-data.org/v1/competitions/438/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})
+            bundes_liga = HTTParty.get("http://api.football-data.org/v1/competitions/430/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})
+            chemp_liga = HTTParty.get("http://api.football-data.org/v1/competitions/440/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})
+            
+            Table.create!(league: 'germany', data: bundes_liga)
+            Table.create!(league: 'cl', data: chemp_liga)
+            Table.create!(league: 'italy', data: seria_a)
+            Table.create!(league: 'spain', data: pl_sp)
+            Table.create!(league: 'england', data: en)
+            
+            
+            @response_table_bundes_liga = eval(Table.find_by(league: 'germany').data)
+            @response_table_chemp_liga = eval(Table.find_by(league: 'cl').data)
+            @response_table_seria_a = eval(Table.find_by(league: 'italy').data)
+            @response_table_pl_sp = eval(Table.find_by(league: 'spain').data)
+            @response_table = eval(Table.find_by(league: 'england').data)
+            
+        else
+            
+            @response_table_bundes_liga = eval(Table.find_by(league: 'germany').data)
+            @response_table_chemp_liga = eval(Table.find_by(league: 'cl').data)
+            @response_table_seria_a = eval(Table.find_by(league: 'italy').data)
+            @response_table_pl_sp = eval(Table.find_by(league: 'spain').data)
+            @response_table = eval(Table.find_by(league: 'england').data)
+            
         end
     end
 end

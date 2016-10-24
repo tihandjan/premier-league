@@ -58,7 +58,19 @@ hr {
     float: left;
     top: -1px;
 }
-
+.open > .btn-default.dropdown-toggle {
+    background-color: #69a6a6;
+    border-color: transparent;
+    color: #FFF;
+}
+.open > .btn-default.dropdown-toggle:hover {
+    background-color: #69a6a6;
+    color: #FFF;
+}
+.bootstrap-select .btn:focus {
+    outline: none !important;
+    outline: none !important;
+}
 .btn-info {
     background-color: #69a6a6;
     border-color: #69a6a6;
@@ -279,11 +291,13 @@ hr {
 
 // article 2 item start
 .article-title {
-    margin-bottom: 3px;
-    span {
-        padding: 5px 20px;
-        background: #243843;
+    margin-bottom: -24px;
+    a {
+        padding: 6px 20px;
+        background: #69a6a6;
         color: #FFF;
+        z-index: 2;
+        position: relative;
     }
 }
 .row-article {
@@ -396,7 +410,7 @@ hr {
     left: 10px;
     bottom: 210px;
     padding: 2px 5px;
-    background: #a6004c;
+    background: #394750;
     .glyphicon {
         color: #FFF;
     }
@@ -406,15 +420,14 @@ hr {
     left: 10px;
     bottom: 105px;
     padding: 2px 5px;
-    background: #a6004c;
+    background: #394750;
     .glyphicon {
         color: #FFF;
     }
 }
 .video-icon-four-time {
     left: 32px;
-    color: #FFF;
-    background: #e90052;
+    background: #e6e7e9;
     font-size: 13px;
     padding: 3px;
 }
