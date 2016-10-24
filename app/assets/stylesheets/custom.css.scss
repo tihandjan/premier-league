@@ -13,10 +13,7 @@
 
 
 body {
-    // background: url("/images/bg/bg.jpg") no-repeat;
     font-family: 'Roboto', sans-serif;
-    -webkit-background-size: 100%;
-    background-size: 100%;
     background: #E9EBEE;
 }
 
@@ -45,7 +42,27 @@ hr {
     margin-top: 0;
 }
 
+// bootstrap-select plugin
+.bootstrap-select {
+    .btn {
+        background-color: #69a6a6;
+        color: #FFF;
+        border: none;
+        border-radius: 0;
+        margin-bottom: -1px;
+    }
+}
+.select-box-sprite {
+    margin-left: 0;
+    margin-right: 6px !important;
+    float: left;
+    top: -1px;
+}
 
+.btn-info {
+    background-color: #69a6a6;
+    border-color: #69a6a6;
+}
 // LOGO
 @media only screen and (max-width: 767px) {
     .header-link {
@@ -607,17 +624,12 @@ hr {
 
 // my team start
 .my-team {
-    .select-box-sprite {
-        margin-left: 0;
-        margin-right: 6px;
-        float: left;
-        top: -1px;
-    }
     label {
         margin-top: 10px;
     }
     .countries {
         padding: 8px 0 0 0;
+        display: none;
     }
     .select-league {
         padding-top: 10px;
