@@ -1,7 +1,7 @@
 <!--top players-->
-    <div class="row">
-        <% 4.times do %>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-article">
+    <div class="row hidden-xs">
+        <% 3.times do %>
+        <div class="col-sm-4 col-xs-12 col-article">
             <div class="panel panel-default">
               <!-- Default panel contents -->
               <div class="panel-heading">Бомбардиры</div>
@@ -15,15 +15,13 @@
               </div>
             
               <!-- Table -->
-              <table class="table">
+              <table class="table table-hover">
                 <% @place = 1 %>
-                  <% 4.times do %>
                   <tr>
                       <td><%= @place += 1 %> Ronaldo</td>
                       <td></td>
                       <td class="team-score text-center">1</td>
                   </tr>
-                  <% end %>
               </table>
             </div>
         </div>

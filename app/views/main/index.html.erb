@@ -6,7 +6,7 @@
        
        <div class="col-md-9 right-block">
            
-           <div class="article-title"><a href="#">Еще Новости</a></div>
+           <div class="article-title"><a href="#"> Новости</a></div>
             <div class="row row-line-one">
             
                         
@@ -55,7 +55,7 @@
                 
             </div>
             
-            <div class="article-title"><a href="#">Еще Статьи</a></div>
+            <div class="article-title"><a href="#"> Статьи</a></div>
             <div class="row row-article">
         
                 <% @articles.each do |article| %>
@@ -74,7 +74,7 @@
                 <% end %>
             </div>
             
-            <div class="article-title"><a href="#">Еще Видео</a></div>
+            <div class="article-title"><a href="#"> Видео</a></div>
             
             <div class="row row-line-two video">
                 
@@ -119,13 +119,14 @@
             </div>
             
             <%= render 'shared/table' %>
+            <%= render 'shared/top_players' %>
            
        </div>
        
        <div class="col-md-3 left-block"><%= render 'shared/onlain' %><%= render 'shared/my_team' %><%= render 'shared/last_news' %></div>
    </div>
 
-    <%= render 'shared/top_players' %>
+    
     
     <%= render 'shared/books' %>
     
