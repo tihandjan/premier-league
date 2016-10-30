@@ -6,5 +6,14 @@ jQuery(document).ready(function($) {
     $(".clickable-row").click(function() {
         window.document.location = $(this).data("href");
     });
+    
 });
 
+
+
+
+$(document).on('turbolinks:load', function() {
+  $('.selectpicker').selectpicker({
+      size: 10
+    });
+})
