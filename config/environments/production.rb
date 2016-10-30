@@ -39,7 +39,6 @@ Rails.application.configure do
 
   # put this into an environment variable so that we can use the same for staging and production
   host = '0.0.0.0:8080'
-
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
@@ -51,6 +50,9 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
+  config.action_mailer.default_options = {
+    from: "no-reply@euroliga.com"
+  }
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Specifies the header that your server uses for sending files.
