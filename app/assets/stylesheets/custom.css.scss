@@ -85,17 +85,7 @@ hr {
     border-radius: 0;
 }
 // LOGO
-@media only screen and (max-width: 767px) {
-    .header-link {
-        color: #FFF;
-    }
-    .navbar-brand {
-        padding: 0;
-        img {
-            width: 80%;
-        }
-    }
-}
+
 
 // header 
 
@@ -525,41 +515,8 @@ hr {
         }
     }
 }
-///////////////////////
-@media only screen and (max-width: 1199px) {
-    .panel-default {
-        .panel-heading {
-        }
-        .panel-body {
-            .tab-pane{
-                height: 500px;
-            }
-        }
-    }
-    .row-line-one {
-        .col-line-one-second {
-            a {
-                height: 68px;
-                &:last-child {
-                    height: 70px;
-                }
-                .glyphicon-triangle-right {
-                    top: 27px;
-                    left: -4px;
-                }
-            }
-        }
-    }
-}
 
-@media only screen and (max-width: 991px) {
-    .row-line-one .col-line-one-second a {
-        height: 72px;
-        &:last-child {
-            height: 66px;
-        }
-    }
-}
+
 
 // lenta novostey end
 
@@ -629,3 +586,63 @@ hr {
 
 // end
 
+
+
+
+
+@media only screen and (max-width: 767px) {
+    .right-block {
+        padding-left: 15px !important;
+        .three-article {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+        .col-article {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+        .video-col {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }
+    .left-block {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .row-line-one .col-line-one-second a {
+        height: 72px;
+        &:last-child {
+            height: 66px;
+        }
+    }
+}
+///////////////////////
+@media only screen and (max-width: 1199px) {
+    .panel-default {
+        .panel-heading {
+        }
+        .panel-body {
+            .tab-pane{
+                height: 500px;
+            }
+        }
+    }
+    .row-line-one {
+        .col-line-one-second {
+            a {
+                height: 68px;
+                &:last-child {
+                    height: 70px;
+                }
+                .glyphicon-triangle-right {
+                    top: 27px;
+                    left: -4px;
+                }
+            }
+        }
+    }
+}

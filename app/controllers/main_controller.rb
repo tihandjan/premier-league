@@ -4,11 +4,8 @@ class MainController < ApplicationController
         @news = Article.order('created_at DESC').where("category = 'news'").first(20)
         @articles = Article.order('created_at DESC').where("category = 'article'").first(4)
         @videos = Video.order('created_at DESC').first(5)
-        
         update_fixtures
-        
         choose_league_table
-        
     end
     
     def change_my_team
