@@ -22,4 +22,12 @@ $(document).on('turbolinks:load', function() {
         $('.row-onlain .icon-small').hide();
     }
     
+    $('.thumbnail').hover(
+        function () {
+            $('img',this).stop().animate({opacity: '0.4'}, 300);
+        },
+        function () {
+            $('img',this).stop().animate({opacity: '0.9'}, 300);
+        }
+    );
 })
