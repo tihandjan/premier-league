@@ -16,4 +16,10 @@ $(document).on('turbolinks:load', function() {
   $('.selectpicker').selectpicker({
       size: 10
     });
+    
+    // fix bug with icons on firefox
+    if (navigator.userAgent.indexOf("Firefox") > 0) {
+        $('.row-onlain .icon-small').hide();
+    }
+    
 })

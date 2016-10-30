@@ -86,3 +86,7 @@ gem 'bootstrap-select-rails'
 
 # translate to russian
 gem 'russian', '~> 0.6.0'
+
+group :development do
+  gem 'letter_opener'
+end
