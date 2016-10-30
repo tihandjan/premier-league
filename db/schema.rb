@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161023022018) do
+ActiveRecord::Schema.define(version: 20161030105233) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -56,6 +56,13 @@ ActiveRecord::Schema.define(version: 20161023022018) do
     t.string   "category"
     t.string   "team"
     t.string   "source"
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.string   "email"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "fixtures", force: :cascade do |t|
