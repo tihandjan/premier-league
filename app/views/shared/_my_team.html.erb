@@ -58,22 +58,19 @@
 </div>
 
 <script type="text/javascript">
-    $('.selectpicker').selectpicker({
-        size: 10
-     });
       
-     (function(){
-         var country = $('#country').val();
-         $('#' + country).show();
-         
-         
-     })();
+    (function(){
+    var country = $('#country').val();
+    $('#' + country).show();
      
-     function changeCountry(){
+     
+    })();
+    
+    function changeCountry(){
          $('.countries').hide();
          var country = $('#country').val();
          $('#' + country).show();
-     }
+    }
      
      
 </script>

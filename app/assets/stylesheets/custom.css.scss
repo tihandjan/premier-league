@@ -564,54 +564,6 @@ hr {
 // lenta novostey end
 
 
-
-// top players start
-.panel-body-custom {
-    position: relative;
-    color: #FFF;
-    .number-one {
-        position: absolute;
-        top: 20px;
-        left: 10px;
-        .footballer-name {
-            font-size: 1.2em;
-        }
-        .first {
-            color: #ff5b5a;
-            font-size: 1.3em;
-        }
-        .boals {
-            color: #ff5b5a;
-            font-size: 1.7em;
-        }
-    }
-}
-.team-score {
-    color: #ff5b5a;
-}
-// end
-
-// footer
-.footer {
-    width: 100%;
-    background-color: #2f343a;
-    margin-top: 80px;
-    color: #FFF;
-    .container {
-        i {
-            color: #FFF;
-            font-size: 1.2em;
-        }
-        .custom-footer-col {
-            padding: 20px 0;
-            a {
-                color: #FFF;
-            }   
-        }
-    }
-}
-// end
-
 // auth modal
 .btn-group {
     .fa {
@@ -622,27 +574,6 @@ hr {
         color: #FFF;
     }
 }
-// end
-
-// books start
-.row-books {
-    padding: 15px;
-    margin-top: 40px;
-    .books {
-        margin-bottom: 25px;
-        padding: 0;
-        -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
-        box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
-        img {
-            width: 100%;
-        }
-        &:hover {
-            box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.35);
-        }
-    }
-}
-
 // end
 
 // authorization views start
