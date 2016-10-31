@@ -563,4 +563,12 @@ module MainHelper
         ].map{ |team_en, team_ru, team_sprite| [team_ru, team_en, {'data-icon' => "select-box-sprite #{team_sprite}" }] }
     end
     
+      def set_title(title = '')
+            basic_title = 'Последние новости АПЛ, Серия А, Ла Лига, Бундеслиги, Лига Чемпионов, футбол онлайн'
+            if title.empty?
+                  basic_title
+            else
+                  title
+            end
+      end
 end
