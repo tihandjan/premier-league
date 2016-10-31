@@ -1,80 +1,42 @@
 <% provide(:title, @article.title) %>
 
 
-<div class="show-bg"><%= image_tag @article.picture, class: 'img-responsive' %></div>
-<h1 class="text-center show-h1"><%= @article.title %></h1>
+<div class="row">
 
-
-<div class="row show-row">
-    <div class="col-md-9">
-        <h2 class="text-left"><strong><%= @article.summary %></strong></h2>
-        <p class="text-center"><%= raw simple_format(@article.description) %></p>
-        <% @article.pictures.each do |subarticle| %>
-            <%= image_tag subarticle.picture.url(:thumb), class: 'img-responsive' %>
-            <p><%= raw simple_format(subarticle.description) %></p>
-        <% end %>
-        
-        <% if @article.source.presence %>
-        <i style="font-size: 1.4em;">Источник<a target="_blank" style="color: #ff5b5a; margin-left: 5px; padding-top: 50px" href="<%= @article.source %>"><%= @article.source.slice!(7, 10) %>...</a></i>
-        <% end %>
-        
-        <div class="read-us">
-            <a class="btn btn-primary social-btn" href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a>
-            <a class="btn btn-primary social-btn vk-btn" href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
-            <a class="btn btn-info social-btn" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            <a class="btn btn-info social-btn pocket-btn" href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
-        </div>
-        
-    </div>
-    <div class="col-md-3 hidden-sm hidden-xs">
-        <div class="read-us">
-            <p class="text-left-lenta"><b>Читайте нас</b></p>
-            <hr/>
-            <a class="btn btn-primary social-btn" href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a>
-            <a class="btn btn-primary social-btn vk-btn" href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
-            <a class="btn btn-info social-btn" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            <a class="btn btn-info social-btn pocket-btn" href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
-        </div>
-            
-        <p class="text-left-lenta"><b>Лента новостей</b></p>
-        <hr/>
-        <div class="list-group">
-            
-            <% if @news %>  
-                <% @news.last(12).each do |article| %>
-            <a href="<%= article_path(article) %>" class="list-group-item">
-              <h4 class="list-group-item-heading" style="font-size: 14px;"><b><%= truncate(article.title, length: 100) %></b></h4>
-               <i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(article.created_at, "%d %B %Y") %></i> 
-            </a>
-                <% end %>
-            <% end %>
-            
-        </div> 
-    </div>
-</div>
-
-<div>
-<p class="text-left-lenta"><b>Читайте также</b></p>
-<hr/>
-</div>
-
-<div class="row row-line-two">
-                
-        <!--copy start-->
-    <% @news.first(3).each do |article| %>
-        <div class="col-sm-4 three-article">
-            <a class="a-article" href="<%= article_path(article) %>">
-                <div class="thumbnail" style="border: 1px solid #ddd;">
-                    <%= image_tag(article.picture.url(:thumb), :alt => 'football') %>
-                    <div class="caption custom-caption">
-                        <h3><strong><%= truncate(article.title, length: 55) %></strong></h3>
-                        <p><%= truncate(article.summary,length: 90) %></p>
-                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(article.created_at, "%d %B %Y") %></i></span> 
-                    </div>
+    <div class="right-block col-md-9">
+        <div class="article-title"><a href="#"> Новости</a></div>
+        <div class="show-article-wrapper">
+            <h1 class="show-article-title"><%= @article.title %></h1>
+            <span class="show-article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(@article.created_at, "%d %B %Y") %></i></span>
+            <div class="show-article-image">
+                <!-- social-media start -->
+                <div class="share-buttons">
+                    <a class="social-btn" href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a>
+                    <a class="social-btn vk-btn" href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                    <a class="social-btn" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a class="social-btn pocket-btn" href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
                 </div>
-            </a>
+                <!-- social-media end -->
+                <%= image_tag @article.picture, alt: '', class: 'img-responsive' %>
+            </div>
+            <h2 class="show-article-summary"><%= @article.summary %></h2>
+            <p class="show-article-description"><%= @article.description %></p>
+            <% @article.pictures.each do |subarticle| %>
+                <div class="show-article-image">
+                    <%= image_tag subarticle.picture, class: 'img-responsive' %>
+                </div>
+                <div class="show-article-description">
+                    <p><%= raw simple_format(subarticle.description) %></p>
+                </div>
+            <% end %>
         </div>
-    <% end %>
-    <!--end-->
-    
+    </div>
+
+    <div class="left-block col-md-3"><%= render 'shared/last_news' %></div>
 </div>
+
+
+
+
+
+

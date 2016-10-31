@@ -1,112 +1,89 @@
-// background for show view start
 
-.show-bg-color {
-    background-color: #FFF;
-}
-
-.show-bg {
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    z-index: -1;
-    height: 400px;
-    overflow: hidden;
-    background: #2f343a;
-    img {
-        width: 100%;
-        margin: 0 auto;
-        opacity: 0.6;
-        position: absolute;
-        top: -50px;
-    }
-}
-
-.show-wrapper {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background-color: #FFF;
-    z-index: -2;
-}
-
-.show-h1 {
-    color: #FFF;
-    margin-top: -35px;
-}
-
-.show-row {
-    margin-top: 180px;
-    img {
-        margin: 0 auto;
-    }
-    p {
-        margin: 0 0 .5em 0;
-        font-size: 18px;
-        line-height: 1.5em;
-        color: #1B1B1B;
-    }
-    h2 {
-        font-size: 18px;
-    }
-    .text-left-lenta {
-        margin-left: 0px;
-        margin-bottom: 0;
-        font-size: 1em;
-    }
-    .read-us {
-        margin-bottom: 50px;
-        p {
-            font-size: 1em;
-        }
-        hr {
-            margin-bottom: 10px;
-        }
-        .fa {
-            font-size: 1.5em;
-            color: #FFF;
-        }
-    }
-    .text-center {
-        margin-top: 4px;
-    }
-    .list-group {
-        .list-group-item {
-            padding: 5px 4px;
-            border: none;
-            .glyphicon {
-                margin-right: 4px;
+.articles {
+    .right-block {
+        .show-article-wrapper {
+            background: #FFF;
+            .show-article-title {
+                margin: 0;
+                padding: 40px 10px 10px 15px;
+                font-size: 26px;
+            }
+            .show-article-time {
+                padding: 0 0 10px 15px;
+                display: block;
+            }
+            .show-article-image {
+                padding: 0 20px 0 80px;
+                position: relative;
+                .share-buttons {
+                    position: absolute;
+                    top: 0;
+                    left: 10px;
+                    .social-btn {
+                        display: block;
+                        border: 1px solid #d8d8d8;
+                        margin-bottom: 30px;
+                        width: 50px;
+                        height: 50px;
+                        position: relative;
+                        -webkit-transition: 0.5s;
+                        -o-transition: 0.5s;
+                        transition: 0.5s;
+                        &:hover {
+                            background: #808080;
+                            i {
+                                color: #FFF;
+                            }
+                        }
+                        i {
+                            color: #808080;
+                            font-size: 25px;
+                            position: absolute;
+                            top: 12px;
+                            left: 12px;
+                            -webkit-transition: 0.5s;
+                            -o-transition: 0.5s;
+                            transition: 0.5s;
+                        }
+                        .fa-facebook {
+                            left: 17px;
+                        }
+                        .fa-vk {
+                            left: 10px;
+                        }
+                    }
+                }
+            }
+            .show-article-summary {
+                padding: 0 20px 0 80px;
+            }
+            .show-article-description {
+                padding: 0 20px 0 80px;
+                font-size: 17px;
+                p {
+                    font-size: 17px;
+                }
             }
         }
     }
 }
 
-.social-btn {
-    padding: 3px 12px;
-    border-radius: 0px;
-    border: none;
-    width: 47px;
-}
-.pocket-btn {
-    background: #d3505a;
-    &:hover {
-        background: #B2303A;
+@media only screen and (max-width: 653px) {
+    .share-buttons {
+        display: none;
+    }
+    .show-article-image {
+        padding-left: 20px !important;
+    }
+    .show-article-description {
+        padding-left: 20px !important;
+    }
+    .show-article-summary {
+        padding-left: 20px !important;
     }
 }
-.vk-btn {
-    background: #587e9f;
-}
-
 @media only screen and (max-width: 991px) {
-    .show-row {
-        margin-top: 150px;
+    .right-block {
+        padding-right: 0;
     }
 }
-@media only screen and (max-width: 859px) {
-    .show-row {
-        margin-top: 75px;
-    }
-}
-// end
