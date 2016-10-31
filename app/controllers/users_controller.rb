@@ -5,7 +5,7 @@ class UsersController < ApplicationController
         if current_user.id.to_i == params[:id].to_i
             @user = User.find(params[:id])
         else
-            flash[:notice] = "Дружище не усложняй нам жизнь плиз, не ходи сюда. 'May the Force be with you':)"
+            flash[:notice] = "Не делай этого. 'May the Force be with you':)"
             redirect_to root_path
         end
         
