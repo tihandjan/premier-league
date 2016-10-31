@@ -49,7 +49,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'sqlite3'
-
+  gem 'letter_opener'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
@@ -74,7 +74,6 @@ gem 'omniauth-google-oauth2'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'carrierwave-imageoptimizer'
-
 # image upload amazon
 gem 'fog'
 
@@ -87,6 +86,4 @@ gem 'bootstrap-select-rails'
 # translate to russian
 gem 'russian', '~> 0.6.0'
 
-group :development do
-  gem 'letter_opener'
-end
+gem "koala", "~> 2.2"
