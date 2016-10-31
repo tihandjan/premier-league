@@ -38,12 +38,12 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   # put this into an environment variable so that we can use the same for staging and production
-  host = '0.0.0.0:8080'
+  host = 'localhost:3000'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
     :password  => ENV['SENDGRID_PASSWORD'],
-    :domain => 'my_domain.com',
+    :domain => 'euroliga.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
