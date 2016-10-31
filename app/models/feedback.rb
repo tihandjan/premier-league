@@ -5,6 +5,6 @@ class Feedback < ActiveRecord::Base
     after_create :send_mails
     
     def send_mails
-        FeedbackMailer.feedback(self.body, self.email).deliver_now
+      FeedbackMailer.feedback(self.body, self.email).deliver_now
     end
 end
