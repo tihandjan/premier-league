@@ -5,8 +5,9 @@ class Article < ActiveRecord::Base
     validates :description, presence: true, length: { minimum: 10, maximum: 5000 }
     validates :picture, presence: true
     mount_uploader :picture, PictureUploader
-    
     accepts_nested_attributes_for :pictures
+
+    after_create :fb_page_post
     
     
     
@@ -17,6 +18,16 @@ class Article < ActiveRecord::Base
     
     def to_param
       "#{id} #{title}".parameterize
+    end
+
+    def fb_page_post
+        graph = Koala::Facebook::API.new('EAACEdEose0cBABZCQ5MyQbK26SNkA8dN2xtmrN8FhLZBzoZAI0TiknfstPpB0zANfeq2aZCsafTeoPWck6h4afbXbkyZAomRuDYAsbgqQ68C7zKxsTSHHDvLW0nGakNyxkXPoAB8IV1xNRSw9ZAryUDSQqIuy9BKKAZAYsPogwfm0vDV88QwkRC')
+        graph.put_wall_post(self.title , {
+        "link" => "http://euroliga.com/#{Rails.application.routes.url_helpers.article_path(self)}",
+        "name" => self.summary,
+        "description" => self.description,
+        "picture" => Article.last.picture.url,
+        })
     end
     
 end
