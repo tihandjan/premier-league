@@ -21,7 +21,7 @@ class Article < ActiveRecord::Base
     end
 
     def fb_page_post
-        graph = Koala::Facebook::API.new('EAACEdEose0cBABZCQ5MyQbK26SNkA8dN2xtmrN8FhLZBzoZAI0TiknfstPpB0zANfeq2aZCsafTeoPWck6h4afbXbkyZAomRuDYAsbgqQ68C7zKxsTSHHDvLW0nGakNyxkXPoAB8IV1xNRSw9ZAryUDSQqIuy9BKKAZAYsPogwfm0vDV88QwkRC')
+        graph = Koala::Facebook::API.new('EAACEdEose0cBAHYusQXoDEm7a5Gl3ijrFg1AdmmDZBEpKEDCWuYGnT4JZADVgXYmMlnpeni4Eba16IeEz28ElMvqx5lYvRLpe3VZAN0PY8wL8VQtZAoxv7DlQlDOQEvHknOezdQBNTo33RtG8ALFX3lOZCTQc5OdepBJlyBfJJAYYGny6zyYI')
         graph.put_wall_post(self.title , {
         "link" => "http://euroliga.com/#{Rails.application.routes.url_helpers.article_path(self)}",
         "name" => self.summary,
