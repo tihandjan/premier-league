@@ -11,10 +11,10 @@
             <div class="show-article-image">
                 <!-- social-media start -->
                 <div class="share-buttons">
-                    <a class="social-btn" href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a>
-                    <a class="social-btn vk-btn" href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
-                    <a class="social-btn" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a class="social-btn pocket-btn" href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+                    <a class="social-btn fb" href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a>
+                    <a class="social-btn vk vk-btn" href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                    <a class="social-btn tw" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a class="social-btn pocket pocket-btn" href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
                 </div>
                 <!-- social-media end -->
                 <%= image_tag @article.picture, alt: '', class: 'img-responsive' %>
@@ -32,10 +32,10 @@
             <span class="article-source">Источник: <a href="<%= @article.source %>" target="_blank"><%= (@article.source).slice!(7, 14) %></a></span>
             <!-- social-media start -->
             <div class="share-buttons-bottom">
-                <a class="social-btn" href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a>
-                <a class="social-btn vk-btn" href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
-                <a class="social-btn" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                <a class="social-btn pocket-btn" href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+                <a class="social-btn fb" href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a>
+                <a class="social-btn vk vk-btn" href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                <a class="social-btn tw" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a class="social-btn pocket pocket-btn" href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
             </div>
             <!-- social-media end -->
             <div class="show-article-tegs">
