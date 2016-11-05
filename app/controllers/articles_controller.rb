@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
  
   def index
-    @articles = Article.order('created_at DESC').where(category: 'news').all
+    @articles = Article.paginate(page: params[:page], per_page: 2).order('created_at DESC').where(category: 'article')
   end
 
   def news
-    
+    @articles = Article.order('created_at DESC').where(category: 'news').all
   end
 
   def show
