@@ -7,7 +7,8 @@ class VideosController < ApplicationController
     
     def show
         @video = Video.find(params[:id])
-        @news = Article.order('created_at DESC').where("category = 'news'")
+        @videos = Video.order('created_at DESC').first(4)
+        @news = Article.order('created_at DESC').where("category = 'news'").first(12)
     end
     
 end
