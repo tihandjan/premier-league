@@ -139,8 +139,14 @@
             }
             .row-line-two {
                 .three-article {
-                    padding-left: 5px;
-                    padding-right: 5px;
+                    padding-left: 3px;
+                    padding-right: 3px;
+                    &:first-child {
+                        padding-left: 6px;
+                    }
+                    &:last-child {
+                        padding-right: 6px;
+                    }
                     .thumbnail {
                         margin-bottom: 0;
                         img {
