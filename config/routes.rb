@@ -15,12 +15,11 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   
 
-  # get 'articles/:id' => 'main#show', as: :article
-  resources :articles, only: [:show]
+  resources :articles, only: [:show, :index]
   resources :videos, only: [:show, :index]
   
+  get 'news' => 'articles#news', as: :news
   put 'my_team' => 'main#change_my_team', as: :change_my_team
-  # post 'feedback' => 'feedback#create', as: :send_feedback
   post 'feedback' => 'feedback#create', as: :feedbacks
   
   
