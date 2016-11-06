@@ -4,7 +4,7 @@
 <div class="row">
 
     <div class="right-block col-md-9">
-        <div class="article-title"><a href="#">Видео</a></div>
+        <div class="article-title"><a href="<%= videos_path %>">Видео</a></div>
         <div class="show-article-wrapper">
             <h1 class="show-article-title"><%= @video.title %></h1>
             <span class="show-article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(@video.created_at, "%d %B %Y") %></i></span>
