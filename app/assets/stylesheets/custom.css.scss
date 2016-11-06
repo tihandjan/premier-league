@@ -55,6 +55,12 @@ hr {
         margin-bottom: -1px;
     }
 }
+
+.pagination {
+    padding-left: 7px;
+    li {a{margin: 2px;border-radius: 4px;}}
+    .active {a{background: #69a6a6;color: #FFF;border:none;}}
+}
 .select-box-sprite {
     margin-left: 0;
     margin-right: 6px !important;
