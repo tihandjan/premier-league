@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
     
     def index
-        @videos = Video.all
+        @videos = Video.paginate(page: params[:page], per_page: 12).order('created_at DESC')
         @news = Article.order('created_at DESC').where("category = 'news'").first(20)
     end
     

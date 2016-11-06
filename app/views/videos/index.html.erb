@@ -1,28 +1,57 @@
-<% @title = 'Смотреть записи матчей английской премьер лиги в повторе, видео повторы голов, футбольные ток-шоу' %>
-<%= render 'shared/bg' %>
+<% provide(:title, 'Смотреть записи матчей английской премьер лиги в повторе, видео повторы голов, футбольные ток-шоу') %>
+<% provide(:editional_class, 'articles') %>
 
-<div class="row">
-    <div class="col-md-9 right-block">
-        <div class="row row-line-two video">
-            
-            <% @videos.each do |video| %>
-            <div class="video-col">
-                <div style="padding-left:5px;padding-right:5px;margin-bottom: 10px;" class="col-xs-6 col-sm-4 video-one">
-                    <a class="a-video" href="<%= video_path(video) %>">
-                        <div class="thumbnail">
-                            <%= image_tag(video.picture.url(:thumb), :alt => 'video') %>
-                            <div class="caption ">
-                                <h4 class="video-title-one"><strong><%= truncate(video.title, length: 100) %></strong></h3>
-                                <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= video.created_at.strftime("%m-%d-%Y") %></i></span> 
-                                <span class="video-icon-one"><i class="glyphicon glyphicon-play"></i></span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <% end %>
-            
+<div class="row index-article-row">
+    <div class="right-block col-md-9">
+        <div class="index-article-wrapper clearfix">
+            <div class="col-sm-4"><h2><a href="<%= videos_path %>"><span class="first">
+                <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+            </span><span class="second">Все видео</span></a></h2></div>
+            <div class="col-sm-4"><h2><a href="#"><span class="first">
+                <i class="sprite_header sprite-apl"></i>
+            </span><span class="second">Англия</span></a></h2></div>
+            <div class="col-sm-4"><h2><a href="#"><span class="first">
+                <i class="sprite_header sprite-laliga"></i>
+            </span><span class="second">Испания</span></a></h2></div>
+            <div class="col-sm-4"><h2><a href="#"><span class="first">
+                <i class="sprite_header sprite-seria_a"></i>
+            </span><span class="second">Италия</span></a></h2></div>
+            <div class="col-sm-4"><h2><a href="#"><span class="first">
+                <i class="sprite_header sprite-bundesliga"></i>
+            </span><span class="second">Германия</span></a></h2></div>
+            <div class="col-sm-4"><h2><a href="#"><span class="first">
+                <i class="sprite_header sprite-lc"></i>
+            </span><span class="second">Лига Чемп<span class="span-to-hide">ионов</span></span></a></h2></div>
         </div>
+
+        
+            
+            
+        <div class="row row-line-two">
+            <h1 class="index-article-h1">Футбол видео</h1>
+            <hr>
+                <!--copy start-->
+            <% if @videos %>
+                <% @videos.each do |video| %>
+                    <div class="col-sm-3 three-article">
+                        <a class="a-article" href="<%= video_path(video) %>">
+                            <div class="thumbnail">
+                                <div class="image-wrapper"><%= image_tag(video.picture.url(:mini), :alt => 'football', class: 'img-responsive') %></div>
+                                <div class="caption custom-caption">
+                                    <h3 class="video-three-article-title"><strong><%= truncate(video.title, length: 55) %></strong></h3>
+                                    <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(video.created_at, "%d %B %Y") %></i></span> 
+                                    <span class="video-icon-four"><i class="glyphicon glyphicon-play"></i></span>
+                                    <span class="video-icon-four video-icon-four-time">00:29</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% end %>
+            <% end %>
+            <!--end-->
+        </div>
+        <div class="text-center paginate-block"><%= will_paginate @videos, page_links: true %></div>
+
     </div>
-    <div class="col-md-3 left-block"><%= render 'shared/onlain' %><%= render 'shared/my_team' %><%= render 'shared/last_news' %></div>
+    <div class="left-block col-md-3"><%= render 'shared/last_news' %></div>
 </div>

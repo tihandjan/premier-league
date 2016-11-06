@@ -1,6 +1,7 @@
 .articles {
 	.index-article-row {
 		.right-block {
+			padding-top: 0;
 			.index-article-wrapper {
 				background: #FFF;
 				padding-bottom: 50px;
@@ -60,11 +61,6 @@
     				.time {
 						text-transform: uppercase;
     				}
-				}
-				.pagination {
-					padding-left: 7px;
-					li {a{margin: 2px;border-radius: 4px;}}
-					.active {a{background: #69a6a6;color: #FFF;border:none;}}
 				}
 			}
 		}
