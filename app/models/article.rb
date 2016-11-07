@@ -21,8 +21,10 @@ class Article < ActiveRecord::Base
     end
 
     def fb_page_post
-        graph = Koala::Facebook::API.new('EAACEdEose0cBAHYusQXoDEm7a5Gl3ijrFg1AdmmDZBEpKEDCWuYGnT4JZADVgXYmMlnpeni4Eba16IeEz28ElMvqx5lYvRLpe3VZAN0PY8wL8VQtZAoxv7DlQlDOQEvHknOezdQBNTo33RtG8ALFX3lOZCTQc5OdepBJlyBfJJAYYGny6zyYI')
-        graph.put_wall_post(self.title , {
+        graph = Koala::Facebook::API.new('EAACEdEose0cBADYdmzqpWLZBgHb877pwYxRaevI4VPUHOnU89uhVIRcnF9d8ssuL3BpwsGfZAVlZAg1oI9SrgzGe7QXAZBpw0c999ih457BZB6Sif5105OIvXlcEectIoLZAyKRKjX8e0GaqFq8j8o8kEK8CIv7rhXPVuz4zj2XwZDZD')
+        page_access_token = graph.get_page_access_token('1411234032511437')
+        page_graph = Koala::Facebook::API.new(page_access_token)
+        page_graph.put_wall_post(self.title , {
         "link" => "http://euroliga.com/#{Rails.application.routes.url_helpers.article_path(self)}",
         "name" => self.summary,
         "description" => self.description,
