@@ -6,7 +6,7 @@
        
        <div class="col-md-9 right-block">
            
-           <div class="article-title"><a href="<%= league_articles_path('all') %>"> Новости</a></div>
+           <div class="article-title"><a href="<%= league_articles_path(@news.last.league) %>"> Новости</a></div>
             <div class="row row-line-one">
             
                         
@@ -22,7 +22,7 @@
                                 <% @news.first(4).each do |article| %>
                                     <a href="<%= league_article_path(article.league, article) %>" class="list-group-item list-group-custom text-left", onmouseover="$('.article-four-image').hide();$('#<%= article.id %>').show();$('.list-group-custom').css('background', 'transparent');$(this).css('background', '#2a4951')">
                                        <h3 class="list-group-item-heading"><%= truncate(article.title, length: 62) %></h4>
-                                       <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %></i></span>
+                                       <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(article.created_at, "%d %B %Y") %></i></span>
                                     </a>
                                 <% end %>
                                 
@@ -44,7 +44,7 @@
                                     <div class="caption custom-caption">
                                         <h3><strong><%= truncate(article.title, length: 55) %></strong></h3>
                                         <p><%= truncate(article.summary,length: 90) %></p>
-                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %></i></span> 
+                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(article.created_at, "%d %B %Y") %></i></span> 
                                     </div>
                                 </div>
                             </a>
@@ -55,7 +55,7 @@
                 
             </div>
             
-            <div class="article-title"><a href="<%= league_articles_path('all') %>"> Статьи</a></div>
+            <div class="article-title"><a href="<%= league_articles_path(@news.last.league) %>"> Статьи</a></div>
             <div class="row row-article">
         
                 <% @articles.each do |article| %>
@@ -74,7 +74,7 @@
                 <% end %>
             </div>
             
-            <div class="article-title"><a href="<%= league_videos_path('all') %>"> Видео</a></div>
+            <div class="article-title"><a href="<%= league_videos_path(@videos.first.league) %>"> Видео</a></div>
             
             <div class="row row-line-two video">
                 
@@ -86,7 +86,7 @@
                                 <div class="image-wrapper"><%= image_tag(@videos.first.picture.url(:thumb), :alt => 'video') %></div>
                                 <div class="caption ">
                                     <h4 class="video-title-one"><strong><%= truncate(@videos.first.title, length: 100) %></strong></h3>
-                                    <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(@videos.first.created_at) %></i></span> 
+                                    <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(@videos.first.created_at, "%d %B %Y") %></i></span> 
                                     <span class="video-icon-one"><i class="glyphicon glyphicon-play"></i></span>
                                     <span class="video-icon-one video-icon-four-time">00:29</span>
                                 </div>
@@ -105,7 +105,7 @@
                                     <div class="image-wrapper"><%= image_tag(video.picture.url(:mini), :alt => 'video') %></div>
                                     <div class="caption video-caption">
                                         <h4 class="video-title-four"><strong><%= truncate(video.title, length: 55) %></strong></h3>
-                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(video.created_at) %></i></span> 
+                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(video.created_at, "%d %B %Y") %></i></span> 
                                         <span class="video-icon-four"><i class="glyphicon glyphicon-play"></i></span>
                                         <span class="video-icon-four video-icon-four-time">00:29</span>
                                     </div>
@@ -118,12 +118,12 @@
                 
             </div>
             
-            <%= render 'shared/table' %>
+            <%= render "shared/table_league", data: @table_data, name: @table_name %>
             <%= render 'shared/top_players' %>
            
        </div>
        
-       <div class="col-md-3 left-block"><%= render 'shared/onlain' %><%= render 'shared/my_team' %><%= render 'shared/last_news' %></div>
+       <div class="col-md-3 left-block"><%= render 'shared/my_team' %><%= render 'shared/last_news' %></div>
    </div>
 
     
