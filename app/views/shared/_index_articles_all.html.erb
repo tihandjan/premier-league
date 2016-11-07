@@ -1,30 +1,30 @@
 <div class="row index-article-row">
 	<div class="right-block col-md-9">
 		<div class="index-article-wrapper clearfix">
-			<div class="col-sm-4"><h2><a href="<%= news_path %>"><span class="first">
+			<div class="col-sm-4"><h2><a href="<%= league_articles_path('all') %>"><span class="first">
 				<i class="fa fa-newspaper-o" aria-hidden="true"></i>
-			</span><span class="second">Все новости</span></a></h2></div>
-			<div class="col-sm-4"><h2><a href="#"><span class="first">
+			</span><span class="second">Новости/Статьи</span></a></h2></div>
+			<div class="col-sm-4"><h2><a href="<%= league_articles_path('apl') %>"><span class="first">
 				<i class="sprite_header sprite-apl"></i>
 			</span><span class="second">Англия</span></a></h2></div>
-			<div class="col-sm-4"><h2><a href="#"><span class="first">
+			<div class="col-sm-4"><h2><a href="<%= league_articles_path('laliga') %>"><span class="first">
 				<i class="sprite_header sprite-laliga"></i>
 			</span><span class="second">Испания</span></a></h2></div>
-			<div class="col-sm-4"><h2><a href="#"><span class="first">
+			<div class="col-sm-4"><h2><a href="<%= league_articles_path('seria-a') %>"><span class="first">
 				<i class="sprite_header sprite-seria_a"></i>
 			</span><span class="second">Италия</span></a></h2></div>
-			<div class="col-sm-4"><h2><a href="#"><span class="first">
+			<div class="col-sm-4"><h2><a href="<%= league_articles_path('bundesliga') %>"><span class="first">
 				<i class="sprite_header sprite-bundesliga"></i>
 			</span><span class="second">Германия</span></a></h2></div>
-			<div class="col-sm-4"><h2><a href="#"><span class="first">
+			<div class="col-sm-4"><h2><a href="<%= league_articles_path('chempions-league') %>"><span class="first">
 				<i class="sprite_header sprite-lc"></i>
 			</span><span class="second">Лига Чемп<span class="span-to-hide">ионов</span></span></a></h2></div>
 		</div>
 
-		<h1 class="index-article-h1"><%= h1 %></h1>
+		<h1 class="index-article-h1"><%= @h1 %></h1>
 		<div class="list-group">
 			<% @articles.each do |article| %>
-				<a href="<%= article_path(article) %>" class="list-group-item clearfix">
+				<a href="<%= league_article_path(article.league, article) %>" class="list-group-item clearfix">
 					<%= image_tag(article.picture.url(:mini), alt: '', class: 'img-responsive') %>
 					<span class="time"><i><%= Russian::strftime(article.created_at, "%d %B %Y") %></i></span>
 					<h3 class="list-group-item-heading"><%= article.title %></h4>
