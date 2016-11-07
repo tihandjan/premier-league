@@ -53,7 +53,7 @@
                 <% if @news %>
                     <% @news.first(3).each do |article| %>
                         <div class="col-sm-4 three-article">
-                            <a class="a-article" href="<%= article_path(article) %>">
+                            <a class="a-article" href="<%= league_article_path(article.league, article) %>">
                                 <div class="thumbnail">
                                     <div class="image-wrapper"><%= image_tag(article.picture.url(:mini), :alt => 'football') %></div>
                                     <div class="caption custom-caption">

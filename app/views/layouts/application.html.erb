@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body class="<%= controller.controller_name %> <%= yield(:editional_class) %>">
+<body class="<%= controller.controller_name %> <%= @editional_class %>">
   
   <%= render 'layouts/header' %>
     
@@ -16,7 +16,7 @@
 
     <%= yield %>
   </div>
-  
+  <%= debug(params) if Rails.env.development? %>
   <%= render 'layouts/footer' %>
   
   <!--modals-->

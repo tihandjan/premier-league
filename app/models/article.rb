@@ -4,6 +4,7 @@ class Article < ActiveRecord::Base
     validates :summary, presence: true, length: { minimum: 10, maximum: 250 }
     validates :description, presence: true, length: { minimum: 10, maximum: 5000 }
     validates :picture, presence: true
+    validates :league, presence: true
     mount_uploader :picture, PictureUploader
     accepts_nested_attributes_for :pictures
 

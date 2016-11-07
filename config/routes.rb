@@ -12,13 +12,13 @@ Rails.application.routes.draw do
     get 'omniauth_callbacks/google_oauth2'
   end
   # authentication end
-  resources :users, only: [:edit, :update]
-  
 
-  resources :articles, only: [:show, :index]
-  resources :videos, only: [:show, :index]
-  
-  get 'news' => 'articles#news', as: :news
+  resources :users, only: [:edit, :update]
+  resources :leagues, only: [:show], path: '/' do
+    resources :articles, only: [:show, :index]
+    resources :videos, only: [:show, :index]
+  end
+
   put 'my_team' => 'main#change_my_team', as: :change_my_team
   post 'feedback' => 'feedback#create', as: :feedbacks
   
