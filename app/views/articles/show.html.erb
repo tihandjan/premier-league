@@ -29,7 +29,9 @@
                     <p><%= raw simple_format(subarticle.description) %></p>
                 </div>
             <% end %>
+            <% if @article.source %>
             <span class="article-source">Источник: <a href="<%= @article.source %>" target="_blank"><%= (@article.source).slice!(7, 14) %></a></span>
+            <% end %>
             <!-- social-media start -->
             <div class="share-buttons-bottom">
                 <a class="social-btn fb" href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a>
