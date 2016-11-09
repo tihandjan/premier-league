@@ -22,11 +22,11 @@ class Article < ActiveRecord::Base
     end
 
     def fb_page_post
-        # graph = Koala::Facebook::API.new('EAAHzbwanpNkBACUZASA7i3gXZA9XIZCBbH19j5q7sNfZAm28NrOWgq0uoGnG8ZBDtcyPPWdJZBBmxzyd3HkoK49qEU0i0EHkSmy2ty4FmpHicMpA5OzsJXwyzL8mpJZCKrAM0jOxCZAdCAXVw3bYVIPYcdnivn4Vsi9UWEqdIBO5JAZDZD')
-        # page_access_token = graph.get_page_access_token('1411234032511437')
-        page_graph = Koala::Facebook::API.new('EAAHzbwanpNkBAM8eubPtHKw6KaSw2dehtxwnzsnjYxGrTMjZAT9OLWZC3kVrqKG8A4Enqcdyy4ZAwLs2xNoWQlEqFuRQr5hgVfOcZCqASWxxmFOTZC4X2RU0vtWl00GSrPTlh2oDtirj8f15NPTIsR2fZBAEbp0OfkgdMGr0oqlAZDZD')
+        graph = Koala::Facebook::API.new('EAAHzbwanpNkBAOWHP0LibKQZBFLghwGy0ZAb0wJFIIXAAk6AIZCp4HjyZCNMvJFeUzmgTOjTi1n3CDZACmU55hkFZCXKlB0stqGcblTjQV6HRcj4UxFCdImG3EWaoqcyXWzpKCm5dKGAKzvZCB0NlGB6ijS4AsP6bDdNjYasbTdFgZDZD')
+        page_access_token = graph.get_page_access_token('1411234032511437')
+        page_graph = Koala::Facebook::API.new(page_access_token)
         page_graph.put_wall_post(self.title , {
-        "link" => "http://euroliga.com/#{Rails.application.routes.url_helpers.league_article_path(self.league, self)}",
+        "link" => "http://ueroliga.herokuapp.com/#{Rails.application.routes.url_helpers.league_article_path(self.league, self)}",
         "name" => self.summary,
         "description" => self.description,
         "picture" => Article.last.picture.url,
