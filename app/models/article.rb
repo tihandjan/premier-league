@@ -26,13 +26,15 @@ class Article < ActiveRecord::Base
         # long_live_access_token = oauth.exchange_access_token('EAAHzbwanpNkBAC2atjjI4XZC3ColFcOEyq4nSeuIwtRLuFdmBoPUo25VEZBDEZAGKOdKZAI6AECBrtvZBY8cbBJUzIgcb622NikW3nlORHykD1lbcdOlxLD8fYyy9ZCZAcY7ZBBdEfTtmFZBeg7SpcwthBOuZCZBMd75o7N1fZA0OHeyyQZDZD')
         # graph = Koala::Facebook::API.new(long_live_access_token)
         # page_access_token = graph.get_page_access_token('1411234032511437')
-        page_graph = Koala::Facebook::API.new('EAAHzbwanpNkBAF3pDmYuU3cRn7equ2QkpOISwdFdRCJXHsCp7FZBDPwWgGjinUfguvcZB6hxhkWbEjCZBdJkczWfAE1NH7BzZC8ZAzxR7slvtITsoYonzaLrdcpgsfZBnw3ZBnXXq3ZARCTZBQUHdNF3nNZCU9FfW2I8gZD')
-        page_graph.put_wall_post(self.title , {
-        "link" => "http://ueroliga.herokuapp.com/#{Rails.application.routes.url_helpers.league_article_path(self.league, self)}",
-        "name" => self.summary,
-        "description" => self.description,
-        "picture" => Article.last.picture.url,
-        })
+
+        # only this part right
+        # page_graph = Koala::Facebook::API.new('EAAHzbwanpNkBAF3pDmYuU3cRn7equ2QkpOISwdFdRCJXHsCp7FZBDPwWgGjinUfguvcZB6hxhkWbEjCZBdJkczWfAE1NH7BzZC8ZAzxR7slvtITsoYonzaLrdcpgsfZBnw3ZBnXXq3ZARCTZBQUHdNF3nNZCU9FfW2I8gZD')
+        # page_graph.put_wall_post(self.title , {
+        # "link" => "http://ueroliga.herokuapp.com/#{Rails.application.routes.url_helpers.league_article_path(self.league, self)}",
+        # "name" => self.summary,
+        # "description" => self.description,
+        # "picture" => Article.last.picture.url,
+        # })
     end
     
 end
