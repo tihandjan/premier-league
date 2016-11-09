@@ -3,7 +3,7 @@ ActiveAdmin.register Article do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :category, :title, :summary, :description, :picture, :source, :team, pictures_attributes: [:picture, :description]
+permit_params :league, :category, :title, :summary, :description, :picture, :source, :team, pictures_attributes: [:picture, :description]
 #
 # or
 
@@ -12,6 +12,7 @@ permit_params :category, :title, :summary, :description, :picture, :source, :tea
         inputs 'Article' do
           input :source
           input :category, as: :select, collection: ['news', 'article'], selected: 'news'
+          input :league, as: :select, collection: ['apl', 'seria-a', 'bundesliga', 'laliga', 'chempions-league']
           input :team, as: :select, collection: select_team 
           input :picture, as: :file
           input :title
