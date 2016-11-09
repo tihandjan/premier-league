@@ -15,6 +15,7 @@ permit_params :title, :picture, :youtube_link, :code, :league
           input :picture, as: :file
           input :code
         end
+        actions
     end
 
 

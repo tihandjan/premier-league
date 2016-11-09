@@ -22,7 +22,9 @@ class Article < ActiveRecord::Base
     end
 
     def fb_page_post
-        graph = Koala::Facebook::API.new('EAAHzbwanpNkBAOWHP0LibKQZBFLghwGy0ZAb0wJFIIXAAk6AIZCp4HjyZCNMvJFeUzmgTOjTi1n3CDZACmU55hkFZCXKlB0stqGcblTjQV6HRcj4UxFCdImG3EWaoqcyXWzpKCm5dKGAKzvZCB0NlGB6ijS4AsP6bDdNjYasbTdFgZDZD')
+        oauth = Koala::Facebook::OAuth.new('549133155280089', '0977f0831e25d61eddbe2bd3b5227896')
+        long_live_access_token = oauth.exchange_access_token('EAAHzbwanpNkBAMQKZBHZA89kMlt9kfRVdIeTcQqpt9NgLLPTbL36J9GTH0p1kvZAbm3kcQr1Nws6NcRrzShv1lMYR4RwKMRZBHGf2cgAC1Tptu8ZBNNeOa07UiTCwk5pf2JVWNehmWi7hVmHEUkR9IQukdh8zxfcZD')
+        graph = Koala::Facebook::API.new(long_live_access_token)
         page_access_token = graph.get_page_access_token('1411234032511437')
         page_graph = Koala::Facebook::API.new(page_access_token)
         page_graph.put_wall_post(self.title , {
