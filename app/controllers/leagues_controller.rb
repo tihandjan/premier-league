@@ -2,7 +2,7 @@ class LeaguesController < ApplicationController
 
   def show
     @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(20)
-    @articles = Article.order('created_at DESC').where(category: 'articles', league: params[:id]).first(2)
+    @articles = Article.order('created_at DESC').where(category: 'article', league: params[:id]).first(2)
     @videos = Video.order('created_at DESC').where(league: params[:id]).first(5)
     choose_league_table
 

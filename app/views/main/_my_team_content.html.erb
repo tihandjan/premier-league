@@ -52,11 +52,13 @@
 
 <div class="list-group">
     
-    <% Article.my_team_news(current_user).each do |article| %>
-        <a href="<%= league_article_path(article.league, article) %>" class="list-group-item text-left">
-          <h4 class="list-group-item-heading"><%= truncate(article.title, length: 120) %></h4>
-           <i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %></i> 
-        </a>
+    <% if current_user && current_user.team.presence %>
+        <% Article.my_team_news(current_user).each do |article| %>
+            <a href="<%= league_article_path(article.league, article) %>" class="list-group-item text-left">
+              <h4 class="list-group-item-heading"><%= truncate(article.title, length: 120) %></h4>
+               <i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %></i> 
+            </a>
+        <% end %>
     <% end %>
     
     <% if current_user && current_user.team.presence %>
