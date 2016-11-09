@@ -3,6 +3,7 @@ class Video < ActiveRecord::Base
     validates :title, presence: true
     validates :code, presence: true
     validates :league, presence: true
+    validates :picture, presence: true
     
     def to_param
       "#{id} #{title}".parameterize
