@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # authentication end
 
   resources :users, only: [:edit, :update]
-  resources :leagues, only: [:show], path: '/' do
+  resources :leagues, only: [:show, :index] do
     resources :articles, only: [:show, :index]
     resources :videos, only: [:show, :index]
   end
