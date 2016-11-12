@@ -8,4 +8,6 @@ class Video < ActiveRecord::Base
     def to_param
       "#{id} #{title}".parameterize
     end
+
+    scope :all_except, ->(video) { where.not(id: video) }
 end
