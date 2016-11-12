@@ -1,5 +1,12 @@
 class LeaguesController < ApplicationController
 
+  def index
+    @articles = Article.paginate(page: params[:page], per_page: 7).order('created_at DESC')
+    @h1 = 'привет я h1 для всех новостей/статей'
+    @active = 'rest-active'
+    render 'articles/index'
+  end
+
   def show
     @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(20)
     @articles = Article.order('created_at DESC').where(category: 'article', league: params[:id]).first(2)
