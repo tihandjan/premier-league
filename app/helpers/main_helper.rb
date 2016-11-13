@@ -493,19 +493,19 @@ module MainHelper
     def select_bundesliga_teams
         [
             ["FC Bayern München", "Бавария",         "icon-small sprite sprite-Bavaria"],
-            ["Werder Bremen", "Вердер",              "icon-small sprite sprite-werder"],
-            ["FC Augsburg", "Аугсбург",              "icon-small sprite sprite-Auzburg"],
-            ["VfL Wolfsburg", "Вольфсбурга",         "icon-small sprite sprite-wolsburg"],
             ["Borussia Dortmund", "Боруссия Д",      "icon-small sprite sprite-Borussia_D"],
+            ["FC Schalke 04", "Шальке 04",           "icon-small sprite sprite-shalke_04"],
+            ["Bayer Leverkusen", "Байер",            "icon-small sprite sprite-Bayer"],
+            ["Werder Bremen", "Вердер",              "icon-small sprite sprite-werder"],
+            ["VfL Wolfsburg", "Вольфсбурга",         "icon-small sprite sprite-wolsburg"],
+            ["FC Augsburg", "Аугсбург",              "icon-small sprite sprite-Auzburg"],
             ["1. FSV Mainz 05", "Майнц",             "icon-small sprite sprite-Mainz"],
             ["Eintracht Frankfurt", "Айнтрахт",      "icon-small sprite sprite-Aintraht"],
-            ["FC Schalke 04", "Шальке 04",           "icon-small sprite sprite-shalke_04"],
             ["Hamburger SV", "Гамбург",              "icon-small sprite sprite-hamburg"],
             ["FC Ingolstadt 04", "Ингольштадт",      "icon-small sprite sprite-ingolstad"],
             ["1. FC Köln", "Кельн",                  "icon-small sprite sprite-Keln"],
             ["SV Darmstadt 98", "Дармштадт",         "icon-small sprite sprite-darmshtad"],
             ["Bor. Mönchengladbach", "Боруссия М",   "icon-small sprite sprite-Borussia_M"],
-            ["Bayer Leverkusen", "Байер",            "icon-small sprite sprite-Bayer"],
             ["Hertha BSC", "Герта",                  "icon-small sprite sprite-Gerta"],
             ["SC Freiburg", "Фрайбург",              "icon-small sprite sprite-Fraiburg"],
             ["TSG 1899 Hoffenheim", "Хоффенхайм",    "icon-small sprite sprite-Hoffenhain"],
@@ -515,39 +515,41 @@ module MainHelper
     
     def select_laliga_teams
         [    
-            ["Málaga CF", "Малага",                  "icon-small sprite sprite-malaga"],
-            ["CA Osasuna", "Осасуна",                "icon-small sprite sprite-ossasuna"],
-            ["RC Deportivo La Coruna", "Депортиво К","icon-small sprite sprite-deportivo"],
-            ["SD Eibar", "Эйбар",                    "icon-small sprite sprite-eibar"],
             ["FC Barcelona", "Барселона",            "icon-small sprite sprite-barselona"],
-            ["Real Betis", "Реал Б",                 "icon-small sprite sprite-real_betis"],
-            ["Granada CF", "Гранада",                "icon-small sprite sprite-granada"],
-            ["Villarreal CF", "Вильяреал",           "icon-small sprite sprite-villareal"],
-            ["Sevilla FC", "Севилья",                "icon-small sprite sprite-sevilla"],
-            ["RCD Espanyol", "Эспаньол",             "icon-small sprite sprite-espaniol"],
-            ["Sporting Gijón", "Спортинг",           "icon-small sprite sprite-sporting"],
-            ["Athletic Club", "Атлетик",             "icon-small sprite sprite-ath_bilbao"],
-            ["Real Sociedad de Fútbol", "Реал С",    "icon-small sprite sprite-real_sosiedad"],
             ["Real Madrid CF", "Реал М",             "icon-small sprite sprite-real_m"],
             ["Club Atlético de Madrid", "Атлетико",  "icon-small sprite sprite-atletico"],
+            ["Sevilla FC", "Севилья",                "icon-small sprite sprite-sevilla"],
+            ["Valencia CF", "Валенсия",              "icon-small sprite sprite-valensia"],
+            ["Villarreal CF", "Вильяреал",           "icon-small sprite sprite-villareal"],
+            ["RC Deportivo La Coruna", "Депортиво К","icon-small sprite sprite-deportivo"],
+            ["RCD Espanyol", "Эспаньол",             "icon-small sprite sprite-espaniol"],
+            ["Athletic Club", "Атлетик",             "icon-small sprite sprite-ath_bilbao"],
+            ["Real Betis", "Реал Б",                 "icon-small sprite sprite-real_betis"],
+            ["CA Osasuna", "Осасуна",                "icon-small sprite sprite-ossasuna"],
+            ["SD Eibar", "Эйбар",                    "icon-small sprite sprite-eibar"],
+            ["Granada CF", "Гранада",                "icon-small sprite sprite-granada"],
+            ["Sporting Gijón", "Спортинг",           "icon-small sprite sprite-sporting"],
+            ["Real Sociedad de Fútbol", "Реал С",    "icon-small sprite sprite-real_sosiedad"],
             ["Deportivo Alavés", "Депортиво А",      "icon-small sprite sprite-alaves"],
             ["RC Celta de Vigo", "Сельта",           "icon-small sprite sprite-selta"],
             ["CD Leganes", "Леганес",                "icon-small sprite sprite-leganes"],
-            ["Valencia CF", "Валенсия",              "icon-small sprite sprite-valensia"],
+            ["Málaga CF", "Малага",                  "icon-small sprite sprite-malaga"],
             ["UD Las Palmas", "Лас-Пальмас",         "icon-small sprite sprite-las_palmas"]
         ].map{ |team_en, team_ru, team_sprite| [team_ru, team_en, {'data-icon' => "select-box-sprite #{team_sprite}" }] }
     end
     
     def select_seria_teams
         [
-            ["AS Roma", "Рома",                      "icon-small sprite sprite-roma"],
-            ["Udinese Calcio", "Удинезе",           "icon-small sprite sprite-udineze"],
             ["Juventus Turin", "Ювентус",            "icon-small sprite sprite-juventus"],
-            ["ACF Fiorentina", "Фиорентина",         "icon-small sprite sprite-fiorentina"],
+            ["SSC Napoli", "Наполи",                 "icon-small sprite sprite-napoli"],
+            ["AS Roma", "Рома",                      "icon-small sprite sprite-roma"],
             ["AC Milan", "Милан",                    "icon-small sprite sprite-milan"],
+            ["FC Internazionale Milano", "Интер",    "icon-small sprite sprite-inter"],
+            ["ACF Fiorentina", "Фиорентина",         "icon-small sprite sprite-fiorentina"],
+            ["Udinese Calcio", "Удинезе",           "icon-small sprite sprite-udineze"],
+            ["SS Lazio", "Лацио",                    "icon-small sprite sprite-lazio"],
             ["Torino FC", "Торино",                  "icon-small sprite sprite-torino"],
             ["AC Chievo Verona", "Кьево",            "icon-small sprite sprite-chievo"],
-            ["FC Internazionale Milano", "Интер",    "icon-small sprite sprite-inter"],
             ["Empoli FC", "Эмполи",                  "icon-small sprite sprite-empoli"],
             ["UC Sampdoria", "Сампдория",            "icon-small sprite sprite-sampdoria"],
             ["Genoa CFC", "Дженоа",                  "icon-small sprite sprite-genoa"],
@@ -557,9 +559,7 @@ module MainHelper
             ["US Cittá di Palermo", "Палермо",       "icon-small sprite sprite-palermo"],
             ["US Sassuolo Calcio", "Сассуоло",       "icon-small sprite sprite-sassuolo"],
             ["Pescara Calcio", "Пескара",            "icon-small sprite sprite-pescara"],
-            ["SSC Napoli", "Наполи",                 "icon-small sprite sprite-napoli"],
-            ["Atalanta BC", "Аталанта",              "icon-small sprite sprite-atalanta"],
-            ["SS Lazio", "Лацио",                    "icon-small sprite sprite-lazio"]
+            ["Atalanta BC", "Аталанта",              "icon-small sprite sprite-atalanta"]
         ].map{ |team_en, team_ru, team_sprite| [team_ru, team_en, {'data-icon' => "select-box-sprite #{team_sprite}" }] }
     end
     
