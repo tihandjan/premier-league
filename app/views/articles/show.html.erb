@@ -20,7 +20,9 @@
                 <%= image_tag @article.picture, alt: '', class: 'img-responsive' %>
             </div>
             <h2 class="show-article-summary"><%= @article.summary %></h2>
-            <p class="show-article-description"><%= @article.description %></p>
+            <div class="show-article-description">
+                <p><%= raw simple_format(@article.description) %></p>
+            </div>
             <% @article.pictures.each do |subarticle| %>
                 <div class="show-article-image">
                     <%= image_tag subarticle.picture, class: 'img-responsive' %>
