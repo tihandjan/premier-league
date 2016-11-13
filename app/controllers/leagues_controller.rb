@@ -15,23 +15,38 @@ class LeaguesController < ApplicationController
 
     if params[:id] == 'seria-a'
       @table_data = @response_table_seria_a
-      @table_name = 'Таблица Серия А'
+      @table_name = 'Привет h5 Таблица Серия А'
+      @h2 = 'Привет я h2'
+      @h4 = 'Привет я h4'
+      @league = params[:id]
       render 'shared/index_league'
     elsif params[:id] == 'bundesliga'
       @table_data = @response_table_bundes_liga
-      @table_name = 'Таблица Бундеслиги'
+      @table_name = 'Привет h5 Таблица Бундеслиги'
+      @h2 = 'Привет я h2'
+      @h4 = 'Привет я h4'
+      @league = params[:id]
       render 'shared/index_league'
     elsif params[:id] == 'laliga'
       @table_data = @response_table_pl_sp
-      @table_name = 'Таблица Ла Лиги'
+      @table_name = 'Привет h5 Таблица Ла Лиги'
+      @h2 = 'Привет я h2'
+      @h4 = 'Привет я h4'
+      @league = params[:id]
       render 'shared/index_league'
     elsif params[:id] == 'chempions-league'
       @table_data = @response_table_chemp_liga
-      @table_name = 'Таблица Лиги Чемпионов'
+      @table_name = 'Привет h5 Таблица Лиги Чемпионов'
+      @h2 = 'Привет я h2'
+      @h4 = 'Привет я h4'
+      @league = params[:id]
       render 'shared/index_league'
     elsif params[:id] == 'apl'
       @table_data = @response_table
-      @table_name = 'Таблица Английской Премьер Лиги'
+      @table_name = 'Привет h5 Таблица Английской Премьер Лиги'
+      @h2 = 'Привет я h2'
+      @h4 = 'Привет я h4'
+      @league = params[:id]
       render 'shared/index_league'
     else
       redirect_to root_path
