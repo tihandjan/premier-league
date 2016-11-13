@@ -1,33 +1,69 @@
     
    
+
+   <div class="container-fluid leagues-team-container">
+        <div class="col-md-6 league-col">
+            <a href="#"><i class="sprite sprite-mu"></i></a>
+            <a href="#"><i class="sprite sprite-chelsea"></i></a>
+            <a href="#"><i class="sprite sprite-liver"></i></a>
+            <a href="#"><i class="sprite sprite-arsenal"></i></a>
+            <a href="#"><i class="sprite sprite-mc"></i></a>
+            <a href="#"><i class="sprite sprite-totenhem"></i></a>
+            <a href="#"><i class="sprite sprite-leicester"></i></a>
+            <a href="#"><i class="sprite sprite-everton"></i></a>
+            <a href="#"><i class="sprite sprite-west_ham"></i></a>
+            <a href="#"><i class="sprite sprite-west_brom"></i></a>
+        </div>
+        <div class="col-md-6 league-col">
+            <a href="#"><i class="sprite sprite-sunderland"></i></a>
+            <a href="#"><i class="sprite sprite-swansea"></i></a>
+            <a href="#"><i class="sprite sprite-crystal"></i></a>
+            <a href="#"><i class="sprite sprite-southampton"></i></a>
+            <a href="#"><i class="sprite sprite-watford"></i></a>
+            <a href="#"><i class="sprite sprite-burnley"></i></a>
+            <a href="#"><i class="sprite sprite-hull_city"></i></a>
+            <a href="#"><i class="sprite sprite-bournem"></i></a>
+            <a href="#"><i class="sprite sprite-midl"></i></a>
+            <a href="#"><i class="sprite sprite-stoke_city"></i></a>
+        </div>
+   </div>
+   <div class="container-fluid leagues-submenu-container">
+        <h1 class="league-h1">А<span class="hidden-xs">нглийская</span> П<span class="hidden-xs">ремьер</span> Л<span class="hidden-xs">ига</span></h1>
+        <a href="#" class="league-col">Стат<span class="hidden-xs">истика</span></a>
+        <a href="#" class="league-col">Табл<span class="hidden-xs">ица</span></a>
+        <a href="#" class="league-col">Календ<span class="hidden-xs">арь</span></a>
+        <a href="#" class="league-col">Основное</a>
+   </div>
    
-   <div class="row">
+   <div class="row league-row">
        
        
        <div class="col-md-9 right-block">
            
+           <h2 class="league-h2">Новости Англии</h2>
+           <hr>
            <div class="article-title"><a href="<%= league_articles_path(@news.last.league) %>"> Новости</a></div>
             <div class="row row-line-one">
             
                         
-                        <div class="col-sm-7 col-line-one-first">
-                            <% @news.first(4).each do |article| %>
-                            <%= image_tag(article.picture.url(:thumb), :alt => 'football', class: 'article-four-image', id: article.id) %>
-                            <% end %>
-                        </div>
+                <div class="col-sm-7 col-line-one-first">
+                    <% @news.first(4).each do |article| %>
+                    <%= image_tag(article.picture.url(:thumb), :alt => 'football', class: 'article-four-image', id: article.id) %>
+                    <% end %>
+                </div>
+                
+                <div class="col-sm-5 col-line-one-second">
+                    <div class="list-group">
+
+                        <% @news.first(4).each do |article| %>
+                            <a href="<%= league_article_path(article.league, article) %>" class="list-group-item list-group-custom text-left", onmouseover="$('.article-four-image').hide();$('#<%= article.id %>').show();$('.list-group-custom').css('background', 'transparent');$(this).css('background', '#2a4951')">
+                               <h3 class="list-group-item-heading"><%= truncate(article.title, length: 62) %></h4>
+                               <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(article.created_at, "%d %B %Y") %></i></span>
+                            </a>
+                        <% end %>
                         
-                        <div class="col-sm-5 col-line-one-second">
-                            <div class="list-group">
-    
-                                <% @news.first(4).each do |article| %>
-                                    <a href="<%= league_article_path(article.league, article) %>" class="list-group-item list-group-custom text-left", onmouseover="$('.article-four-image').hide();$('#<%= article.id %>').show();$('.list-group-custom').css('background', 'transparent');$(this).css('background', '#2a4951')">
-                                       <h3 class="list-group-item-heading"><%= truncate(article.title, length: 62) %></h4>
-                                       <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(article.created_at, "%d %B %Y") %></i></span>
-                                    </a>
-                                <% end %>
-                                
-                            </div>
-                        </div>
+                    </div>
+                </div>
                 
                
             </div>
@@ -35,8 +71,8 @@
             <div class="row row-line-two">
                 
                     <!--copy start-->
-                <% if @news[4, 3] %>
-                    <% @news[4, 3].each do |article| %>
+                <% if @news[4, 6] %>
+                    <% @news[4, 6].each do |article| %>
                         <div class="col-sm-4 three-article">
                             <a class="a-article" href="<%= league_article_path(article.league, article) %>">
                                 <div class="thumbnail">
@@ -123,7 +159,7 @@
            
        </div>
        
-       <div class="col-md-3 left-block"><%= render 'shared/my_team' %><%= render 'shared/last_news' %></div>
+       <div class="col-md-3 left-block"><%= render 'shared/my_team' %><%= render 'shared/last_news', point: 10 %></div>
    </div>
 
     
