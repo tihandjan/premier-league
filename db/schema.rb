@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107193123) do
+ActiveRecord::Schema.define(version: 20161114204820) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -73,23 +73,6 @@ ActiveRecord::Schema.define(version: 20161107193123) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "matches", force: :cascade do |t|
-    t.string   "home_team"
-    t.string   "away_team"
-    t.string   "date"
-    t.string   "status"
-    t.string   "self_fixtures"
-    t.integer  "matchday"
-    t.integer  "goals_home_team"
-    t.integer  "goals_away_team"
-    t.integer  "home_win_odds"
-    t.integer  "draw_odds"
-    t.integer  "away_win_odds"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "league"
-  end
-
   create_table "pictures", force: :cascade do |t|
     t.string   "picture"
     t.text     "description"
@@ -118,6 +101,24 @@ ActiveRecord::Schema.define(version: 20161107193123) do
   create_table "tables", force: :cascade do |t|
     t.string   "league"
     t.text     "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "video_id"
+    t.integer  "article_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "taggings", ["article_id"], name: "index_taggings_on_article_id"
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
+  add_index "taggings", ["video_id"], name: "index_taggings_on_video_id"
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
