@@ -22,9 +22,11 @@
             <p class="show-article-description"></p>
             
             <div class="show-article-tegs">
-                <a href="#" class="teg">Ибрагимович</a>
-                <a href="#" class="teg">Манчестер Юнайтед</a>
-                <a href="#" class="teg">Гвардиола</a>
+                <% if @video.tags.any? %>
+                    <% @video.tags.each do |tag| %>
+                        <a href="<%= tag_path(tag.name) %>" class="teg"><%= tag.name %></a>
+                    <% end %>
+                <% end %>
             </div>
 
 

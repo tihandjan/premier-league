@@ -1,5 +1,7 @@
 class Article < ActiveRecord::Base
     has_many :pictures, dependent: :destroy
+    has_many :taggings
+    has_many :tags, through: :taggings
     validates :title, presence: true, length: { minimum: 10, maximum: 150 }
     validates :summary, presence: true, length: { minimum: 10, maximum: 250 }
     validates :description, presence: true, length: { minimum: 10, maximum: 5000 }
@@ -7,6 +9,8 @@ class Article < ActiveRecord::Base
     validates :league, presence: true
     mount_uploader :picture, PictureUploader
     accepts_nested_attributes_for :pictures
+    accepts_nested_attributes_for :tags
+    accepts_nested_attributes_for :taggings
 
     after_create :fb_page_post
     
