@@ -43,9 +43,11 @@
             </div>
             <!-- social-media end -->
             <div class="show-article-tegs">
-                <a href="#" class="teg">Ибрагимович</a>
-                <a href="#" class="teg">Манчестер Юнайтед</a>
-                <a href="#" class="teg">Гвардиола</a>
+                <% if @article.tags.any? %>
+                    <% @article.tags.each do |tag| %>
+                        <a href="<%= tag_path(tag.name) %>" class="teg"><%= tag.name %></a>
+                    <% end %>
+                <% end %>
             </div>
 
             <span class="show-read-more">Комментарии</span>
