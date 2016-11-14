@@ -409,3 +409,17 @@
     </div>
 </div>
 
+<script type="text/javascript">    
+    (function(){
+          var league = $('#league-table').val();
+          $('#' + league).show();
+          $('#top-' + league).show();
+      })();
+      
+      function changeTable(){
+          $('.league-tables').hide();
+          var league = $('#league-table').val();
+          $('#' + league).show();
+          $('#top-' + league).show();
+      }
+</script>

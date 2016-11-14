@@ -24,10 +24,10 @@ $(document).on('turbolinks:load', function() {
     
     $('.thumbnail').hover(
         function () {
-            $('img',this).stop().animate({opacity: '0.4'}, 300);
+            $('img',this).stop().animate({opacity: '0.4'}, 200);
         },
         function () {
-            $('img',this).stop().animate({opacity: '0.9'}, 300);
+            $('img',this).stop().animate({opacity: '0.9'}, 200);
         }
     );
 })
