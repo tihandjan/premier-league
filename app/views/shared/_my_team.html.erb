@@ -58,19 +58,18 @@
 </div>
 
 <script type="text/javascript">
-      
-    (function(){
+        
+  (function(){
+    $('.selectpicker').hide();
+    $('.bootstrap-select').hide();
     var country = $('#country').val();
     $('#' + country).show();
-     
-     
-    })();
+  })();
     
     function changeCountry(){
          $('.countries').hide();
          var country = $('#country').val();
          $('#' + country).show();
     }
-     
-     
+
 </script>
