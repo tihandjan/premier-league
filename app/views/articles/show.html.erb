@@ -86,7 +86,7 @@
     <div class="left-block col-md-3"><%= render 'shared/last_news', point: 3 %></div>
 </div>
 
-<%= social_share_button_tag(truncate(@article.title, length: 5), :url => root_url, :image => @article.picture, desc: @article.summary, via: "euroliga") %>
+<%= social_share_button_tag(@article.title, :url => request.url, :image => @article.picture, desc: @article.summary, via: "euroliga") %>
 
 
 
