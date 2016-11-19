@@ -410,6 +410,9 @@ GEM
       rdoc (~> 4.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
+    social-share-button (0.8.4)
+      coffee-rails
+      sass-rails
     spring (1.7.2)
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
@@ -477,6 +480,7 @@ DEPENDENCIES
   sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
   shoulda-matchers
+  social-share-button
   spring
   sqlite3
   turbolinks

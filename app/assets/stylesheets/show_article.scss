@@ -34,6 +34,7 @@
                         -webkit-transition: 0.5s;
                         -o-transition: 0.5s;
                         transition: 0.5s;
+                        cursor: pointer;
                         &:hover {
                             i {
                                 color: #FFF;
@@ -95,6 +96,7 @@
                     -webkit-transition: 0.1s;
                     -o-transition: 0.1s;
                     transition: 0.1s;
+                    cursor: pointer;
                     &:hover {   
                         i {
                             color: #FFF;
@@ -161,7 +163,8 @@
 .fb{&:hover{background: #4169bc;}}
 .vk{&:hover{background: #3a86c0;}}
 .tw{&:hover{background: #1caeea;}}
-.pocket{&:hover{background: #ed812b;}}
+.pocket{&:hover{background: #C53929;}}
+.social-share-button{display: none;}
 
 @media only screen and (max-width: 653px) {
     .share-buttons {

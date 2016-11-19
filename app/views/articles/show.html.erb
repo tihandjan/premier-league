@@ -11,10 +11,10 @@
             <div class="show-article-image">
                 <!-- social-media start -->
                 <div class="share-buttons">
-                    <div class="fb-share-button" data-href="<%= league_article_url(@article.league, @article) %>" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore social-btn fb" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F<%= league_article_url(@article.league, @article) %>%2F&amp;src=sdkpreparse"><i class="fa fa-facebook " aria-hidden="true"></i></a></div>
-                    <a class="social-btn vk vk-btn" href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
-                    <a class="social-btn tw" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a class="social-btn pocket pocket-btn" href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+                    <a class="social-btn fb" onclick="$('.ssb-facebook').click();"><i class="fa fa-facebook " aria-hidden="true"></i></a>
+                    <a class="social-btn vk vk-btn" onclick="$('.ssb-vkontakte').click();"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                    <a class="social-btn tw" onclick="$('.ssb-twitter').click();"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a class="social-btn pocket pocket-btn" onclick="$('.ssb-google_plus').click();"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
                 </div>
                 <!-- social-media end -->
                 <%= image_tag @article.picture, alt: '', class: 'img-responsive' %>
@@ -36,12 +36,10 @@
             <% end %>
             <!-- social-media start -->
             <div class="share-buttons-bottom">
-                <div id="fb-root"></div>
-                <div class="fb-share-button" data-href="<%= league_article_url(@article.league, @article) %>" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore social-btn fb" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F<%= league_article_url(@article.league, @article) %>%2F&amp;src=sdkpreparse"><i class="fa fa-facebook " aria-hidden="true"></i></a></div>
-            
-                <a class="social-btn vk vk-btn" href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
-                <a class="social-btn tw" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                <a class="social-btn pocket pocket-btn" href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+                <a class="social-btn fb" onclick="$('.ssb-facebook').click();"><i class="fa fa-facebook " aria-hidden="true"></i></a>
+                <a class="social-btn vk vk-btn" onclick="$('.ssb-vkontakte').click();"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                <a class="social-btn tw" onclick="$('.ssb-twitter').click();"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a class="social-btn pocket pocket-btn" onclick="$('.ssb-google_plus').click();"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
             </div>
             <!-- social-media end -->
             <div class="show-article-tegs">
@@ -71,7 +69,7 @@
                                     <div class="caption custom-caption">
                                         <h3><strong><%= truncate(article.title, length: 55) %></strong></h3>
                                         <p><%= truncate(article.summary,length: 90) %></p>
-                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(article.created_at, "%d %B %Y") %></i></span> 
+                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %></i></span> 
                                     </div>
                                 </div>
                             </a>
@@ -82,21 +80,13 @@
                 
             </div>
             <!-- read more articles end -->
-
         </div>
     </div>
 
     <div class="left-block col-md-3"><%= render 'shared/last_news', point: 3 %></div>
 </div>
 
-
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.8&appId=549133155280089";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<%= social_share_button_tag(@article.title, :url => root_url, :image => @article.picture, desc: @article.summary, via: "igor_tikhonenko") %>
 
 
 
