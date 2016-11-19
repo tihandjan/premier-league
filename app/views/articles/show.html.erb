@@ -45,7 +45,7 @@
             <div class="show-article-tegs">
                 <% if @article.tags.any? %>
                     <% @article.tags.each do |tag| %>
-                        <a href="<%= tag_path(tag.name) %>" class="teg"><%= tag.name %></a>
+                        <a href="<%= tag_path(tag) %>" class="teg"><%= tag.name %></a>
                     <% end %>
                 <% end %>
             </div>
