@@ -11,10 +11,10 @@
             <div class="show-article-image">
                 <!-- social-media start -->
                 <div class="share-buttons">
-                    <a class="social-btn fb" href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a>
-                    <a class="social-btn vk vk-btn" href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
-                    <a class="social-btn tw" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a class="social-btn pocket pocket-btn" href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+                    <a class="social-btn fb" onclick="$('.ssb-facebook').click();"><i class="fa fa-facebook " aria-hidden="true"></i></a>
+                <a class="social-btn vk vk-btn" onclick="$('.ssb-vkontakte').click();"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                <a class="social-btn tw" onclick="$('.ssb-twitter').click();"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a class="social-btn pocket pocket-btn" onclick="$('.ssb-google_plus').click();"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
                 </div>
                 <!-- social-media end -->
                 <%= raw @video.code %>
@@ -48,7 +48,7 @@
                                     <div class="image-wrapper"><%= image_tag(video.picture.url(:mini), :alt => 'football') %></div>
                                     <div class="caption custom-caption">
                                         <h3 class="video-three-article-title"><strong><%= truncate(video.title, length: 65) %></strong></h3>
-                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(video.created_at, "%d %B %Y") %></i></span> 
+                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %></i></span> 
                                         <span class="video-icon-four"><i class="glyphicon glyphicon-play"></i></span>
                                         <span class="video-icon-four video-icon-four-time">00:29</span>
                                     </div>
@@ -68,6 +68,4 @@
     <div class="left-block col-md-3"><%= render 'shared/last_news', point: 0 %></div>
 </div>
 
-
-
-
+<%= social_share_button_tag(@video.title, :url => root_url, :image => @video.picture, desc: @video.summary, via: "igor_tikhonenko") %>
