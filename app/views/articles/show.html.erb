@@ -11,7 +11,7 @@
             <div class="show-article-image">
                 <!-- social-media start -->
                 <div class="share-buttons">
-                    <a class="social-btn fb" href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a>
+                    <div class="fb-share-button" data-href="<%= league_article_url(@article.league, @article) %>" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore social-btn fb" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F<%= league_article_url(@article.league, @article) %>%2F&amp;src=sdkpreparse"><i class="fa fa-facebook " aria-hidden="true"></i></a></div>
                     <a class="social-btn vk vk-btn" href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
                     <a class="social-btn tw" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                     <a class="social-btn pocket pocket-btn" href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
@@ -36,7 +36,9 @@
             <% end %>
             <!-- social-media start -->
             <div class="share-buttons-bottom">
-                <a class="social-btn fb" href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a>
+                <div id="fb-root"></div>
+                <div class="fb-share-button" data-href="<%= league_article_url(@article.league, @article) %>" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore social-btn fb" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F<%= league_article_url(@article.league, @article) %>%2F&amp;src=sdkpreparse"><i class="fa fa-facebook " aria-hidden="true"></i></a></div>
+            
                 <a class="social-btn vk vk-btn" href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
                 <a class="social-btn tw" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                 <a class="social-btn pocket pocket-btn" href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
@@ -87,6 +89,14 @@
     <div class="left-block col-md-3"><%= render 'shared/last_news', point: 3 %></div>
 </div>
 
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.8&appId=549133155280089";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 
