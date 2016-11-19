@@ -48,7 +48,7 @@
                                     <div class="image-wrapper"><%= image_tag(video.picture.url(:mini), :alt => 'football') %></div>
                                     <div class="caption custom-caption">
                                         <h3 class="video-three-article-title"><strong><%= truncate(video.title, length: 65) %></strong></h3>
-                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %></i></span> 
+                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(video.created_at) %></i></span> 
                                         <span class="video-icon-four"><i class="glyphicon glyphicon-play"></i></span>
                                         <span class="video-icon-four video-icon-four-time">00:29</span>
                                     </div>
@@ -68,4 +68,4 @@
     <div class="left-block col-md-3"><%= render 'shared/last_news', point: 0 %></div>
 </div>
 
-<%= social_share_button_tag(@video.title, :url => root_url, :image => @video.picture, desc: @video.summary, via: "igor_tikhonenko") %>
+<%= social_share_button_tag(truncate(@video.title, length: 5), :url => request.url, :image => @video.picture, via: "euroliga") %>
