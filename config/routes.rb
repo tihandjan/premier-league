@@ -18,7 +18,9 @@ Rails.application.routes.draw do
     resources :articles, only: [:show, :index]
     resources :videos, only: [:show, :index]
   end
-  resources :tags, only: [:show, :index]
+  resources :tags, only: [:show, :index] do
+    get 'videos' => 'tags#video_tag', on: :member
+  end
 
   put 'my_team' => 'main#change_my_team', as: :change_my_team
   post 'feedback' => 'feedback#create', as: :feedbacks

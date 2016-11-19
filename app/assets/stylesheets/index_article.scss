@@ -9,6 +9,23 @@
 	
 	.index-article-row {
 		.right-block {
+			.list-group {
+					background: #FFF;
+					.list-group-item {
+						border-right: none;
+						border-left: none;
+						img {
+							float: left;
+							margin-right: 10px;
+						}
+						.list-group-item-heading {
+							font-size: 20px;
+						}
+						.time {
+							text-transform: uppercase;
+						}
+					}
+				}
 			padding-top: 0;
 			.index-article-wrapper {
 				background: #FFF;
@@ -54,24 +71,8 @@
 				}
 			}
 		}
-		.list-group {
-			background: #FFF;
-			.list-group-item {
-				border-right: none;
-				border-left: none;
-				img {
-					float: left;
-					margin-right: 10px;
-				}
-				.list-group-item-heading {
-					font-size: 20px;
-				}
-				.time {
-					text-transform: uppercase;
-				}
-			}
-		}
 	}
+	.left-block{margin-top: 0 !important;}
 }
 @media only screen and (max-width: 1199px) and (min-width: 768px) {
 	.articles {
