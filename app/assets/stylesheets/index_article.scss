@@ -5,6 +5,7 @@
 	.seria-a-active {background:#2a4951;color:#FFF !important;}
 	.chempions-league-active {background:#2a4951;color:#FFF !important;}
 	.rest-active {background:#2a4951;color:#FFF !important;}
+	.index-article-h1{margin-top: 0;margin-bottom: 0;background: #FFF;padding-left: 15px;font-size: 26px;padding-bottom: 4px;}
 	
 	.index-article-row {
 		.right-block {
@@ -52,22 +53,21 @@
 					}
 				}
 			}
-			.index-article-h1{margin-top: 0;margin-bottom: 0;background: #FFF;padding-left: 15px;font-size: 26px;padding-bottom: 4px;}
-			.list-group {
-				background: #FFF;
-				.list-group-item {
-					border-right: none;
-    				border-left: none;
-    				img {
-						float: left;
-						margin-right: 10px;
-    				}
-    				.list-group-item-heading {
-						font-size: 20px;
-    				}
-    				.time {
-						text-transform: uppercase;
-    				}
+		}
+		.list-group {
+			background: #FFF;
+			.list-group-item {
+				border-right: none;
+				border-left: none;
+				img {
+					float: left;
+					margin-right: 10px;
+				}
+				.list-group-item-heading {
+					font-size: 20px;
+				}
+				.time {
+					text-transform: uppercase;
 				}
 			}
 		}
