@@ -9,7 +9,10 @@ permit_params :league, :category, :title, :summary, :description, :picture, :sou
         column :team
         column :source
         column :category
+        actions do |article|
+        end
     end
+
 
 
     form do |f|
@@ -30,14 +33,18 @@ permit_params :league, :category, :title, :summary, :description, :picture, :sou
               picture.input :description
             end
         end
-        inputs 'Выбрать теги из списка' do
-            f.has_many :taggings, new_record: 'Выбрать тег' do |t|
-                t.input :tag, as: :select, collection: Tag.all
+        if f.object.new_record?
+            inputs 'Выбрать теги из списка' do
+                f.has_many :taggings, new_record: 'Выбрать тег' do |t|
+                    t.input :tag, as: :select, collection: Tag.all
+                end
             end
         end
-        inputs 'Добавить недостающие теги' do
-            f.has_many :tags, new_record: 'Добавить новый тег' do |t|
-                t.input :name
+        if f.object.new_record?
+            inputs 'Добавить недостающие теги' do
+                f.has_many :tags, new_record: 'Добавить новый тег' do |t|
+                    t.input :name
+                end
             end
         end
         actions

@@ -6,6 +6,8 @@ permit_params :title, :picture, :code, :league, tags_attributes: [:name], taggin
         column :id
         column :league
         column :code
+        actions do |article|
+        end
     end
 
     form do |f|
@@ -16,14 +18,18 @@ permit_params :title, :picture, :code, :league, tags_attributes: [:name], taggin
           input :picture, as: :file
           input :code
         end
-        inputs 'Выбрать теги из списка' do
-            f.has_many :taggings, new_record: 'Выбрать тег' do |t|
-                t.input :tag, as: :select, collection: Tag.all
+        if f.object.new_record?
+            inputs 'Выбрать теги из списка' do
+                f.has_many :taggings, new_record: 'Выбрать тег' do |t|
+                    t.input :tag, as: :select, collection: Tag.all
+                end
             end
         end
-        inputs 'Добавить недостающие теги' do
-            f.has_many :tags, new_record: 'Добавить новый тег' do |t|
-                t.input :name
+        if f.object.new_record?
+            inputs 'Добавить недостающие теги' do
+                f.has_many :tags, new_record: 'Добавить новый тег' do |t|
+                    t.input :name
+                end
             end
         end
         actions
