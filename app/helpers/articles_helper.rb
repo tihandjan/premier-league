@@ -4,7 +4,7 @@ module ArticlesHelper
     if cat == 'article'
       link_to 'Статьи', league_articles_path(@article.league)
     else
-      link_to 'Новости', league_articles_path(@article.league)
+      link_to 'Новости', league_news_index_path(@article.league)
     end
   end
 

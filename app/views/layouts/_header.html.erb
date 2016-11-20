@@ -163,8 +163,9 @@
             </div>
           </a>
           <ul class="dropdown-menu pull-left">
-            <li><a href="#">Новости</a></li>
-            <li><a href="#">Статьи</a></li>
+            <li><a href="<%= league_news_index_path('all') %>">Новости</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<%= league_articles_path('all') %>">Статьи</a></li>
           </ul>
         </li>
         
@@ -177,11 +178,13 @@
           </a>
           <ul class="dropdown-menu pull-left">
             <li><a href="<%= league_videos_path('all') %>" class="header-link">Все видео</a></li>
+            <li role="separator" class="divider"></li>
             <li><a href="<%= league_videos_path('apl') %>">АПЛ</a></li>
             <li><a href="<%= league_videos_path('laliga') %>">Ла Лига</a></li>
-            <li><a href="<%= league_videos_path('chempions-league') %>">Лига Чемпионов</a></li>
             <li><a href="<%= league_videos_path('bundesliga') %>">Бундеслига</a></li>
             <li><a href="<%= league_videos_path('seria-a') %>">Серия А</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<%= league_videos_path('chempions-league') %>">Лига Чемпионов</a></li>
           </ul>
         </li>
         

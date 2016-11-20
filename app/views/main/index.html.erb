@@ -6,7 +6,7 @@
        
        <div class="col-md-9 right-block">
            
-           <div class="article-title"><a href="<%= leagues_path %>"> Новости</a></div>
+           <div class="article-title"><a href="<%= league_news_index_path('all') %>"> Новости</a></div>
             <div class="row row-line-one">
             
                         
@@ -35,8 +35,8 @@
             <div class="row row-line-two">
                 
                     <!--copy start-->
-                <% if @news[4, 3] %>
-                    <% @news[4, 3].each do |article| %>
+                <% if @news[4, 6] %>
+                    <% @news[4, 6].each do |article| %>
                         <div class="col-sm-4 three-article">
                             <a class="a-article" href="<%= league_article_path(article.league, article) %>">
                                 <div class="thumbnail">
@@ -55,7 +55,7 @@
                 
             </div>
             
-            <div class="article-title"><a href="<%= leagues_path %>"> Статьи</a></div>
+            <div class="article-title"><a href="<%= league_articles_path('all') %>"> Статьи</a></div>
             <div class="row row-article">
         
                 <% @articles.each do |article| %>

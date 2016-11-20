@@ -20,7 +20,7 @@
             <h2 class="league-h2"><%= @h2 %></h2>
             <hr>
             <% if @news.any? %>
-                <div class="article-title"><a href="<%= league_articles_path(@news.last.league) %>"> Новости</a></div>
+                <div class="article-title"><a href="<%= league_news_index_path(@news.last.league) %>"> Новости</a></div>
                 <div class="row row-line-one">
                 
                           
