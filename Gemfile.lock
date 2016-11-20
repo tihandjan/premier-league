@@ -258,6 +258,7 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hashie (3.4.6)
+    htmlcompressor (0.2.0)
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
@@ -463,6 +464,7 @@ DEPENDENCIES
   factory_girl_rails
   fog
   font-awesome-sass
+  htmlcompressor (~> 0.2.0)
   httparty
   jbuilder (~> 2.0)
   jquery-rails
