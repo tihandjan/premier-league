@@ -1,10 +1,7 @@
 class LeaguesController < ApplicationController
 
   def index
-    @articles = Article.paginate(page: params[:page], per_page: 7).order('created_at DESC')
-    @h1 = 'привет я h1 для всех новостей/статей'
-    @active = 'rest-active'
-    render 'articles/index'
+    redirect_to root_path
   end
 
   def show
