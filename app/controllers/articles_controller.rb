@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
   def index
-      @articles = Article.paginate(page: params[:page], per_page: 7).order('created_at DESC').where(league: params[:league_id])
+      @articles = Article.paginate(page: params[:page], per_page: 7).order('created_at DESC').where(league: params[:league_id], category: 'article')
 
     if params[:league_id] == 'apl'
       @h1 = "Привет я буду h1 для #{params[:league_id]}"
@@ -18,6 +18,10 @@ class ArticlesController < ApplicationController
     elsif params[:league_id] == 'chempions-league'
       @h1 = "Привет я буду h1 для #{params[:league_id]}"
       @active = 'chempions-league-active'
+    elsif params[:league_id] == 'all'
+      @articles = Article.paginate(page: params[:page], per_page: 7).order('created_at DESC').where(category: 'article')
+      @active = 'rest-active'
+      @h1 = "Привет я буду h1 для всех статей"
     end
   end
 
