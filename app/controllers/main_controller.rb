@@ -16,6 +16,9 @@ class MainController < ApplicationController
         end
     end
 
+    def policy
+    end
+
     def choose_league_table
         if Table.count != 5 || (Time.current - Table.last.created_at)/60 > 60
            
