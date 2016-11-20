@@ -89,3 +89,6 @@ gem 'russian', '~> 0.6.0'
 gem "koala", "~> 2.2"
 gem 'bootstrap-will_paginate'
 gem 'social-share-button'
+
+# compression
+gem 'htmlcompressor', '~> 0.2.0'
