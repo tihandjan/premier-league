@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   namespace :users do
     get 'omniauth_callbacks/facebook'
     get 'omniauth_callbacks/google_oauth2'
+    get 'omniauth_callbacks/twitter'
+    get 'omniauth_callbacks/vkontakte'
   end
   # authentication end
 
