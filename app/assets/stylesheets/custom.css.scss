@@ -260,6 +260,9 @@ hr {
                 height: 200px;
             }
         }
+        &:last-child {
+            padding-right: 0px;
+        }
         .a-article {
             color: inherit;
             &:hover {

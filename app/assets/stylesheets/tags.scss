@@ -1,7 +1,13 @@
 .tags {
     .right-block {
         padding-top: 0;
-        .list-group {background: #FFF;}
+        .list-group {
+            background: #FFF;
+            img {
+                float: left;
+                margin-right: 10px;
+            }
+        }
         .index-article-h1 {padding-top: 10px;}
         .row-line-two {background: #FFF;}
     }
