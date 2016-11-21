@@ -108,11 +108,13 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
   
   config.omniauth :facebook, Rails.application.secrets.facebook_app_id, Rails.application.secrets.facebook_app_key
+  config.omniauth :twitter, Rails.application.secrets.twitter_app_id, Rails.application.secrets.twitter_app_key
+  config.omniauth :vkontakte, Rails.application.secrets.vk_app_id, Rails.application.secrets.vk_app_key
   
   if Rails.env=="production"
-    CALLBACK_URL='https://prem-leag.herokuapp.com/users/auth/google_oauth2/callback'
+    CALLBACK_URL='https://ueroliga.herokuapp.com/users/auth/google_oauth2/callback'
   else
-    CALLBACK_URL='https://premier-league-new-tihandjan.c9users.io/users/auth/google_oauth2/callback'
+    CALLBACK_URL='https://ueroliga.herokuapp.com/users/auth/google_oauth2/callback'
   end
   
   config.omniauth :google_oauth2, Rails.application.secrets.google_app_id, Rails.application.secrets.google_app_key, {
