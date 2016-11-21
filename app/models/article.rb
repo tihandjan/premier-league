@@ -32,13 +32,13 @@ class Article < ActiveRecord::Base
         # page_access_token = graph.get_page_access_token('1411234032511437')
 
         # only this part right
-        # page_graph = Koala::Facebook::API.new('EAAHzbwanpNkBAF3pDmYuU3cRn7equ2QkpOISwdFdRCJXHsCp7FZBDPwWgGjinUfguvcZB6hxhkWbEjCZBdJkczWfAE1NH7BzZC8ZAzxR7slvtITsoYonzaLrdcpgsfZBnw3ZBnXXq3ZARCTZBQUHdNF3nNZCU9FfW2I8gZD')
-        # page_graph.put_wall_post(self.title , {
-        # "link" => "http://ueroliga.herokuapp.com/#{Rails.application.routes.url_helpers.league_article_path(self.league, self)}",
-        # "name" => self.summary,
-        # "description" => self.description,
-        # "picture" => Article.last.picture.url,
-        # })
+        page_graph = Koala::Facebook::API.new('EAAHzbwanpNkBAF3pDmYuU3cRn7equ2QkpOISwdFdRCJXHsCp7FZBDPwWgGjinUfguvcZB6hxhkWbEjCZBdJkczWfAE1NH7BzZC8ZAzxR7slvtITsoYonzaLrdcpgsfZBnw3ZBnXXq3ZARCTZBQUHdNF3nNZCU9FfW2I8gZD')
+        page_graph.put_wall_post(self.title , {
+        "link" => "http://ueroliga.herokuapp.com/#{Rails.application.routes.url_helpers.league_article_path(self.league, self)}",
+        "name" => self.summary,
+        "description" => self.description,
+        "picture" => Article.last.picture.url
+        })
     end
     
 end
