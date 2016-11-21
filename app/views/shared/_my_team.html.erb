@@ -40,17 +40,24 @@
             <div class="text-center">Войти с помощью</div>
             <div class="btn-group btn-group-justified" role="group" aria-label="...">
                 <div class="btn-group" role="group">
+                  <a href="<%= user_vkontakte_omniauth_authorize_path %>" class="btn btn-info btn-reg"><i class="fa fa-vk" aria-hidden="true"></i>Vkontakte</a>
+                </div>
+                <div class="btn-group" role="group">
                   <a href="<%= user_facebook_omniauth_authorize_path %>" class="btn btn-primary btn-reg"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
                 </div>
+            </div>
+            <div class="btn-group btn-group-justified" role="group" aria-label="...">
                 <div class="btn-group" role="group">
                   <a href="<%= user_google_oauth2_omniauth_authorize_path %>" class="btn btn-danger btn-reg"><i class="fa fa-google-plus" aria-hidden="true"></i>Google</a>
                 </div>
-                
+                <div class="btn-group" role="group">
+                  <a href="<%= user_twitter_omniauth_authorize_path %>" class="btn btn-info btn-reg"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a>
+                </div>
             </div>
             <div class="text-center">Или</div>
             <div class="btn-group btn-group-justified" role="group" aria-label="...">
                 <div class="btn-group" role="group">
-                  <a href="<%= new_user_session_path %>" class="btn btn-info btn-reg">Вручную</a>
+                  <a href="<%= new_user_session_path %>" class="btn btn-primary btn-reg">Вручную</a>
                 </div>
             </div>
         <% end %>
