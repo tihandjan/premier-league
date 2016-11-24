@@ -535,45 +535,6 @@ hr {
 // lenta novostey end
 
 
-// auth modal
-.btn-group {
-    .fa {
-        font-size: 1.4em;
-        position: absolute;
-        left: 10px;
-        top: 10px;
-        color: #FFF;
-    }
-}
-// end
-
-// authorization views start
-.custom-form {
-    padding: 20px;
-    border-radius: 5px;
-    background: #FFF;
-}
-
-.registration {
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    margin-top: 0;
-}
-
-.upload_file_container {
-   label {
-   pointer: cursor;
-   /* Style as you please, it will become the visible UI component. */
-}
-
-   input {
-   opacity: 0;
-   position: absolute;
-   z-index: -1;
-}
-}
-// end
-
 // my team start
 .my-team {
     label {
@@ -591,6 +552,7 @@ hr {
             -webkit-border-radius: 0px;
             -moz-border-radius: 0px;
             border-radius: 0px;
+            color: #FFF;
             .fa {
                 top: 7px;
             }
