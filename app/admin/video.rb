@@ -6,7 +6,7 @@ permit_params :title, :picture, :code, :league, tags_attributes: [:name], taggin
         column :id
         column :league
         column :code
-        actions do |article|
+        actions do |video|
         end
     end
 
