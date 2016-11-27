@@ -17,6 +17,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update]
   resources :leagues, only: [:show, :index] do
+    member do
+      get 'table'
+    end
     resources :articles, only: [:show, :index]
     resources :videos, only: [:show, :index]
     resources :news, only: [:index]
