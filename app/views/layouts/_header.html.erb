@@ -76,7 +76,7 @@
             <li role="separator" class="divider"></li>
             <li><a href="#">Календарь</a></li>
             <li><a href="#">Результаты</a></li>
-            <li><a href="#">Таблица</a></li>
+            <li><a href="<%= table_league_path('chempions-league') %>">Таблица</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Статистика</a></li>
           </ul>
@@ -94,7 +94,7 @@
             <li role="separator" class="divider"></li>
             <li><a href="#">Календарь</a></li>
             <li><a href="#">Результаты</a></li>
-            <li><a href="#">Таблица</a></li>
+            <li><a href="<%= table_league_path('apl') %>">Таблица</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Статистика</a></li>
           </ul>
@@ -112,7 +112,7 @@
             <li role="separator" class="divider"></li>
             <li><a href="#">Календарь</a></li>
             <li><a href="#">Результаты</a></li>
-            <li><a href="#">Таблица</a></li>
+            <li><a href="<%= table_league_path('laliga') %>">Таблица</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Статистика</a></li>
           </ul>
@@ -130,7 +130,7 @@
             <li role="separator" class="divider"></li>
             <li><a href="#">Календарь</a></li>
             <li><a href="#">Результаты</a></li>
-            <li><a href="#">Таблица</a></li>
+            <li><a href="<%= table_league_path('bundesliga') %>">Таблица</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Статистика</a></li>
           </ul>
@@ -148,14 +148,14 @@
             <li role="separator" class="divider"></li>
             <li><a href="#">Календарь</a></li>
             <li><a href="#">Результаты</a></li>
-            <li><a href="#">Таблица</a></li>
+            <li><a href="<%= table_league_path('seria-a') %>">Таблица</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Статистика</a></li>
           </ul>
         </li>
           
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle">
+          <a href="<%= league_news_index_path('all') %>" class="dropdown-toggle">
             <div class="league league-col">
               <i class="sprite_header sprite-books"></i><i class="sprite_header sprite_hover sprite-books_hover"></i>
               <div>Читать</div>

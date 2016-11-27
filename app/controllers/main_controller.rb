@@ -20,7 +20,7 @@ class MainController < ApplicationController
     end
 
     def choose_league_table
-        if Table.count != 5 || (Time.current - Table.last.created_at)/60 > 60
+        if Table.count != 5 || (Time.current - Table.last.created_at)/60 > 60 && (HTTParty.get("http://api.football-data.org/v1/competitions/426/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})).code == 200
            
             Table.destroy_all
             en = HTTParty.get("http://api.football-data.org/v1/competitions/426/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})
@@ -60,7 +60,7 @@ class MainController < ApplicationController
     end
     
     def update_fixtures
-        if Fixture.count != 5 || (Time.current - Fixture.last.created_at)/60 > 10
+        if Fixture.count != 5 || (Time.current - Fixture.last.created_at)/60 > 10 && (HTTParty.get("http://api.football-data.org/v1/competitions/426/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})).code == 200
 
                 
             Fixture.destroy_all

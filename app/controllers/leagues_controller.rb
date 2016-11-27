@@ -50,8 +50,36 @@ class LeaguesController < ApplicationController
     end
   end
 
+  def table
+    @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(12)
+    choose_league_table
+    if params[:id] == 'seria-a'
+      @name = params[:id]
+      @table_data = @response_table_seria_a
+      @league = params[:id]
+    elsif params[:id] == 'bundesliga'
+      @name = params[:id]
+      @table_data = @response_table_bundes_liga
+      @league = params[:id]
+    elsif params[:id] == 'laliga'
+      @name = params[:id]
+      @table_data = @response_table_pl_sp
+      @league = params[:id]
+    elsif params[:id] == 'chempions-league'
+      @name = params[:id]
+      @table_data = @response_table_chemp_liga
+      @league = params[:id]
+    elsif params[:id] == 'apl'
+      @name = params[:id]
+      @table_data = @response_table
+      @league = params[:id]
+    else
+      redirect_to root_path
+    end
+  end
+
   def choose_league_table
-      if Table.count != 5 || (Time.current - Table.last.created_at)/60 > 60
+      if Table.count != 5 || (Time.current - Table.last.created_at)/60 > 60 && (HTTParty.get("http://api.football-data.org/v1/competitions/426/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})).code == 200
          
           Table.destroy_all
           en = HTTParty.get("http://api.football-data.org/v1/competitions/426/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})
