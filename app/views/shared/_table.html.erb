@@ -58,7 +58,7 @@
             <tbody class="text-center league-tables" id="spain-table">
                 <% @number = 0 %>
                 <% @response_table_pl_sp['standing'].each do |team| %>
-                <tr class="<%= change_row_color @number %>"style="background: <%= '#69a6a6' if current_user && current_user.team.presence && current_user.team == team['teamName'] %>">
+                <tr class="<%= change_row_color @number %>" style="background: <%= '#69a6a6' if current_user && current_user.team.presence && current_user.team == team['teamName'] %>">
                     <td class="team-number"><%= @number += 1 %></td>
                     <td class="team-icon"><i class="<%= show_team_icon(team['teamName']) %> icon-table"></i></td>
                     <td class="team-name"><%= full_team_translater(team['teamName']) %></td>
@@ -80,7 +80,7 @@
             <tbody class="text-center league-tables" id="germany-table">
                 <% @number = 0 %>
                 <% @response_table_bundes_liga['standing'].each do |team| %>
-                <tr class="<%= change_row_color @number %>"style="background: <%= '#69a6a6' if current_user && current_user.team.presence && current_user.team == team['teamName'] %>">
+                <tr class="<%= change_row_color @number %>" style="background: <%= '#69a6a6' if current_user && current_user.team.presence && current_user.team == team['teamName'] %>">
                     <td class="team-number"><%= @number += 1 %></td>
                     <td class="team-icon"><i class="<%= show_team_icon(team['teamName']) %> icon-table"></i></td>
                     <td class="team-name"><%= full_team_translater(team['teamName']) %></td>
@@ -102,7 +102,7 @@
             <tbody class="text-center league-tables" id="italy-table">
                 <% @number = 0 %>
                 <% @response_table_seria_a['standing'].each do |team| %>
-                <tr class="<%= change_row_color @number %>"style="background: <%= '#69a6a6' if current_user && current_user.team.presence && current_user.team == team['teamName'] %>">
+                <tr class="<%= change_row_color @number %>" style="background: <%= '#69a6a6' if current_user && current_user.team.presence && current_user.team == team['teamName'] %>">
                     <td class="team-number"><%= @number += 1 %></td>
                     <td class="team-icon"><i class="<%= show_team_icon(team['teamName']) %> icon-table"></i></td>
                     <td class="team-name"><%= full_team_translater(team['teamName']) %></td>
