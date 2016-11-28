@@ -94,3 +94,6 @@ gem 'social-share-button'
 
 # compression
 gem 'htmlcompressor', '~> 0.2.0'
+
+# import scv
+gem 'activerecord-import', '~> 0.4.0'
