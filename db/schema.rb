@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114204820) do
+ActiveRecord::Schema.define(version: 20161128014147) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -71,6 +71,23 @@ ActiveRecord::Schema.define(version: 20161114204820) do
     t.text     "fixture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.string   "selfFixtures"
+    t.string   "competition"
+    t.string   "homeTeamHref"
+    t.string   "awayTeamHref"
+    t.datetime "date"
+    t.string   "status"
+    t.string   "matchday"
+    t.string   "homeTeamName"
+    t.string   "awayTeamName"
+    t.string   "goalsHomeTeam"
+    t.string   "goalsAwayTeam"
+    t.string   "league"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "pictures", force: :cascade do |t|
