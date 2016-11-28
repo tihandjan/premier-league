@@ -97,3 +97,6 @@ gem 'htmlcompressor', '~> 0.2.0'
 
 # import scv
 gem 'activerecord-import', '~> 0.4.0'
+
+# background procceses
+gem 'delayed_job_active_record'

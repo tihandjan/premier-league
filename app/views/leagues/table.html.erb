@@ -14,7 +14,7 @@
 <div class="row league-row <%= @add_class %>">
     <div class="right-block col-md-9">
 
-        <h1 class="league-table-h1">Привет я буду h1 для <%= @name %></h1>
+        <h1 class="league-table-h1">Привет я буду h1 для </h1>
         <hr>
         <div class="row row-table">
             <div class="panel panel-default">
@@ -41,29 +41,29 @@
                             <th>Очков</th>
                         </tr>
                     </thead>
-                    <% if @table_data['standing'] %>
+                    <% if @table.any? && @table.last.league != 'chempions-league' %>
                     <tbody class="text-center">
                         <% @number = 0 %>
-                        <% @table_data['standing'].each do |team| %>
+                        <% @table.each do |team| %>
                         <tr class="league-table-tr" style="background: <%= change_league_table_row_color params[:id], (@number+1) %>">
                             <td class="team-number"><%= @number += 1 %></td>
-                            <td class="team-icon"><i class="<%= show_team_icon(team['teamName']) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team['teamName']) %></td>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
                             <td></td>
                             <td></td>
-                            <td class="team-td"><%= team['playedGames'] %></td>
-                            <td class="team-td"><%= team['wins'] %></td>
-                            <td class="team-td"><%= team['draws'] %></td>
-                            <td class="team-td"><%= team['losses'] %></td>
-                            <td class="team-td"><%= team['goals'] %></td>
-                            <td class="team-td"><%= team['goalsAgainst'] %></td>
-                            <td class="team-td"><%= team['goalDifference'] %></td>
+                            <td class="team-td"><%= team.playedGames %></td>
+                            <td class="team-td"><%= team.wins %></td>
+                            <td class="team-td"><%= team.draws %></td>
+                            <td class="team-td"><%= team.losses %></td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
                             <td></td>
-                            <td class="team-score"><b><%= team['points'] %></b></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
                         </tr>
                         <% end %>
                     </tbody>
-                    <% elsif @table_data['standings']['A'] %>
+                    <% elsif  @table.any? && @table.last.league == 'chempions-league' %>
                     <tbody class="text-center">
                         <tr class="chempleag-devider">
                             <td class="chempleag-column">A</td>
@@ -82,22 +82,22 @@
                             <td></td>
                         </tr>
                         <% @number = 0 %>
-                        <% @table_data['standings']['A'].each do |team| %>
+                        <% @table.where(group: 'A').each do |team| %>
                         <tr class="<%= change_row_color @number %>">
-                            <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
-                            <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
                             <td></td>
                             <td></td>
-                            <td class="team-td"><%= team['playedGames'] %></td>
+                            <td class="team-td"><%= team.playedGames %></td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
-                            <td class="team-td"><%= team['goals'] %></td>
-                            <td class="team-td"><%= team['goalsAgainst'] %></td>
-                            <td class="team-td"><%= team['goalDifference'] %></td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
                             <td></td>
-                            <td class="team-score"><b><%= team['points'] %></b></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
                         </tr>
                         <% end %>
                         
@@ -117,22 +117,22 @@
                             <td></td>
                             <td></td>
                         </tr>
-                        <% @table_data['standings']['B'].each do |team| %>
+                        <% @table.where(group: 'B').each do |team| %>
                         <tr class="<%= change_row_color @number %>">
-                            <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
-                            <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
                             <td></td>
                             <td></td>
-                            <td class="team-td"><%= team['playedGames'] %></td>
+                            <td class="team-td"><%= team.playedGames %></td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
-                            <td class="team-td"><%= team['goals'] %></td>
-                            <td class="team-td"><%= team['goalsAgainst'] %></td>
-                            <td class="team-td"><%= team['goalDifference'] %></td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
                             <td></td>
-                            <td class="team-score"><b><%= team['points'] %></b></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
                         </tr>
                         <% end %>
                         
@@ -152,22 +152,22 @@
                             <td></td>
                             <td></td>
                         </tr>
-                        <% @table_data['standings']['C'].each do |team| %>
+                        <% @table.where(group: 'C').each do |team| %>
                         <tr class="<%= change_row_color @number %>">
-                            <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
-                            <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
                             <td></td>
                             <td></td>
-                            <td class="team-td"><%= team['playedGames'] %></td>
+                            <td class="team-td"><%= team.playedGames %></td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
-                            <td class="team-td"><%= team['goals'] %></td>
-                            <td class="team-td"><%= team['goalsAgainst'] %></td>
-                            <td class="team-td"><%= team['goalDifference'] %></td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
                             <td></td>
-                            <td class="team-score"><b><%= team['points'] %></b></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
                         </tr>
                         <% end %>
                         
@@ -187,22 +187,22 @@
                             <td></td>
                             <td></td>
                         </tr>
-                        <% @table_data['standings']['D'].each do |team| %>
+                        <% @table.where(group: 'D').each do |team| %>
                         <tr class="<%= change_row_color @number %>">
-                            <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
-                            <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
                             <td></td>
                             <td></td>
-                            <td class="team-td"><%= team['playedGames'] %></td>
+                            <td class="team-td"><%= team.playedGames %></td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
-                            <td class="team-td"><%= team['goals'] %></td>
-                            <td class="team-td"><%= team['goalsAgainst'] %></td>
-                            <td class="team-td"><%= team['goalDifference'] %></td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
                             <td></td>
-                            <td class="team-score"><b><%= team['points'] %></b></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
                         </tr>
                         <% end %>
                         
@@ -222,22 +222,22 @@
                             <td></td>
                             <td></td>
                         </tr>
-                        <% @table_data['standings']['E'].each do |team| %>
+                        <% @table.where(group: 'E').each do |team| %>
                         <tr class="<%= change_row_color @number %>">
-                            <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
-                            <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
                             <td></td>
                             <td></td>
-                            <td class="team-td"><%= team['playedGames'] %></td>
+                            <td class="team-td"><%= team.playedGames %></td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
-                            <td class="team-td"><%= team['goals'] %></td>
-                            <td class="team-td"><%= team['goalsAgainst'] %></td>
-                            <td class="team-td"><%= team['goalDifference'] %></td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
                             <td></td>
-                            <td class="team-score"><b><%= team['points'] %></b></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
                         </tr>
                         <% end %>
                         
@@ -257,22 +257,22 @@
                             <td></td>
                             <td></td>
                         </tr>
-                        <% @table_data['standings']['F'].each do |team| %>
+                        <% @table.where(group: 'F').each do |team| %>
                         <tr class="<%= change_row_color @number %>">
-                            <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
-                            <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
                             <td></td>
                             <td></td>
-                            <td class="team-td"><%= team['playedGames'] %></td>
+                            <td class="team-td"><%= team.playedGames %></td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
-                            <td class="team-td"><%= team['goals'] %></td>
-                            <td class="team-td"><%= team['goalsAgainst'] %></td>
-                            <td class="team-td"><%= team['goalDifference'] %></td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
                             <td></td>
-                            <td class="team-score"><b><%= team['points'] %></b></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
                         </tr>
                         <% end %>
                         
@@ -292,22 +292,22 @@
                             <td></td>
                             <td></td>
                         </tr>
-                        <% @table_data['standings']['G'].each do |team| %>
+                        <% @table.where(group: 'G').each do |team| %>
                         <tr class="<%= change_row_color @number %>">
-                            <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
-                            <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
                             <td></td>
                             <td></td>
-                            <td class="team-td"><%= team['playedGames'] %></td>
+                            <td class="team-td"><%= team.playedGames %></td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
-                            <td class="team-td"><%= team['goals'] %></td>
-                            <td class="team-td"><%= team['goalsAgainst'] %></td>
-                            <td class="team-td"><%= team['goalDifference'] %></td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
                             <td></td>
-                            <td class="team-score"><b><%= team['points'] %></b></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
                         </tr>
                         <% end %>
                         
@@ -327,22 +327,22 @@
                             <td></td>
                             <td></td>
                         </tr>
-                        <% @table_data['standings']['H'].each do |team| %>
+                        <% @table.where(group: 'H').each do |team| %>
                         <tr class="<%= change_row_color @number %>">
-                            <td class="team-number"><%= team['rank'] %></td><% @number += 1 %>
-                            <td class="team-icon"><i class="<%= show_team_icon(team['team']) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team['team']) %></td>
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
                             <td></td>
                             <td></td>
-                            <td class="team-td"><%= team['playedGames'] %></td>
+                            <td class="team-td"><%= team.playedGames %></td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
                             <td class="team-td">-</td>
-                            <td class="team-td"><%= team['goals'] %></td>
-                            <td class="team-td"><%= team['goalsAgainst'] %></td>
-                            <td class="team-td"><%= team['goalDifference'] %></td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
                             <td></td>
-                            <td class="team-score"><b><%= team['points'] %></b></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
                         </tr>
                         <% end %>
                     </tbody>
