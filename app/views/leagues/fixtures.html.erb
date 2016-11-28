@@ -1,0 +1,37 @@
+<% @editional_class = 'leagues' %>
+<% if params[:id] == 'apl' %>
+    <%= render 'shared/index_leagues/apl_teams' %>
+<% elsif params[:id] == 'laliga' %>
+    <%= render 'shared/index_leagues/laliga_teams' %>
+<% elsif params[:id] == 'bundesliga' %>
+    <%= render 'shared/index_leagues/bundesliga_teams' %>
+<% elsif params[:id] == 'seria-a' %>
+    <%= render 'shared/index_leagues/seria_a_teams' %>
+<% elsif params[:id] == 'chempions-league' %>
+    <% @add_class = 'league-row-cl' %>
+    <%= render 'shared/index_leagues/chempions_league_teams' %>
+<% end %>
+
+<div class="row league-row <%= @add_class %>">
+    <div class="right-block col-md-9">
+
+        <h1 class="league-table-h1">Привет я буду h1 для <%= @name %></h1>
+        <hr>
+        <div class="row-onlain center-block">
+            <% if @fixtures.any? %>
+                <% @fixtures.each do |data| %>
+                    <div class="date-to-play text-left"><strong><%= data.matchday %> Тур</strong></div>
+                    <div class="row">
+                        <div class="col-xs-5 col-fixtures"><span class="team"><%= team_translater(data.homeTeamName) %> <i class="<%= show_team_icon(data.homeTeamName) %> icon-small"></i></span></div>
+                        <div class="col-xs-2 col-fixtures"><span class="time"><%= (data.date.to_time+3).strftime('%H:%M') %></span></div>
+                        <div class="col-xs-5 col-fixtures"><span class="team"><%= team_translater(data.awayTeamName) %> <i class="<%= show_team_icon(data.awayTeamName) %> icon-small"></i></span></div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+
+    </div>
+
+    <div class="left-block col-md-3"><%= render 'shared/last_news', point: 0 %></div>
+</div>
+

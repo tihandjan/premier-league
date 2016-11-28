@@ -67,10 +67,10 @@ class Team < ActiveRecord::Base
     end
     
     def self.check_value value
-        if value
-            value 
+        if value.blank?
+            'empty'
         else
-            nil
+            value
         end        
     end
     
