@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :leagues, only: [:show, :index] do
     member do
       get 'table'
+      get 'fixtures'
     end
     resources :articles, only: [:show, :index]
     resources :videos, only: [:show, :index]
