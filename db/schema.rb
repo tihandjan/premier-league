@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128014147) do
+ActiveRecord::Schema.define(version: 20161128203726) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -58,6 +58,22 @@ ActiveRecord::Schema.define(version: 20161128014147) do
     t.string   "source"
     t.string   "league"
   end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
   create_table "feedbacks", force: :cascade do |t|
     t.string   "email"
@@ -118,8 +134,20 @@ ActiveRecord::Schema.define(version: 20161128014147) do
   create_table "tables", force: :cascade do |t|
     t.string   "league"
     t.text     "data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "position"
+    t.string   "teamName"
+    t.string   "crestURI"
+    t.string   "playedGames"
+    t.string   "points"
+    t.string   "goals"
+    t.string   "goalsAgainst"
+    t.string   "goalDifference"
+    t.string   "wins"
+    t.string   "draws"
+    t.string   "losses"
+    t.string   "group"
   end
 
   create_table "taggings", force: :cascade do |t|
