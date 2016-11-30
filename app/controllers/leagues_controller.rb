@@ -14,30 +14,45 @@ class LeaguesController < ApplicationController
     end
 
     if params[:id] == 'seria-a'
+      @fixtures_it = Match.where(["DATE(date) = ? and league = ?", Date.today, 'seria-a'])
+      @fixtures_it_was = Match.where(["DATE(date) = ? and league = ?", Date.today-1.days, 'seria-a'])
+      @fixtures_it_will = Match.where(["DATE(date) = ? and league = ?", Date.today+1.days, 'seria-a'])
       @table_data = Table.where(league: params[:id])
       @table_name = 'Привет h5 Таблица Серия А'
       @h2 = 'Привет я h2'
       @h4 = 'Привет я h4'
       render 'shared/index_league'
     elsif params[:id] == 'bundesliga'
+      @fixtures_ge = Match.where(["DATE(date) = ? and league = ?", Date.today, 'bundesliga'])
+      @fixtures_ge_will = Match.where(["DATE(date) = ? and league = ?", Date.today+1.days, 'bundesliga'])
+      @fixtures_ge_was = Match.where(["DATE(date) = ? and league = ?", Date.today-1.days, 'bundesliga'])
       @table_data = Table.where(league: params[:id])
       @table_name = 'Привет h5 Таблица Бундеслиги'
       @h2 = 'Привет я h2'
       @h4 = 'Привет я h4'
       render 'shared/index_league'
     elsif params[:id] == 'laliga'
+      @fixtures_sp = Match.where(["DATE(date) = ? and league = ?", Date.today, 'laliga'])
+      @fixtures_sp_will = Match.where(["DATE(date) = ? and league = ?", Date.today+1.days, 'laliga'])
+      @fixtures_sp_was = Match.where(["DATE(date) = ? and league = ?", Date.today-1.days, 'laliga'])
       @table_data = Table.where(league: params[:id])
       @table_name = 'Привет h5 Таблица Ла Лиги'
       @h2 = 'Привет я h2'
       @h4 = 'Привет я h4'
       render 'shared/index_league'
     elsif params[:id] == 'chempions-league'
+      @fixtures_cl = Match.where(["DATE(date) = ? and league = ?", Date.today, 'chempions-league'])
+      @fixtures_cl_was = Match.where(["DATE(date) = ? and league = ?", Date.today-1.days, 'chempions-league'])
+      @fixtures_cl_will = Match.where(["DATE(date) = ? and league = ?", Date.today+1.days, 'chempions-league'])
       @table_data = Table.where(league: params[:id])
       @table_name = 'Привет h5 Таблица Лиги Чемпионов'
       @h2 = 'Привет я h2'
       @h4 = 'Привет я h4'
       render 'shared/index_league'
     elsif params[:id] == 'apl'
+      @fixtures_en = Match.where(["DATE(date) = ? and league = ?", Date.today, 'apl'])
+      @fixtures_en_was = Match.where(["DATE(date) = ? and league = ?", Date.today-1.days, 'apl'])
+      @fixtures_en_will = Match.where(["DATE(date) = ? and league = ?", Date.today+1.days, 'apl'])
       @table_data = Table.where(league: params[:id])
       @table_name = 'Привет h5 Таблица Английской Премьер Лиги'
       @h2 = 'Привет я h2'
