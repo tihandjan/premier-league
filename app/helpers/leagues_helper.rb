@@ -24,4 +24,10 @@ module LeaguesHelper
         
     end
 
+    def show_if_new_date array
+        if array[-1].date.strftime("%A %d %B %Y") != ( array[-2] ? array[-2].date.strftime("%A %d %B %Y") : nil)
+            '<div class="date-to-play text-left"><div class="date-wrapper"><strong>' + Russian::strftime(array[-1].date, "%A %d %b %Y").to_s + ', ' + array[-1].matchday.to_s + ' Тур' + '</strong></div></div>'
+        end
+    end
+
 end
