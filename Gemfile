@@ -82,7 +82,7 @@ gem 'fog'
 # football onlain
 gem 'httparty'
 
-# plugin for select box
+# plugins
 gem 'bootstrap-select-rails'
 
 # translate to russian
