@@ -11,6 +11,7 @@ class LeaguesController < ApplicationController
     @league = params[:id]
     if Delayed::Job.count == 0
         Table.delay.set_table_data
+        Match.delay.set_games
     end
 
     if params[:id] == 'seria-a'
