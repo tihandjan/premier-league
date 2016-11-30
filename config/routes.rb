@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     member do
       get 'table'
       get 'fixtures'
+      get 'results'
     end
     resources :articles, only: [:show, :index]
     resources :videos, only: [:show, :index]
