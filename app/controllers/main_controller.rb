@@ -6,11 +6,9 @@ class MainController < ApplicationController
         @videos = Video.order('created_at DESC').first(5)
         if Delayed::Job.count == 0
             Table.delay.set_table_data
+            Match.delay.set_games
         end
         @table = Table.all
-        if Delayed::Job.count == 0
-            Table.delay.set_table_data
-        end
     
         @fixtures_en = Match.where(["DATE(date) = ? and league = ?", Date.today, 'apl'])
         @fixtures_it = Match.where(["DATE(date) = ? and league = ?", Date.today, 'seria-a'])
