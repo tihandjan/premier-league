@@ -71,7 +71,39 @@ class LeaguesController < ApplicationController
       end
 
     @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(20)
-    @fixtures = Match.where(['date > ? and league = ?', Time.current, params[:id]])
+    @fixtures = Match.order('date').where(['date > ? and league = ?', Time.current, params[:id]])
+    if params[:id] == 'seria-a'
+      @h2 = 'Италия. Расписание матчей'
+    elsif params[:id] == 'bundesliga'
+      @h2 = 'Германия. Расписание матчей'
+    elsif params[:id] == 'laliga'
+      @h2 = 'Испания. Расписание матчей'
+    elsif params[:id] == 'chempions-league'
+      @h2 = 'Лига Чемпионов. Расписание матчей'
+    elsif params[:id] == 'apl'
+      @h2 = 'Англия. Расписание матчей'
+    end
+  end
+
+  def results
+    
+      if Delayed::Job.count == 0
+        Match.delay.set_games
+      end
+
+    @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(20)
+    @fixtures = Match.order('date DESC').where(['date < ? and league = ?', Time.current-2.hour, params[:id]])
+    if params[:id] == 'seria-a'
+      @h2 = 'Италия. Результаты матчей'
+    elsif params[:id] == 'bundesliga'
+      @h2 = 'Германия. Результаты матчей'
+    elsif params[:id] == 'laliga'
+      @h2 = 'Испания. Результаты матчей'
+    elsif params[:id] == 'chempions-league'
+      @h2 = 'Лига Чемпионов. Результаты матчей'
+    elsif params[:id] == 'apl'
+      @h2 = 'Англия. Результаты матчей'
+    end
   end
 
   
