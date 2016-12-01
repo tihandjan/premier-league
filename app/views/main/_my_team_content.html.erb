@@ -1,49 +1,35 @@
     
-<% if current_user && current_user.team.presence %>
-<i style="margin: 0 auto;" class="<%= show_team_icon(current_user.team) %>"></i>
-<div><b><%= current_user.team %></b></div>
+<% if !cookies.permanent[:user_team].blank? %>
+<i style="margin: 0 auto;" class="<%= show_team_icon(cookies.permanent[:user_team]) %>"></i>
+<div><b><%= cookies.permanent[:user_team] %></b></div>
 <% end %>
  
 
 <div class="panel-body" id="match-today">
     <div class="table">
         <table class="table">
-            <% if @my_team_results = Team.my_team_results(current_user) %>
-                <% @count = 0 %>
-                <% @my_team_results['fixtures'].each do |team| %>
-                    <% if (Time.zone.now.to_time..Time.zone.now.to_time+24.day).cover?(team['date'].to_time) %>
-                        <% @count += 1 %>
-                        <% if @count < 2 %>
-                            <%= raw(show_date_of_the_game team) %>
-                            <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
-                                <td><%= team_translater(team['homeTeamName']) %></td>
-                                <td><i class="<%= show_team_icon(team['homeTeamName']) %> icon-small"></i></td>
-                                <td class="time"><div style="background:<%= in_play_or_finished(team['status']) %>" class="score_or_time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></div></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
-                                <td><i class="<%= show_team_icon(team['awayTeamName']) %> icon-small"></i></td>
-                                <td><%= team_translater(team['awayTeamName']) %></td>
-                            </tr>
-                        <% else %>
-                            <% break %>
-                        <% end %>
-                    <% end %>
+            <% if @my_team_results = Match.my_team_results(cookies.permanent[:user_team]) %>
+                
+                <% if @my_team_next_game = Match.my_team_next_game(cookies.permanent[:user_team]) %>
+                    <%= raw(show_date_of_the_game @my_team_next_game) %>
+                    <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
+                        <td><%= team_translater(@my_team_next_game.homeTeamName) %></td>
+                        <td><i class="<%= show_team_icon(@my_team_next_game.homeTeamName) %> icon-small"></i></td>
+                        <td class="time"><div style="background:#6a6a6a" class="score_or_time"><%= @my_team_next_game.date.strftime('%H:%M') %></div></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
+                        <td><i class="<%= show_team_icon(@my_team_next_game.awayTeamName) %> icon-small"></i></td>
+                        <td><%= team_translater(@my_team_next_game.awayTeamName) %></td>
+                    </tr>
                 <% end %>
-                <% @count_2 = 0 %>
-                <% @my_team_results['fixtures'].reverse_each do |team| %>
-                    <% if (Time.zone.now.to_time-40.day..Time.zone.now.to_time).cover?(team['date'].to_time) %>
-                        <% @count_2 += 1 %>
-                        <% if @count_2 < 4 %>
-                            <%= raw(show_date_of_the_game team) %>
+                
+
+                <% @my_team_results.each do |team| %>
                             <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
-                                <td><%= team_translater(team['homeTeamName']) %></td>
-                                <td><i class="<%= show_team_icon(team['homeTeamName']) %> icon-small"></i></td>
-                                <td class="time"><div style="background:<%= in_play_or_finished(team['status']) %>" class="score_or_time"><%= time_or_result team['status'], team['result']['goalsHomeTeam'], team['result']['goalsAwayTeam'], (team['date'].to_time+3.hour).strftime('%H:%M')  %></div></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
-                                <td><i class="<%= show_team_icon(team['awayTeamName']) %> icon-small"></i></td>
-                                <td><%= team_translater(team['awayTeamName']) %></td>
+                                <td><%= team_translater(team.homeTeamName) %></td>
+                                <td><i class="<%= show_team_icon(team.homeTeamName) %> icon-small"></i></td>
+                                <td class="time"><div style="background:#243843" class="score_or_time"><%= team.goalsHomeTeam %> - <%= team.goalsAwayTeam %></div></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
+                                <td><i class="<%= show_team_icon(team.awayTeamName) %> icon-small"></i></td>
+                                <td><%= team_translater(team.awayTeamName) %></td>
                             </tr>
-                        <% else %>
-                            <% break %>
-                        <% end %>
-                    <% end %>
                 <% end %>
             <% end %>
         </table>
@@ -52,8 +38,8 @@
 
 <div class="list-group">
     
-    <% if current_user && current_user.team.presence %>
-        <% Article.my_team_news(current_user).each do |article| %>
+    <% if !cookies.permanent[:user_team].blank? %>
+        <% Article.my_team_news(cookies.permanent[:user_team]).each do |article| %>
             <a href="<%= league_article_path(article.league, article) %>" class="list-group-item text-left">
               <h4 class="list-group-item-heading"><%= truncate(article.title, length: 120) %></h4>
                <i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %></i> 
@@ -61,9 +47,16 @@
         <% end %>
     <% end %>
     
-    <% if current_user && current_user.team.presence %>
+    <% if !cookies.permanent[:user_team].blank? %>
         <a href="#" class="btn btn-info block-center">Все о команде</a>
     <% end %>
     
 </div>
 
+<script>
+    (function(){
+        if (navigator.userAgent.indexOf("Firefox") > 0) {
+            $('.left-block .icon-small').hide();
+        }
+    })();
+</script>
