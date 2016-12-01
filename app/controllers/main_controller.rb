@@ -30,7 +30,7 @@ class MainController < ApplicationController
     end
     
     def change_my_team
-        current_user.update_attributes(user_params)
+        cookies[:user_team] = { value: params[:team], expires: 3.month.from_now }
         respond_to do |format|
            format.html { redirect_to root_path }
            format.js
@@ -39,11 +39,5 @@ class MainController < ApplicationController
 
     def policy
     end
-    
-    private
-    
-    def user_params
-        params.require(:user).permit(:team)    
-    end 
     
 end

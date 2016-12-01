@@ -5,6 +5,7 @@
     }
     .panel-body {
         margin-right: -1px;
+        padding: 12px 12px 30px 12px;
     }
     .table {
         margin-bottom: 0;
@@ -24,7 +25,10 @@
         }
     }
     tbody {
+        border-top: none !important;
         tr {
+            border-bottom: 1px solid #eaeaea;  
+            height: 32px;
             td {
                 padding: 0; 
                 padding-top: 2px;
@@ -62,10 +66,7 @@
 }
 
 .tr_first {
-    background: #f2f2f4;
-}
-.tr_second {
-    background: #e6e7e9;
+    background-color: #FFF;
 }
 .chempleag-devider {
     color: #FFF;

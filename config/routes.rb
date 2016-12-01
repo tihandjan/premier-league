@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
   # single pages and actions start
   get 'policy' => 'main#policy', as: :policy
-  put 'my_team' => 'main#change_my_team', as: :change_my_team
+  post 'my_team' => 'main#change_my_team', as: :change_my_team
   post 'feedback' => 'feedback#create', as: :feedbacks
   # single pages and actions end
 

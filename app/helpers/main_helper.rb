@@ -441,13 +441,7 @@ module MainHelper
     end
     
     def change_blank current_user
-        current_user.team.blank? ? "Выберите команду" : "Поменять команду"
-    end
-    
-    def display_team_if_choosen current_user
-        if current_user.team.presence
-            "<img src='http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg' width='60px' />" + "<div><i>#{current_user.team}</i></div>"
-        end
+        cookies[:user_team].blank? ? "Выберите команду" : "Поменять команду"
     end
     
     def time_or_result status, result1, result2, time
@@ -459,9 +453,7 @@ module MainHelper
     end
     
     def show_date_of_the_game team
-        if team['date'].to_time >= Time.current.to_time
-            "<tr><td><i>#{Russian::strftime(team['date'].to_time, '%A %d %b')}</i></td><td></td><td></td><td></td><td></td></tr>"
-        end
+        "<tr><td><i>#{Russian::strftime(team.date, '%d %b %A')}</i></td><td></td><td></td><td></td><td></td></tr>"
     end
     
     def select_apl_teams
@@ -561,6 +553,14 @@ module MainHelper
             ["Pescara Calcio", "Пескара",            "icon-small sprite sprite-pescara"],
             ["Atalanta BC", "Аталанта",              "icon-small sprite sprite-atalanta"]
         ].map{ |team_en, team_ru, team_sprite| [team_ru, team_en, {'data-icon' => "select-box-sprite #{team_sprite}" }] }
+    end
+
+    def change_prompt cookie
+        if cookie.blank?
+            'Выбрать Клуб'
+        else
+            'Сменить Клуб'
+        end
     end
     
       def set_title(title = '')
