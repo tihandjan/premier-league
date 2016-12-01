@@ -2,7 +2,7 @@
     <div class="panel panel-default">
       <!-- Default panel contents -->
         <div class="panel-heading">
-                <select class="table-select selectpicker" id="league-table" onchange="changeTable();">
+                <select class="table-select selectpicker" id="league-table">
                     <option data-icon="select-box-sprite sprite_header sprite-england_another" value="england-table">АПЛ</option>
                     <option data-icon="select-box-sprite sprite_header sprite-spain" value="spain-table">Ла Лига</option>
                     <option data-icon="select-box-sprite sprite_header sprite-germany" value="germany-table">Бундеслига</option>
@@ -36,7 +36,7 @@
                 <tbody class="text-center league-tables" id="england-table">
                     <% @number = 0 %>
                     <% @table.where(league: 'apl').each do |team| %>
-                    <tr class="<%= change_row_color @number %>">
+                    <tr class="league-table-tr" style="background: <%= change_league_table_row_color 'apl', (@number+1) %>">
                         <td class="team-number"><%= @number += 1 %></td>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
                         <td class="team-name"><%= full_team_translater(team.teamName) %></td>
@@ -58,7 +58,7 @@
                 <tbody class="text-center league-tables" id="spain-table">
                     <% @number = 0 %>
                     <% @table.where(league: 'laliga').each do |team| %>
-                    <tr class="<%= change_row_color @number %>">
+                    <tr class="league-table-tr" style="background: <%= change_league_table_row_color 'laliga', (@number+1) %>">
                         <td class="team-number"><%= @number += 1 %></td>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
                         <td class="team-name"><%= full_team_translater(team.teamName) %></td>
@@ -80,7 +80,7 @@
                 <tbody class="text-center league-tables" id="germany-table">
                     <% @number = 0 %>
                     <% @table.where(league: 'bundesliga').each do |team| %>
-                    <tr class="<%= change_row_color @number %>">
+                    <tr class="league-table-tr" style="background: <%= change_league_table_row_color 'bundesliga', (@number+1) %>">
                         <td class="team-number"><%= @number += 1 %></td>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
                         <td class="team-name"><%= full_team_translater(team.teamName) %></td>
@@ -102,7 +102,7 @@
                 <tbody class="text-center league-tables" id="italy-table">
                     <% @number = 0 %>
                     <% @table.where(league: 'seria-a').each do |team| %>
-                    <tr class="<%= change_row_color @number %>">
+                    <tr class="league-table-tr" style="background: <%= change_league_table_row_color 'seria-a', (@number+1) %>">
                         <td class="team-number"><%= @number += 1 %></td>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
                         <td class="team-name"><%= full_team_translater(team.teamName) %></td>
@@ -413,16 +413,5 @@
 </div>
 
 <script type="text/javascript">    
-    (function(){
-          var league = $('#league-table').val();
-          $('#' + league).show();
-          $('#top-' + league).show();
-      })();
-      
-      function changeTable(){
-          $('.league-tables').hide();
-          var league = $('#league-table').val();
-          $('#' + league).show();
-          $('#top-' + league).show();
-      }
+    
 </script>

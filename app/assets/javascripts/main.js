@@ -13,21 +13,37 @@ jQuery(document).ready(function($) {
 
 
 $(document).on('turbolinks:load', function() {
+    // plugin for select box
   $('.selectpicker').selectpicker({
       size: 10
     });
-    
     // fix bug with icons on firefox
     if (navigator.userAgent.indexOf("Firefox") > 0) {
-        $('.row-onlain .icon-small').hide();
+        $('.left-block .icon-small').hide();
     }
-    
+    // image hover effect
     $('.thumbnail').hover(
         function () {
             $('img',this).stop().animate({opacity: '0.4'}, 200);
         },
         function () {
             $('img',this).stop().animate({opacity: '0.9'}, 200);
+        }
+    );
+    // table toggle
+    (function(){
+        $('.league-tables').hide();
+        var league = $('#league-table').val();
+        $('#' + league).show();
+        $('#top-' + league).show();
+    })();
+
+    $('#league-table').change(
+        function () {
+        $('.league-tables').hide();
+        var league = $('#league-table').val();
+        $('#' + league).show();
+        $('#top-' + league).show();
         }
     );
 })

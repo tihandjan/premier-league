@@ -74,11 +74,4 @@ class Team < ActiveRecord::Base
         end        
     end
     
-    def self.my_team_results current_user
-        if Team.where(name: current_user.team).last.presence
-          fixtures = Team.where(name: current_user.team).last.fixtures 
-          HTTParty.get(fixtures, :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})
-        end
-    end
-    
 end
