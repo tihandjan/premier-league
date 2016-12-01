@@ -30,7 +30,7 @@ class MainController < ApplicationController
     end
     
     def change_my_team
-        cookies[:user_team] = { value: params[:team], expires: 3.month.from_now }
+        cookies[:user_team] = { value: params[:team], expires: 3.month.from_now, :domain => :all }
         respond_to do |format|
            format.html { redirect_to root_path }
            format.js
