@@ -18,12 +18,12 @@ class Article < ActiveRecord::Base
     
     scope :all_except, ->(article) { where.not(id: article) }
     
-    scope :my_team_news, ->(current_user) { order('created_at DESC').where(team: current_user.team, category: 'news').first(4) }
+    scope :my_team_news, ->(cookie) { order('created_at DESC').where(team: cookie).first(4) }
     
     
     def to_param
       "#{id} #{title}".parameterize
-    end
+    end 
 
     def fb_page_post
         # oauth = Koala::Facebook::OAuth.new('549133155280089', '0977f0831e25d61eddbe2bd3b5227896')

@@ -82,9 +82,9 @@ class LeaguesController < ApplicationController
 
   def fixtures
     
-      if Delayed::Job.count == 0
-        Match.delay.set_games
-      end
+    if Delayed::Job.count == 0
+      Match.delay.set_games
+    end
 
     @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(20)
     @fixtures = Match.order('date').where(['date > ? and league = ?', Time.current, params[:id]])

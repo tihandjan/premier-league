@@ -4,8 +4,8 @@
     </div> 
     <div class="panel-body my-team" id="my-team">
         
-        <% if user_signed_in? %>
-            <%= form_for current_user, url: change_my_team_path, method: :put, remote: true, id: "my-team-form" do |f| %>
+        
+            <%= form_tag change_my_team_path, method: :post, remote: true, id: "my-team-form" do %>
                 <div class="form-group text-center">
                   <div class="select-league">
                       <select class="selectpicker" id="country" onchange="changeCountry();">
@@ -17,50 +17,23 @@
                       </select>
                   </div>
                   <div class="countries" id="england">
-                      <%= f.select :team, options_for_select(select_apl_teams), {:include_blank => change_blank(current_user)}, {:onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>
+                      <%= select_tag 'team', options_for_select(select_apl_teams),  {:prompt=> change_prompt(cookies.permanent[:user_team]) , :onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>
                   </div> 
                   <div class="countries" id="spain">
-                      <%= f.select :team, options_for_select(select_laliga_teams), {:include_blank => change_blank(current_user)}, {:onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>
+                      <%= select_tag 'team', options_for_select(select_laliga_teams), {:prompt=> change_prompt(cookies.permanent[:user_team]) , :onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>
                   </div>
                   <div class="countries" id="italy">
-                      <%= f.select :team, options_for_select(select_seria_teams), {:include_blank => change_blank(current_user)}, {:onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>
+                      <%= select_tag 'team', options_for_select(select_seria_teams), {:prompt=> change_prompt(cookies.permanent[:user_team]) , :onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>
                   </div>
                   <div class="countries" id="germany">
-                      <%= f.select :team, options_for_select(select_bundesliga_teams), {:include_blank => change_blank(current_user)}, {:onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>
-                      <%= f.hidden_field :team, class: "hidden-team-field" %>
+                      <%= select_tag 'team', options_for_select(select_bundesliga_teams), {:prompt=> change_prompt(cookies.permanent[:user_team]) , :onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>
+                      
                   </div>
-
                 </div>
+                <%= hidden_field_tag 'team', params[:team], class: "hidden-team-field" %>
             <% end %>
          
             <div id="my-team-content"><%= render 'main/my_team_content' %></div>
-        <% else %>
-            <label>Здесь будут новости вашего клуба</label>
-            <hr/>
-            <div class="text-center">Войти с помощью</div>
-            <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                <div class="btn-group" role="group">
-                  <a href="<%= user_facebook_omniauth_authorize_path %>" class="btn btn-facebook btn-reg"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
-                </div>
-                <div class="btn-group" role="group">
-                  <a href="<%= user_google_oauth2_omniauth_authorize_path %>" class="btn btn-google btn-reg"><i class="fa fa-google-plus" aria-hidden="true"></i>Google</a>
-                </div>
-            </div>
-            <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                <div class="btn-group" role="group">
-                  <a href="<%= user_twitter_omniauth_authorize_path %>" class="btn btn-reg btn-twitter"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a>
-                </div>
-                <div class="btn-group" role="group">
-                  <a href="<%= user_vkontakte_omniauth_authorize_path %>" class="btn btn-reg btn-vkontakte"><i class="fa fa-vk" aria-hidden="true"></i>Vkontakte</a>
-                </div>
-            </div>
-            <div class="text-center">Или</div>
-            <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                <div class="btn-group" role="group">
-                  <a href="<%= new_user_session_path %>" class="btn btn-reg btn-email">Вручную</a>
-                </div>
-            </div>
-        <% end %>
     </div> 
 </div>
 
@@ -69,6 +42,7 @@
   (function(){
     $('.selectpicker').hide();
     $('.bootstrap-select').hide();
+    $('.countries').hide();
     var country = $('#country').val();
     $('#' + country).show();
   })();
