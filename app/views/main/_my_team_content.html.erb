@@ -2,7 +2,7 @@
 <% if !cookies.permanent[:user_team].blank? %>
 <i style="margin: 0 auto;" class="<%= show_team_icon(cookies.permanent[:user_team]) %>"></i>
 <div><b><%= cookies.permanent[:user_team] %></b></div>
-<% end %>
+
  
 
 <div class="panel-body" id="match-today">
@@ -52,6 +52,7 @@
     <% end %>
     
 </div>
+<% end %>
 
 <script>
     (function(){
