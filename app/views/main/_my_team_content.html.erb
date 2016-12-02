@@ -1,16 +1,16 @@
-    
-<% if !cookies.permanent[:user_team].blank? %>
-<i style="margin: 0 auto;" class="<%= show_team_icon(cookies.permanent[:user_team]) %>"></i>
-<div><b><%= cookies.permanent[:user_team] %></b></div>
+
+<% if !cookies[:user_team].blank? %>
+<i style="margin: 0 auto;" class="<%= show_team_icon(cookies[:user_team]) %>"></i>
+<div><b><%= cookies[:user_team] %></b></div>
 
  
 
 <div class="panel-body" id="match-today">
     <div class="table">
         <table class="table">
-            <% if @my_team_results = Match.my_team_results(cookies.permanent[:user_team]) %>
+            <% if @my_team_results = Match.my_team_results(cookies[:user_team]) %>
                 
-                <% if @my_team_next_game = Match.my_team_next_game(cookies.permanent[:user_team]) %>
+                <% if @my_team_next_game = Match.my_team_next_game(cookies[:user_team]) %>
                     <%= raw(show_date_of_the_game @my_team_next_game) %>
                     <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
                         <td><%= team_translater(@my_team_next_game.homeTeamName) %></td>
@@ -38,8 +38,8 @@
 
 <div class="list-group">
     
-    <% if !cookies.permanent[:user_team].blank? %>
-        <% Article.my_team_news(cookies.permanent[:user_team]).each do |article| %>
+    <% if !cookies[:user_team].blank? %>
+        <% Article.my_team_news(cookies[:user_team]).each do |article| %>
             <a href="<%= league_article_path(article.league, article) %>" class="list-group-item text-left">
               <h4 class="list-group-item-heading"><%= truncate(article.title, length: 120) %></h4>
                <i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %></i> 
@@ -47,7 +47,7 @@
         <% end %>
     <% end %>
     
-    <% if !cookies.permanent[:user_team].blank? %>
+    <% if !cookies[:user_team].blank? %>
         <a href="#" class="btn btn-info block-center">Все о команде</a>
     <% end %>
     

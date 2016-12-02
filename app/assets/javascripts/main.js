@@ -20,6 +20,7 @@ $(document).on('turbolinks:load', function() {
     // fix bug with icons on firefox
     if (navigator.userAgent.indexOf("Firefox") > 0) {
         $('.left-block .icon-small').hide();
+        $('.fixtures .row-onlain .icon-small').hide();
     }
     // image hover effect
     $('.thumbnail').hover(
