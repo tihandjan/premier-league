@@ -55,7 +55,7 @@
                 
             </div>
             
-            <div class="article-title"><a href="<%= league_articles_path('all') %>"> Статьи</a></div>
+                <div class="statiy-title"><a href="<%= league_articles_path('all') %>"> Статьи</a></div>
             <div class="row row-article">
         
                 <% @articles.each do |article| %>
@@ -74,11 +74,12 @@
                 <% end %>
             </div>
             
-            <div class="article-title"><a href="<%= league_videos_path('all') %>"> Видео</a></div>
             
+            <div class="statiy-title"><a href="<%= league_videos_path('all') %>"> Видео</a></div>
             <div class="row row-line-two video">
                 
                 <% if @videos.any? %>
+                
                 <div class="col-sm-6 video-col">
                     <div class="col-xs-12 video-one">
                         <a class="a-video" href="<%= league_video_path(@videos.first.league, @videos.first) %>">
