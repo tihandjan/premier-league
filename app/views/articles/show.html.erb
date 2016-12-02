@@ -19,7 +19,7 @@
                 <!-- social-media end -->
                 <%= image_tag @article.picture, alt: '', class: 'img-responsive' %>
             </div>
-            <h2 class="show-article-summary"><%= @article.summary %></h2>
+            <h2 class="show-article-summary"><strong><%= @article.summary %></strong></h2>
             <div class="show-article-description">
                 <p><%= raw simple_format(@article.description) %></p>
             </div>
@@ -31,8 +31,8 @@
                     <p><%= raw simple_format(subarticle.description) %></p>
                 </div>
             <% end %>
-            <% if @article.source %>
-            <span class="article-source">Источник: <a href="<%= @article.source %>" target="_blank"><%= (@article.source).slice!(7, 14) %></a></span>
+            <% unless @article.source.blank? %>
+            <span class="article-source">Источник: <a href="<%= @article.source %>" target="_blank"><%= (@article.source).split('/')[2] %></a></span>
             <% end %>
             <!-- social-media start -->
             <div class="share-buttons-bottom">
