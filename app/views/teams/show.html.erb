@@ -110,55 +110,51 @@
             <div class="team-line-up-wrapper">
                 <div class="footballer-wrapper">
                     <div class="footballer-position">Вратари</div>
-                    <div class="row player-info">
-                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
-                        <div class="col-xs-6 text-right player-age">26</div>
-                    </div>
-                    <span class="footballer-deliver"></span>
-                    <div class="row player-info">
-                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
-                        <div class="col-xs-6 text-right player-age">26</div>
-                    </div>
-                    <span class="footballer-deliver"></span>
+                    <% @players.each do |player| %>
+                        <% if (player_position(player, 'вратари')) %>
+                            <div class="row player-info">
+                                <div class="col-xs-6 text-left player-name"><%= player.number == 'empty' ? '-' : player.number %> <%= truncate(player.name, length: 18, omission: ' ') %></div>
+                                <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
+                            </div>
+                            <span class="footballer-deliver"></span>
+                        <% end %>
+                    <% end %>
 
 
                     <div class="footballer-position">Защитники</div>
-                    <div class="row player-info">
-                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
-                        <div class="col-xs-6 text-right player-age">26</div>
-                    </div>
-                    <span class="footballer-deliver"></span>
-                    <div class="row player-info">
-                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
-                        <div class="col-xs-6 text-right player-age">26</div>
-                    </div>
-                    <span class="footballer-deliver"></span>
+                    <% @players.each do |player| %>
+                        <% if (player_position(player, 'защита')) %>
+                            <div class="row player-info">
+                                <div class="col-xs-6 text-left player-name"><%= player.number == 'empty' ? '-' : player.number %> <%= truncate(player.name, length: 18, omission: ' ') %></div>
+                                <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
+                            </div>
+                            <span class="footballer-deliver"></span>
+                        <% end %>
+                    <% end %>
 
 
                     <div class="footballer-position">Полузащитники</div>
-                    <div class="row player-info">
-                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
-                        <div class="col-xs-6 text-right player-age">26</div>
-                    </div>
-                    <span class="footballer-deliver"></span>
-                    <div class="row player-info">
-                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
-                        <div class="col-xs-6 text-right player-age">26</div>
-                    </div>
-                    <span class="footballer-deliver"></span>
+                    <% @players.each do |player| %>
+                        <% if (player_position(player, 'полузащита')) %>
+                            <div class="row player-info">
+                                <div class="col-xs-6 text-left player-name"><%= player.number == 'empty' ? '-' : player.number %> <%= truncate(player.name, length: 18, omission: ' ') %></div>
+                                <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
+                            </div>
+                            <span class="footballer-deliver"></span>
+                        <% end %>
+                    <% end %>
 
 
                     <div class="footballer-position">Нападающие</div>
-                    <div class="row player-info">
-                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
-                        <div class="col-xs-6 text-right player-age">26</div>
-                    </div>
-                    <span class="footballer-deliver"></span>
-                    <div class="row player-info">
-                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
-                        <div class="col-xs-6 text-right player-age">26</div>
-                    </div>
-                    <span class="footballer-deliver"></span>
+                    <% @players.each do |player| %>
+                        <% if (player_position(player, 'нападение')) %>
+                            <div class="row player-info">
+                                <div class="col-xs-6 text-left player-name"><%= player.number == 'empty' ? '-' : player.number %> <%= truncate(player.name, length: 18, omission: ' ') %></div>
+                                <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
+                            </div>
+                            <span class="footballer-deliver"></span>
+                        <% end %>
+                    <% end %>
                 </div>
             </div>
         </div>
