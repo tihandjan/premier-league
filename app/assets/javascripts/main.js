@@ -21,6 +21,10 @@ $(document).on('turbolinks:load', function() {
     if (navigator.userAgent.indexOf("Firefox") > 0) {
         $('.left-block .icon-small').hide();
         $('.fixtures .row-onlain .icon-small').hide();
+        var windowsize = $(window).width();
+            if (windowsize < 450) {
+                $('.teams .icon-small').hide();
+            }
     }
     // image hover effect
     $('.thumbnail').hover(

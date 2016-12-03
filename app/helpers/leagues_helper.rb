@@ -30,4 +30,31 @@ module LeaguesHelper
         end
     end
 
+    def show_team_list_first_half league, part
+        @teams = Team.where(league: league).all
+        if league == 'chempions-league'
+            if part == 'first'
+                 @teams[0, 8]
+            elsif part == 'second'
+                @teams[8, 8]
+            elsif part == 'third'
+                @teams[16, 8]
+            elsif part == 'fourth'
+                @teams[24, 8]
+            end
+        elsif league == 'bundesliga'
+            if part == 'first'
+                @teams[0, 9]
+            else
+                @teams[9, 9]
+            end
+        else
+            if part == 'first'
+                @teams[0, 10]
+            else
+                @teams[10, 10]
+            end
+        end
+    end
+
 end

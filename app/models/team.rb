@@ -1,5 +1,9 @@
 class Team < ActiveRecord::Base
     has_many :players, dependent: :destroy
+
+    def to_param
+      "#{id} #{name}".parameterize
+    end 
     
     def self.set_teams_premier_league
         where(league: 'apl').destroy_all
