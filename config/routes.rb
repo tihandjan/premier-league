@@ -28,8 +28,8 @@ Rails.application.routes.draw do
   end
 
   resources :teams, only: [:show, :index] do
-    resources :players, only: [:show, :index]
   end
+  resources :players, only: [:show, :index]
 
   resources :tags, only: [:show, :index] do
     get 'videos' => 'tags#video_tag', on: :member
