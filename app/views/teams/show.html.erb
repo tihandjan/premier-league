@@ -1,1 +1,166 @@
-<h1>Hello</h1>
+<div class="row team-row">
+    <div class="col-md-3 team-col team-col-first">
+        <div class="team-image">
+            <%= image_tag @team.icon_url, class: "img-responsive", alt: full_team_translater(@team.name) %>
+        </div>
+        <h1 class="team-name text-center"><%= full_team_translater(@team.name) %></h1>
+        <div class="team-deliver"></div>
+
+        <div class="team-general-info-title">Президент</div>
+        <div class="team-general-info-description">Игорь Тихоненко</div>
+
+        <div class="team-general-info-title">Главный тренер</div>
+        <div class="team-general-info-description">Толстяк Геникомастиевич</div>
+
+        <div class="team-general-info-title">Город</div>
+        <div class="team-general-info-description">Купянск</div>
+
+        <div class="team-general-info-title">Стадион</div>
+        <div class="team-general-info-description">Спортик</div>
+
+        <div class="team-general-info-title">Год основания</div>
+        <div class="team-general-info-description">1989</div>
+
+        <% if @team.market_value != 'empty' %>
+            <div class="team-general-info-title">Рыночная стоимость</div>
+            <div class="team-general-info-description"><%= @team.market_value %></div>
+        <% end %>
+        <div class="team-deliver"></div>
+
+        <div class="team-general-info-title">Сайт клуба</div>
+        <div class="team-general-info-description">lol.com</div>
+    </div>
+
+    <div class="col-md-6 team-col team-col-second">
+        <div class="row">
+            <div class="team-fixtures col-xs-6 text-left"><span class="team-fixture team-fixture-active" onclick="$('.team-fixture').removeClass('team-fixture-active');$(this).toggleClass('team-fixture-active');$('.team-table-wrapper').hide();$('#prev-fixtures').show();">Последние игры</span></div>
+            <div class="team-fixtures col-xs-6 text-right"><span class="team-fixture" onclick="$('.team-fixture').removeClass('team-fixture-active');$(this).toggleClass('team-fixture-active');$('.team-table-wrapper').hide();$('#next-fixtures').show();">Следующие игры</span></div>
+        </div>
+        <div class="fixtures-deliver"></div>
+        <div class="team-table-wrapper" id="prev-fixtures">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th class="hidden-xs">Турнир</th>
+                        <th class="hidden-xs">Тур</th>
+                        <th></th>
+                        <th></th>
+                        <th>Матч</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @fixtures_prev.each do |team| %>
+                        <tr>
+                            <td class="team-date"><%= team.date.strftime('%d.%m.%y') %></td>
+                            <td class="team-competition hidden-xs"><%= translate_league team.league %></td>
+                            <td class="team-match-day hidden-xs"><%= team.matchday %> тур</td>
+                            <td class="team-name-first"><%= team_translater team.homeTeamName %></td>
+                            <td class="team-icon team-icon-first"><i class="<%= show_team_icon team.homeTeamName %> icon-small"></i></td>
+                            <td class="team-result"><%= team.goalsHomeTeam %>:<%= team.goalsAwayTeam %></td>
+                            <td class="team-icon team-icon-second"><i class="<%= show_team_icon team.awayTeamName %> icon-small"></i></td>
+                            <td class="team-name-second"><%= team_translater team.awayTeamName %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div class="team-table-wrapper" id="next-fixtures">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th class="hidden-xs">Турнир</th>
+                        <th class="hidden-xs">Тур</th>
+                        <th></th>
+                        <th></th>
+                        <th>Матч</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @fixtures_next.each do |team| %>
+                        <tr>
+                            <td class="team-date"><%= team.date.strftime('%d.%m.%y') %></td>
+                            <td class="team-competition hidden-xs"><%= translate_league team.league %></td>
+                            <td class="team-match-day hidden-xs"><%= team.matchday %> тур</td>
+                            <td class="team-name-first"><%= team_translater team.homeTeamName %></td>
+                            <td class="team-icon team-icon-first"><i class="<%= show_team_icon team.homeTeamName %> icon-small"></i></td>
+                            <td class="team-result"><%= team.date.strftime('%H:%M') %></td>
+                            <td class="team-icon team-icon-second"><i class="<%= show_team_icon team.awayTeamName %> icon-small"></i></td>
+                            <td class="team-name-second"><%= team_translater team.awayTeamName %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    
+    <div class="col-md-3 team-col team-col-third">
+        <div class="team-line-up">
+            <h2 class="team-line-up-h2">Состав <%= full_team_translater(@team.name) %></h2>
+            <div class="team-line-up-break"></div>
+            <div class="team-line-up-wrapper">
+                <div class="footballer-wrapper">
+                    <div class="footballer-position">Вратари</div>
+                    <div class="row player-info">
+                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
+                        <div class="col-xs-6 text-right player-age">26</div>
+                    </div>
+                    <span class="footballer-deliver"></span>
+                    <div class="row player-info">
+                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
+                        <div class="col-xs-6 text-right player-age">26</div>
+                    </div>
+                    <span class="footballer-deliver"></span>
+
+
+                    <div class="footballer-position">Защитники</div>
+                    <div class="row player-info">
+                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
+                        <div class="col-xs-6 text-right player-age">26</div>
+                    </div>
+                    <span class="footballer-deliver"></span>
+                    <div class="row player-info">
+                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
+                        <div class="col-xs-6 text-right player-age">26</div>
+                    </div>
+                    <span class="footballer-deliver"></span>
+
+
+                    <div class="footballer-position">Полузащитники</div>
+                    <div class="row player-info">
+                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
+                        <div class="col-xs-6 text-right player-age">26</div>
+                    </div>
+                    <span class="footballer-deliver"></span>
+                    <div class="row player-info">
+                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
+                        <div class="col-xs-6 text-right player-age">26</div>
+                    </div>
+                    <span class="footballer-deliver"></span>
+
+
+                    <div class="footballer-position">Нападающие</div>
+                    <div class="row player-info">
+                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
+                        <div class="col-xs-6 text-right player-age">26</div>
+                    </div>
+                    <span class="footballer-deliver"></span>
+                    <div class="row player-info">
+                        <div class="col-xs-6 text-left player-name">1 Панаетов Сашка</div>
+                        <div class="col-xs-6 text-right player-age">26</div>
+                    </div>
+                    <span class="footballer-deliver"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,43 +1,67 @@
 <div class="container-fluid leagues-team-container">
     <div class="col-md-6 league-col league-col-chempions-league">
-        <a href="#"><i class="sprite sprite-Bavaria"></i></a>
-        <a href="#"><i class="sprite sprite-Borussia_D"></i></a>
-        <a href="#"><i class="sprite sprite-barselona"></i></a>
-        <a href="#"><i class="sprite sprite-Bayer"></i></a>
-        <a href="#"><i class="sprite sprite-arsenal"></i></a>
-        <a href="#"><i class="sprite sprite-mc"></i></a>
-        <a href="#"><i class="sprite sprite-totenhem"></i></a>
-        <a href="#"><i class="sprite sprite-leicester"></i></a>
+        <% if (@teams = show_team_list_first_half('chempions-league', 'first')).any? %>
+            <% @teams.each do |team| %>
+                <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %>"></i></a>
+            <% end %>
+        <% else %>
+            <a href="#"><i class="sprite sprite-Bavaria"></i></a>
+            <a href="#"><i class="sprite sprite-Borussia_D"></i></a>
+            <a href="#"><i class="sprite sprite-barselona"></i></a>
+            <a href="#"><i class="sprite sprite-Bayer"></i></a>
+            <a href="#"><i class="sprite sprite-arsenal"></i></a>
+            <a href="#"><i class="sprite sprite-mc"></i></a>
+            <a href="#"><i class="sprite sprite-totenhem"></i></a>
+            <a href="#"><i class="sprite sprite-leicester"></i></a>
+        <% end %>
     </div>
     <div class="col-md-6 league-col league-col-chempions-league">
-        <a href="#"><i class="sprite sprite-napoli"></i></a>
-        <a href="#"><i class="sprite sprite-Borussia_M"></i></a>
-        <a href="#"><i class="sprite sprite-atletico"></i></a>
-        <a href="#"><i class="sprite sprite-real_m"></i></a>
-        <a href="#"><i class="sprite sprite-sevilla"></i></a>
-        <a href="#"><i class="sprite sprite-juventus"></i></a>
-        <a href="#"><i class="sprite sprite-basel"></i></a>
-        <a href="#"><i class="sprite sprite-rostov"></i></a>
+        <% if (@teams = show_team_list_first_half('chempions-league', 'second')).any? %>
+            <% @teams.each do |team| %>
+                <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %>"></i></a>
+            <% end %>
+        <% else %>
+            <a href="#"><i class="sprite sprite-napoli"></i></a>
+            <a href="#"><i class="sprite sprite-Borussia_M"></i></a>
+            <a href="#"><i class="sprite sprite-atletico"></i></a>
+            <a href="#"><i class="sprite sprite-real_m"></i></a>
+            <a href="#"><i class="sprite sprite-sevilla"></i></a>
+            <a href="#"><i class="sprite sprite-juventus"></i></a>
+            <a href="#"><i class="sprite sprite-basel"></i></a>
+            <a href="#"><i class="sprite sprite-rostov"></i></a>
+        <% end %>
     </div>
     <div class="col-md-6 league-col league-col-chempions-league">
-        <a href="#"><i class="sprite sprite-psv"></i></a>
-        <a href="#"><i class="sprite sprite-ludogorets"></i></a>
-        <a href="#"><i class="sprite sprite-seltic"></i></a>
-        <a href="#"><i class="sprite sprite-dynamo_k"></i></a>
-        <a href="#"><i class="sprite sprite-benfica"></i></a>
-        <a href="#"><i class="sprite sprite-besiktash"></i></a>
-        <a href="#"><i class="sprite sprite-psg"></i></a>
-        <a href="#"><i class="sprite sprite-legia"></i></a>
+        <% if (@teams = show_team_list_first_half('chempions-league', 'third')).any? %>
+            <% @teams.each do |team| %>
+                <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %>"></i></a>
+            <% end %>
+        <% else %>
+            <a href="#"><i class="sprite sprite-psv"></i></a>
+            <a href="#"><i class="sprite sprite-ludogorets"></i></a>
+            <a href="#"><i class="sprite sprite-seltic"></i></a>
+            <a href="#"><i class="sprite sprite-dynamo_k"></i></a>
+            <a href="#"><i class="sprite sprite-benfica"></i></a>
+            <a href="#"><i class="sprite sprite-besiktash"></i></a>
+            <a href="#"><i class="sprite sprite-psg"></i></a>
+            <a href="#"><i class="sprite sprite-legia"></i></a>
+        <% end %>
     </div>
     <div class="col-md-6 league-col league-col-chempions-league">
-        <a href="#"><i class="sprite sprite-lyon"></i></a>
-        <a href="#"><i class="sprite sprite-dynamo_z"></i></a>
-        <a href="#"><i class="sprite sprite-porto"></i></a>
-        <a href="#"><i class="sprite sprite-kopengagen"></i></a>
-        <a href="#"><i class="sprite sprite-brugge"></i></a>
-        <a href="#"><i class="sprite sprite-sporting_l"></i></a>
-        <a href="#"><i class="sprite sprite-cska"></i></a>
-        <a href="#"><i class="sprite sprite-monaco"></i></a>
+        <% if (@teams = show_team_list_first_half('chempions-league', 'fourth')).any? %>
+            <% @teams.each do |team| %>
+                <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %>"></i></a>
+            <% end %>
+        <% else %>
+            <a href="#"><i class="sprite sprite-lyon"></i></a>
+            <a href="#"><i class="sprite sprite-dynamo_z"></i></a>
+            <a href="#"><i class="sprite sprite-porto"></i></a>
+            <a href="#"><i class="sprite sprite-kopengagen"></i></a>
+            <a href="#"><i class="sprite sprite-brugge"></i></a>
+            <a href="#"><i class="sprite sprite-sporting_l"></i></a>
+            <a href="#"><i class="sprite sprite-cska"></i></a>
+            <a href="#"><i class="sprite sprite-monaco"></i></a>
+        <% end %>
     </div>
 </div>
 <div class="container-fluid leagues-submenu-container leagues-submenu-container-cl">

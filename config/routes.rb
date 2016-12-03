@@ -25,10 +25,12 @@ Rails.application.routes.draw do
     resources :articles, only: [:show, :index]
     resources :videos, only: [:show, :index]
     resources :news, only: [:index]
-    resources :teams, only: [:show, :index] do
-      resources :players, only: [:show, :index]
-    end
   end
+
+  resources :teams, only: [:show, :index] do
+    resources :players, only: [:show, :index]
+  end
+
   resources :tags, only: [:show, :index] do
     get 'videos' => 'tags#video_tag', on: :member
   end
