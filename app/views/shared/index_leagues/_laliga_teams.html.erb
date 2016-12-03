@@ -1,27 +1,39 @@
 <div class="container-fluid leagues-team-container">
     <div class="col-md-6 league-col">
-        <a href="#"><i class="sprite sprite-barselona"></i></a>
-        <a href="#"><i class="sprite sprite-real_m"></i></a>
-        <a href="#"><i class="sprite sprite-atletico"></i></a>
-        <a href="#"><i class="sprite sprite-sevilla"></i></a>
-        <a href="#"><i class="sprite sprite-valensia"></i></a>
-        <a href="#"><i class="sprite sprite-villareal"></i></a>
-        <a href="#"><i class="sprite sprite-deportivo"></i></a>
-        <a href="#"><i class="sprite sprite-espaniol"></i></a>
-        <a href="#"><i class="sprite sprite-ath_bilbao"></i></a>
-        <a href="#"><i class="sprite sprite-real_betis"></i></a>
+        <% if (@teams = show_team_list_first_half('laliga', 'first')).any? %>
+            <% @teams.each do |team| %>
+                <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %>"></i></a>
+            <% end %>
+        <% else %>
+            <a href="#"><i class="sprite sprite-barselona"></i></a>
+            <a href="#"><i class="sprite sprite-real_m"></i></a>
+            <a href="#"><i class="sprite sprite-atletico"></i></a>
+            <a href="#"><i class="sprite sprite-sevilla"></i></a>
+            <a href="#"><i class="sprite sprite-valensia"></i></a>
+            <a href="#"><i class="sprite sprite-villareal"></i></a>
+            <a href="#"><i class="sprite sprite-deportivo"></i></a>
+            <a href="#"><i class="sprite sprite-espaniol"></i></a>
+            <a href="#"><i class="sprite sprite-ath_bilbao"></i></a>
+            <a href="#"><i class="sprite sprite-real_betis"></i></a>
+        <% end %>
     </div>
     <div class="col-md-6 league-col">
-        <a href="#"><i class="sprite sprite-ossasuna"></i></a>
-        <a href="#"><i class="sprite sprite-eibar"></i></a>
-        <a href="#"><i class="sprite sprite-granada"></i></a>
-        <a href="#"><i class="sprite sprite-sporting"></i></a>
-        <a href="#"><i class="sprite sprite-real_sosiedad"></i></a>
-        <a href="#"><i class="sprite sprite-alaves"></i></a>
-        <a href="#"><i class="sprite sprite-leganes"></i></a>
-        <a href="#"><i class="sprite sprite-malaga"></i></a>
-        <a href="#"><i class="sprite sprite-las_palmas"></i></a>
-        <a href="#"><i class="sprite sprite-selta"></i></a>
+        <% if (@teams = show_team_list_first_half('laliga', 'second')).any? %>
+            <% @teams.each do |team| %>
+                <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %>"></i></a>
+            <% end %>
+        <% else %>
+            <a href="#"><i class="sprite sprite-ossasuna"></i></a>
+            <a href="#"><i class="sprite sprite-eibar"></i></a>
+            <a href="#"><i class="sprite sprite-granada"></i></a>
+            <a href="#"><i class="sprite sprite-sporting"></i></a>
+            <a href="#"><i class="sprite sprite-real_sosiedad"></i></a>
+            <a href="#"><i class="sprite sprite-alaves"></i></a>
+            <a href="#"><i class="sprite sprite-leganes"></i></a>
+            <a href="#"><i class="sprite sprite-malaga"></i></a>
+            <a href="#"><i class="sprite sprite-las_palmas"></i></a>
+            <a href="#"><i class="sprite sprite-selta"></i></a>
+        <% end %>
     </div>
 </div>
 <div class="container-fluid leagues-submenu-container">
