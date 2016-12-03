@@ -33,8 +33,8 @@
 
     <div class="col-md-6 team-col team-col-second">
         <div class="row">
-            <div class="team-fixtures col-xs-6 text-left"><span class="team-fixture team-fixture-active" onclick="$('.team-fixture').removeClass('team-fixture-active');$(this).toggleClass('team-fixture-active');$('.team-table-wrapper').hide();$('#prev-fixtures').show();">Последние игры</span></div>
-            <div class="team-fixtures col-xs-6 text-right"><span class="team-fixture" onclick="$('.team-fixture').removeClass('team-fixture-active');$(this).toggleClass('team-fixture-active');$('.team-table-wrapper').hide();$('#next-fixtures').show();">Следующие игры</span></div>
+            <div class="team-fixtures col-xs-6 text-left"><span class="team-fixture team-fixture-first team-fixture-active" onclick="$('.team-fixture-first').removeClass('team-fixture-active');$(this).addClass('team-fixture-active');$('.team-table-wrapper').hide();$('#prev-fixtures').show();">Последние игры</span></div>
+            <div class="team-fixtures col-xs-6 text-right"><span class="team-fixture team-fixture-first"                    onclick="$('.team-fixture-first').removeClass('team-fixture-active');$(this).addClass('team-fixture-active');$('.team-table-wrapper').hide();$('#next-fixtures').show();">Следующие игры</span></div>
         </div>
         <div class="fixtures-deliver"></div>
         <div class="team-table-wrapper" id="prev-fixtures">
@@ -58,11 +58,11 @@
                             <td class="team-date"><%= team.date.strftime('%d.%m.%y') %></td>
                             <td class="team-competition hidden-xs"><%= translate_league team.league %></td>
                             <td class="team-match-day hidden-xs"><%= team.matchday %> тур</td>
-                            <td class="team-name-first"><%= team_translater team.homeTeamName %></td>
+                            <td class="team-name-first"><a href="<%= team_path(pass_object(@teams, team.homeTeamName)) %>"><%= team_translater team.homeTeamName %></a></td>
                             <td class="team-icon team-icon-first"><i class="<%= show_team_icon team.homeTeamName %> icon-small"></i></td>
                             <td class="team-result"><%= team.goalsHomeTeam %>:<%= team.goalsAwayTeam %></td>
                             <td class="team-icon team-icon-second"><i class="<%= show_team_icon team.awayTeamName %> icon-small"></i></td>
-                            <td class="team-name-second"><%= team_translater team.awayTeamName %></td>
+                            <td class="team-name-second"><a href="<%= team_path(pass_object(@teams, team.awayTeamName)) %>"><%= team_translater team.awayTeamName %></a></td>
                         </tr>
                     <% end %>
                 </tbody>
@@ -89,23 +89,70 @@
                             <td class="team-date"><%= team.date.strftime('%d.%m.%y') %></td>
                             <td class="team-competition hidden-xs"><%= translate_league team.league %></td>
                             <td class="team-match-day hidden-xs"><%= team.matchday %> тур</td>
-                            <td class="team-name-first"><%= team_translater team.homeTeamName %></td>
+                            <td class="team-name-first"><a href="<%= team_path(pass_object(@teams, team.homeTeamName)) %>"><%= team_translater team.homeTeamName %></a></td>
                             <td class="team-icon team-icon-first"><i class="<%= show_team_icon team.homeTeamName %> icon-small"></i></td>
                             <td class="team-result"><%= team.date.strftime('%H:%M') %></td>
                             <td class="team-icon team-icon-second"><i class="<%= show_team_icon team.awayTeamName %> icon-small"></i></td>
-                            <td class="team-name-second"><%= team_translater team.awayTeamName %></td>
+                            <td class="team-name-second"><a href="<%= team_path(pass_object(@teams, team.awayTeamName)) %>"><%= team_translater team.awayTeamName %></a></td>
                         </tr>
                     <% end %>
                 </tbody>
             </table>
         </div>
-    </div>
 
+        <div class="row">
+            <div class="team-fixtures team-nav"><span class="team-fixture team-fixture-active team-fixture-second" onclick="$('.team-fixture-second').removeClass('team-fixture-active');$(this).addClass('team-fixture-active');$('.team-news-wrapper').hide();$('#news').show();">Новости</span></div>
+            <div class="team-fixtures team-nav"><span class="team-fixture team-fixture-second" onclick="$('.team-fixture-second').removeClass('team-fixture-active');$(this).addClass('team-fixture-active');$('.team-news-wrapper').hide();$('#articles').show();">Статьи</span></div>
+            <div class="team-fixtures team-nav"><span class="team-fixture team-fixture-second" onclick="$('.team-fixture-second').removeClass('team-fixture-active');$(this).addClass('team-fixture-active');$('.team-news-wrapper').hide();$('#videos').show();">Видео</span></div> 
+            <div class="team-fixtures team-nav"><span class="team-fixture team-fixture-second" onclick="$('.team-fixture-second').removeClass('team-fixture-active');$(this).addClass('team-fixture-active');$('.team-news-wrapper').hide();$('#table').show();">Таблица</span></div>
+        </div>
+        <div class="fixtures-deliver"></div>
+        <div class="team-news-wrapper" id="news">
+            <div class="list-group">
+                <% @news.each do |article| %>
+                    <a href="<%= league_article_path(@team.league, article) %>" class="list-group-item">
+                        <%= image_tag article.picture.url(:mini), alt: article.title%>
+                        <i class="list-group-item-time"><%= time_ago_in_words(article.created_at) %></i>
+                        <h3 class="list-group-item-heading"><%= truncate(article.title, length: 70) %></h3>
+                        <p class="list-group-item-text"><%= truncate(article.summary, length: 70) %></p>
+                    </a>
+                <% end %>
+            </div>
+            <%= will_paginate @news %>
+        </div>
+        <div class="team-news-wrapper" id="articles">
+            <div class="list-group">
+                <% @articles.each do |article| %>
+                    <a href="<%= league_article_path(@team.league, article) %>" class="list-group-item">
+                        <%= image_tag article.picture.url(:mini), alt: article.title%>
+                        <i class="list-group-item-time"><%= time_ago_in_words(article.created_at) %></i>
+                        <h3 class="list-group-item-heading"><%= truncate(article.title, length: 70) %></h3>
+                        <p class="list-group-item-text"><%= truncate(article.summary, length: 70) %></p>
+                    </a>
+                <% end %>
+            </div>
+            <%= will_paginate @articles %>
+        </div>
+        <div class="team-news-wrapper" id="videos">
+            <div class="list-group">
+                <% @videos.each do |video| %>
+                    <a href="<%= league_video_path(@team.league, video) %>" class="list-group-item">
+                        <%= image_tag video.picture.url(:mini), alt: video.title%>
+                        <i class="list-group-item-time"><%= time_ago_in_words(video.created_at) %></i>
+                        <h3 class="list-group-item-heading"><%= truncate(video.title, length: 70) %></h3>
+                        <p class="list-group-item-text-video"></p>
+                    </a>
+                <% end %>
+            </div>
+            <%= will_paginate @videos %>
+        </div>
+        <div class="team-news-wrapper" id="table"><%= render "shared/table_league", data: @table_data, league: @team.league, name: @table_name %></div>
+    </div>
 
     
     <div class="col-md-3 team-col team-col-third">
         <div class="team-line-up">
-            <h2 class="team-line-up-h2">Состав <%= full_team_translater(@team.name) %></h2>
+            <h2 class="team-line-up-h2">Состав команды</h2>
             <div class="team-line-up-break"></div>
             <div class="team-line-up-wrapper">
                 <div class="footballer-wrapper">
@@ -113,7 +160,7 @@
                     <% @players.each do |player| %>
                         <% if (player_position(player, 'вратари')) %>
                             <div class="row player-info">
-                                <div class="col-xs-6 text-left player-name"><%= player.number == 'empty' ? '-' : player.number %> <%= truncate(player.name, length: 18, omission: ' ') %></div>
+                                <div class="col-xs-6 text-left player-name"><%= player.number == 'empty' ? '-' : player.number %> <a href="<%= player_path(player) %>"><%= truncate(player.name, length: 18, omission: ' ') %></a></div>
                                 <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
                             </div>
                             <span class="footballer-deliver"></span>
@@ -125,7 +172,7 @@
                     <% @players.each do |player| %>
                         <% if (player_position(player, 'защита')) %>
                             <div class="row player-info">
-                                <div class="col-xs-6 text-left player-name"><%= player.number == 'empty' ? '-' : player.number %> <%= truncate(player.name, length: 18, omission: ' ') %></div>
+                                <div class="col-xs-6 text-left player-name"><%= player.number == 'empty' ? '-' : player.number %> <a href="<%= player_path(player) %>"><%= truncate(player.name, length: 18, omission: ' ') %></a></div>
                                 <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
                             </div>
                             <span class="footballer-deliver"></span>
@@ -137,7 +184,7 @@
                     <% @players.each do |player| %>
                         <% if (player_position(player, 'полузащита')) %>
                             <div class="row player-info">
-                                <div class="col-xs-6 text-left player-name"><%= player.number == 'empty' ? '-' : player.number %> <%= truncate(player.name, length: 18, omission: ' ') %></div>
+                                <div class="col-xs-6 text-left player-name"><%= player.number == 'empty' ? '-' : player.number %> <a href="<%= player_path(player) %>"><%= truncate(player.name, length: 18, omission: ' ') %></a></div>
                                 <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
                             </div>
                             <span class="footballer-deliver"></span>
@@ -149,7 +196,7 @@
                     <% @players.each do |player| %>
                         <% if (player_position(player, 'нападение')) %>
                             <div class="row player-info">
-                                <div class="col-xs-6 text-left player-name"><%= player.number == 'empty' ? '-' : player.number %> <%= truncate(player.name, length: 18, omission: ' ') %></div>
+                                <div class="col-xs-6 text-left player-name"><%= player.number == 'empty' ? '-' : player.number %> <a href="<%= player_path(player) %>"><%= truncate(player.name, length: 18, omission: ' ') %></a></div>
                                 <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
                             </div>
                             <span class="footballer-deliver"></span>
