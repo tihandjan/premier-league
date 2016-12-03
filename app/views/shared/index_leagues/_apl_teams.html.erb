@@ -1,27 +1,39 @@
 <div class="container-fluid leagues-team-container">
         <div class="col-md-6 league-col">
-            <a href="#"><i class="sprite sprite-mu"></i></a>
-            <a href="#"><i class="sprite sprite-chelsea"></i></a>
-            <a href="#"><i class="sprite sprite-liver"></i></a>
-            <a href="#"><i class="sprite sprite-arsenal"></i></a>
-            <a href="#"><i class="sprite sprite-mc"></i></a>
-            <a href="#"><i class="sprite sprite-totenhem"></i></a>
-            <a href="#"><i class="sprite sprite-leicester"></i></a>
-            <a href="#"><i class="sprite sprite-everton"></i></a>
-            <a href="#"><i class="sprite sprite-west_ham"></i></a>
-            <a href="#"><i class="sprite sprite-west_brom"></i></a>
+            <% if (@teams = show_team_list_first_half('apl', 'first')).any? %>
+                <% @teams.each do |team| %>
+                    <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %>"></i></a>
+                <% end %>
+            <% else %>
+                <a href="#"><i class="sprite sprite-mu"></i></a>
+                <a href="#"><i class="sprite sprite-chelsea"></i></a>
+                <a href="#"><i class="sprite sprite-liver"></i></a>
+                <a href="#"><i class="sprite sprite-arsenal"></i></a>
+                <a href="#"><i class="sprite sprite-mc"></i></a>
+                <a href="#"><i class="sprite sprite-totenhem"></i></a>
+                <a href="#"><i class="sprite sprite-leicester"></i></a>
+                <a href="#"><i class="sprite sprite-everton"></i></a>
+                <a href="#"><i class="sprite sprite-west_ham"></i></a>
+                <a href="#"><i class="sprite sprite-west_brom"></i></a>
+            <% end %>
         </div>
         <div class="col-md-6 league-col">
-            <a href="#"><i class="sprite sprite-sunderland"></i></a>
-            <a href="#"><i class="sprite sprite-swansea"></i></a>
-            <a href="#"><i class="sprite sprite-crystal"></i></a>
-            <a href="#"><i class="sprite sprite-southampton"></i></a>
-            <a href="#"><i class="sprite sprite-watford"></i></a>
-            <a href="#"><i class="sprite sprite-burnley"></i></a>
-            <a href="#"><i class="sprite sprite-hull_city"></i></a>
-            <a href="#"><i class="sprite sprite-bournem"></i></a>
-            <a href="#"><i class="sprite sprite-midl"></i></a>
-            <a href="#"><i class="sprite sprite-stoke_city"></i></a>
+            <% if (@teams = show_team_list_first_half('apl', 'second')).any? %>
+                <% @teams.each do |team| %>
+                    <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %>"></i></a>
+                <% end %>
+            <% else %>
+                <a href="#"><i class="sprite sprite-sunderland"></i></a>
+                <a href="#"><i class="sprite sprite-swansea"></i></a>
+                <a href="#"><i class="sprite sprite-crystal"></i></a>
+                <a href="#"><i class="sprite sprite-southampton"></i></a>
+                <a href="#"><i class="sprite sprite-watford"></i></a>
+                <a href="#"><i class="sprite sprite-burnley"></i></a>
+                <a href="#"><i class="sprite sprite-hull_city"></i></a>
+                <a href="#"><i class="sprite sprite-bournem"></i></a>
+                <a href="#"><i class="sprite sprite-midl"></i></a>
+                <a href="#"><i class="sprite sprite-stoke_city"></i></a>
+            <% end %>
         </div>
    </div>
    <div class="container-fluid leagues-submenu-container">
