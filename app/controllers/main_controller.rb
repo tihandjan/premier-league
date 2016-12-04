@@ -1,13 +1,10 @@
 class MainController < ApplicationController
     skip_before_action :verify_authenticity_token
+    before_action :set_games_table_data
     def index
         @news = Article.order('created_at DESC').where("category = 'news'").first(20)
         @articles = Article.order('created_at DESC').where("category = 'article'").first(4)
         @videos = Video.order('created_at DESC').first(5)
-        if Delayed::Job.count == 0
-            Table.delay.set_table_data
-            Match.delay.set_games
-        end
         @table = Table.all
     
         @fixtures_en = Match.where(["DATE(date) = ? and league = ?", Date.today, 'apl'])
@@ -38,6 +35,13 @@ class MainController < ApplicationController
     end
 
     def policy
+    end
+
+    def set_games_table_data
+        if Delayed::Job.count == 0
+            Match.delay.set_games
+            Table.delay.set_table_data
+        end
     end
     
 end
