@@ -1,6 +1,7 @@
 .teams {
     .team-row {
         background-color: #FFF;
+        margin-bottom: 50px;
         .team-col {
 
         }
@@ -162,6 +163,8 @@
 
         }
         .team-col-third {
+            padding-left: 0;
+            padding-right: 0;
             .team-line-up {
                 .team-line-up-h2 {
                     margin: 0;
