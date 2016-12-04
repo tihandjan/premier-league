@@ -44,7 +44,7 @@ class Match < ActiveRecord::Base
     end
 
     def self.my_team_results cookie
-        Match.order('date DESC').where("date BETWEEN ? AND ? and (\"homeTeamName\" = ? or \"awayTeamName\" = ?)", Time.zone.now-60.days, Time.current-2.hour, cookie, cookie).first(4)
+        Match.order('date DESC').where("date BETWEEN ? AND ? and (\"homeTeamName\" = ? or \"awayTeamName\" = ?)", Time.zone.now-60.days, Time.current-2.hour, cookie, cookie).first(3)
     end
 
     def self.my_team_next_game cookie

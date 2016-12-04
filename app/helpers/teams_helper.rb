@@ -38,4 +38,29 @@ module TeamsHelper
         obj.find_by(name: name)
     end
 
+    def position_translater position
+        [
+            ["Central Midfield", "Цетральный полузащитник"],
+            ["Centre Back", "Цетральгый защитник"],
+            ["Keeper", "Вратарь"],
+            ["Right-Back", "Правый защитник"],
+            ["Left-Back", "Левый защитник"],
+            ["Defensive Midfield","Опорный полузащитник"] ,
+            ["Attacking Midfield","Атакующий полузащитник"], 
+            ["Centre Forward", "Центр форвард"],
+            ["Left Wing", "Левый крайний нападающий"],
+            ["Right Wing", "Певый крайний нападающий"],
+            ["Secondary Striker", "Второй нападающий"],
+            ["Left Midfield", "Левый полузащитник"],
+            ["Midfield", "Полузащитник"],
+            ["Mittelfeld", "Полузащитник"],
+            ["Right Midfield","Правый полузащитник"]
+        ].each do |position_en_ru| 
+            if position_en_ru[0] == position
+                return position_en_ru[1]
+            end
+        end
+        return position
+    end
+
 end
