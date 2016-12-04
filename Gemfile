@@ -100,3 +100,4 @@ gem 'activerecord-import', '~> 0.4.0'
 
 # background procceses
 gem 'delayed_job_active_record'
+

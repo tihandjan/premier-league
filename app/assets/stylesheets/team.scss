@@ -129,6 +129,7 @@
             }
             .team-news-wrapper {
                 padding: 5px 0;
+                .row-table {padding-left: 0;}
                 .list-group {
                     .list-group-item {
                         border: none;
@@ -208,4 +209,16 @@
 
 @media only screen and (max-width: 1199px) {
 	.teams{.list-group{.list-group-item{img{width: 100% !important;}}}}
+}
+@media only screen and (min-width: 992px) {
+	.teams{
+        .team-row{
+            overflow: hidden;
+            .team-col-first{
+                padding-bottom: 2000px;
+                margin-bottom: -2000px;
+                height: 100%;
+            }
+        }
+    }
 }
