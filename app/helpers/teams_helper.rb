@@ -41,7 +41,7 @@ module TeamsHelper
     def position_translater position
         [
             ["Central Midfield", "Цетральный полузащитник"],
-            ["Centre Back", "Цетральгый защитник"],
+            ["Centre Back", "Цетральный защитник"],
             ["Keeper", "Вратарь"],
             ["Right-Back", "Правый защитник"],
             ["Left-Back", "Левый защитник"],
