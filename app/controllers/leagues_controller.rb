@@ -1,5 +1,7 @@
 class LeaguesController < ApplicationController
 
+  before_action :set_games_table_data
+
   def index
     redirect_to root_path
   end
@@ -9,11 +11,6 @@ class LeaguesController < ApplicationController
     @articles = Article.order('created_at DESC').where(category: 'article', league: params[:id]).first(2)
     @videos = Video.order('created_at DESC').where(league: params[:id]).first(5)
     @league = params[:id]
-    if Delayed::Job.count == 0
-        Table.delay.set_table_data
-        Match.delay.set_games
-    end
-
     if params[:id] == 'seria-a'
       @fixtures_it = Match.where(["DATE(date) = ? and league = ?", Date.today, 'seria-a'])
       @fixtures_it_was = Match.where(["DATE(date) = ? and league = ?", Date.today-1.days, 'seria-a'])
@@ -65,9 +62,6 @@ class LeaguesController < ApplicationController
   end
 
   def table
-    if Delayed::Job.count == 0
-        Table.delay.set_table_data
-    end
     @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(12)
     @league = params[:id]
 
@@ -82,10 +76,6 @@ class LeaguesController < ApplicationController
 
   def fixtures
     
-    if Delayed::Job.count == 0
-      Match.delay.set_games
-    end
-
     @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(20)
     @fixtures = Match.order('date').where(['date > ? and league = ?', Time.current, params[:id]])
     if params[:id] == 'seria-a'
@@ -102,10 +92,6 @@ class LeaguesController < ApplicationController
   end
 
   def results
-    
-      if Delayed::Job.count == 0
-        Match.delay.set_games
-      end
 
     @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(20)
     @fixtures = Match.order('date DESC').where(['date < ? and league = ?', Time.current-2.hour, params[:id]])
@@ -122,6 +108,11 @@ class LeaguesController < ApplicationController
     end
   end
 
-  
+  def set_games_table_data
+    if Delayed::Job.count == 0
+        Match.delay.set_games
+        Table.delay.set_table_data
+    end
+  end
 
 end
