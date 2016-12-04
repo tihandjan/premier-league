@@ -7,23 +7,23 @@ class MainController < ApplicationController
         @videos = Video.order('created_at DESC').first(5)
         @table = Table.all
     
-        @fixtures_en = Match.where(["DATE(date) = ? and league = ?", Time.current-3.hours, 'apl'])
-        @fixtures_it = Match.where(["DATE(date) = ? and league = ?", Time.current-3.hours, 'seria-a'])
-        @fixtures_sp = Match.where(["DATE(date) = ? and league = ?", Time.current-3.hours, 'laliga'])
-        @fixtures_ge = Match.where(["DATE(date) = ? and league = ?", Time.current-3.hours, 'bundesliga'])
-        @fixtures_cl = Match.where(["DATE(date) = ? and league = ?", Time.current-3.hours, 'chempions-league'])
+        @fixtures_en = Match.where(["DATE(date) = ? and league = ?", Time.current+3.hours, 'apl'])
+        @fixtures_it = Match.where(["DATE(date) = ? and league = ?", Time.current+3.hours, 'seria-a'])
+        @fixtures_sp = Match.where(["DATE(date) = ? and league = ?", Time.current+3.hours, 'laliga'])
+        @fixtures_ge = Match.where(["DATE(date) = ? and league = ?", Time.current+3.hours, 'bundesliga'])
+        @fixtures_cl = Match.where(["DATE(date) = ? and league = ?", Time.current+3.hours, 'chempions-league'])
 
-        @fixtures_en_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'apl'])
-        @fixtures_it_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'seria-a'])
-        @fixtures_sp_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'laliga'])
-        @fixtures_ge_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'bundesliga'])
-        @fixtures_cl_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'chempions-league'])
+        @fixtures_en_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days+3.hours, 'apl'])
+        @fixtures_it_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days+3.hours, 'seria-a'])
+        @fixtures_sp_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days+3.hours, 'laliga'])
+        @fixtures_ge_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days+3.hours, 'bundesliga'])
+        @fixtures_cl_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days+3.hours, 'chempions-league'])
 
-        @fixtures_en_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'apl'])
-        @fixtures_it_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'seria-a'])
-        @fixtures_sp_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'laliga'])
-        @fixtures_ge_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'bundesliga'])
-        @fixtures_cl_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'chempions-league'])
+        @fixtures_en_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days+3.hours, 'apl'])
+        @fixtures_it_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days+3.hours, 'seria-a'])
+        @fixtures_sp_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days+3.hours, 'laliga'])
+        @fixtures_ge_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days+3.hours, 'bundesliga'])
+        @fixtures_cl_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days+3.hours, 'chempions-league'])
     end
     
     def change_my_team
