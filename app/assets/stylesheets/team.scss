@@ -2,9 +2,6 @@
     .team-row {
         background-color: #FFF;
         margin-bottom: 50px;
-        .team-col {
-
-        }
         .team-col-first {
             background-color: #33383c;
             border: 1px solid #33383c;
@@ -18,7 +15,7 @@
             }
             .team-name {
                 font-size: 22px;
-                color: #FFF;
+                color: #cecece;
                 margin-bottom: 40px;
             }
             .team-deliver {
@@ -33,7 +30,7 @@
             }
             .team-general-info-description {
                 font-size: 14px;
-                color: #FFF;
+                color: #cecece;
                 margin-bottom: 25px;
             }
         }
@@ -70,8 +67,9 @@
                         tr {
                             th {
                                 text-align: center;
-                                padding: 10px 0;
-                                color: #6aa6a6;
+                                padding: 6px 0;
+                                color: #528087;
+                                font-weight: normal;
                                 border-bottom: none;
                                 background-color: #eee;
                             }
@@ -80,7 +78,7 @@
                     tbody {
                         tr {
                             td {
-                                padding: 12px 0;
+                                padding: 11px 0;
                                 text-align: center;
                                 vertical-align: middle;
                                 border-top: none;
@@ -163,8 +161,6 @@
 
         }
         .team-col-third {
-            padding-left: 0;
-            padding-right: 15px;
             .team-line-up {
                 .team-line-up-h2 {
                     margin: 0;
@@ -184,7 +180,7 @@
                 padding: 5px 15px;
                 .footballer-position {
                     color: #6aa6a6;
-                    padding: 10px 10px;
+                    padding: 6px 10px;
                     background-color: #eee;
                     margin-top: 25px;
                     &:first-child {
@@ -221,6 +217,18 @@
                 padding-bottom: 2000px;
                 margin-bottom: -2000px;
                 height: 100%;
+            }
+            .team-col-second {
+                .team-news-wrapper {
+                    .list-group {
+                        .list-group-item {
+                            padding-left: 0;
+                        }
+                    }
+                }
+            }
+            .team-col-third {
+                padding-left: 0;
             }
         }
     }
