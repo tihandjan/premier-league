@@ -25,7 +25,7 @@
                     <%= raw show_if_new_date @date %><!--('%a %b %d %H:%M:%S %Z %Y')-->
                     <div class="row">
                         <div class="col-xs-5 col-fixtures"><span class="team"><%= team_translater(data.homeTeamName) %> <i class="<%= show_team_icon(data.homeTeamName) %> icon-small"></i></span></div>
-                        <div class="col-xs-2 col-fixtures"><span class="time"><%= (data.date.to_time+3).strftime('%H:%M') %></span></div>
+                        <div class="col-xs-2 col-fixtures"><span class="time"><%= (data.date).strftime('%H:%M') %></span></div>
                         <div class="col-xs-5 col-fixtures"><span class="team"><%= team_translater(data.awayTeamName) %> <i class="<%= show_team_icon(data.awayTeamName) %> icon-small"></i></span></div>
                     </div>
                 <% end %>
