@@ -18,9 +18,9 @@ module TeamsHelper
     def player_position player, pos
         if (["Keeper"].include? player.position) && (pos == 'вратари')
             true
-        elsif (["Central Midfield", "Left Midfield", "Midfield", "Mittelfeld", "Right Midfield"].include? player.position) && (pos == 'полузащита')
+        elsif (["Central Midfield", "Left Midfield", "Midfield", "Mittelfeld", "Right Midfield", "Defensive Midfield"].include? player.position) && (pos == 'полузащита')
             true
-        elsif (["Centre Back", "Right-Back", "Left-Back", "Defensive Midfield"].include? player.position) && (pos == 'защита')
+        elsif (["Centre Back", "Right-Back", "Left-Back"].include? player.position) && (pos == 'защита')
             true
         elsif (["Secondary Striker", "Attacking Midfield", "Centre Forward", "Left Wing", "Right Wing",].include? player.position) && (pos == 'нападение')
             true
@@ -49,7 +49,7 @@ module TeamsHelper
             ["Attacking Midfield","Атакующий полузащитник"], 
             ["Centre Forward", "Центр форвард"],
             ["Left Wing", "Левый крайний нападающий"],
-            ["Right Wing", "Певый крайний нападающий"],
+            ["Right Wing", "Правый крайний нападающий"],
             ["Secondary Striker", "Второй нападающий"],
             ["Left Midfield", "Левый полузащитник"],
             ["Midfield", "Полузащитник"],
