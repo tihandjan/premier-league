@@ -75,9 +75,9 @@ class LeaguesController < ApplicationController
   end
 
   def fixtures
-    
     @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(20)
     @fixtures = Match.order('date').where(['date > ? and league = ?', Time.current, params[:id]])
+    @league = params[:id]
     if params[:id] == 'seria-a'
       @h2 = 'Италия. Расписание матчей'
     elsif params[:id] == 'bundesliga'
@@ -92,9 +92,9 @@ class LeaguesController < ApplicationController
   end
 
   def results
-
     @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(20)
     @fixtures = Match.order('date DESC').where(['date < ? and league = ?', Time.current-2.hour, params[:id]])
+    @league = params[:id]
     if params[:id] == 'seria-a'
       @h2 = 'Италия. Результаты матчей'
     elsif params[:id] == 'bundesliga'
