@@ -1,24 +1,12 @@
     
-   
-    <% if @league == 'apl' %>
-        <%= render 'shared/index_leagues/apl_teams' %>
-    <% elsif @league == 'laliga' %>
-        <%= render 'shared/index_leagues/laliga_teams' %>
-    <% elsif @league == 'bundesliga' %>
-        <%= render 'shared/index_leagues/bundesliga_teams' %>
-    <% elsif @league == 'seria-a' %>
-        <%= render 'shared/index_leagues/seria_a_teams' %>
-    <% elsif @league == 'chempions-league' %>
-        <% @add_class = 'league-row-cl' %>
-        <%= render 'shared/index_leagues/chempions_league_teams' %>
-    <% end %>
-    <div class="row league-row <%= @add_class %>">    
+
+    <div class="row league-row">    
        
        
+        <h2 class="main-h1"><%= @h2 %></h2>
+        <hr class="main-hr">
        <div class="col-md-9 right-block">
            
-            <h2 class="league-h2"><%= @h2 %></h2>
-            <hr>
             <% if @news.any? %>
                 <div class="row row-line-one">
                 <div class="statiy-title"><a href="<%= league_news_index_path(@news.last.league) %>"> Новости</a></div>

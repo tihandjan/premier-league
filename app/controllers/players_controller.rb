@@ -7,6 +7,7 @@ class PlayersController < ApplicationController
     def show
         @player = Player.find(params[:id])
         @team = @player.team
+        @league = @team.league
         @teams = Team.all
         @players = @team.players
         @news = Article.order('created_at DESC').where(team: @team.name).paginate(page: params[:page], per_page: 5)

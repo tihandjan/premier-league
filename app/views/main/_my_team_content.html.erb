@@ -1,7 +1,7 @@
 
 <% if !cookies[:user_team].blank? %>
 <i style="margin: 0 auto;" class="<%= show_team_icon(cookies[:user_team]) %>"></i>
-<div><b><%= cookies[:user_team] %></b></div>
+<div><b><a style="color: inherit;" href="<%= team_path(pass_object(@teams, cookies[:user_team])) %>"><%= cookies[:user_team] %></a></b></div>
 
  
 
@@ -45,10 +45,6 @@
                <i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %></i> 
             </a>
         <% end %>
-    <% end %>
-    
-    <% if !cookies[:user_team].blank? %>
-        <a href="#" class="btn btn-info block-center">Все о команде</a>
     <% end %>
     
 </div>
