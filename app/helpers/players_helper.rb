@@ -1518,7 +1518,7 @@ module PlayersHelper
             ["Marco van Ginkel",   "Марко ван Гинкел", "", "", ""],
             ["Victor Moses",   "Victor Moses", "", "", ""],
             ["David Luiz",   "Давид Луис", "", "", ""],
-            ["N  Golo Kanté",   "N Golo Канте", "", "", ""],
+            ["N'Golo Kanté",   "N Golo Канте", "", "", ""],
             ["Michy Batshuayi",   "Бачуай", "", "", ""],
             ["Nathaniel Chalobah",   "Чалоба", "", "", ""],
             ["Eduardo",   "Эдуардо", "", "", ""],
@@ -2644,6 +2644,6 @@ module PlayersHelper
                 return name_en_ru[1]
             end
         end
-        return team
+        return name
     end
 end

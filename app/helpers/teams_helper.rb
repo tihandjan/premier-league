@@ -34,8 +34,12 @@ module TeamsHelper
         age
     end
 
-    def pass_object obj, name
-        obj.find_by(name: name)
+    def pass_object(obj=nil, name=nil)
+        if obj == nil || name == nil
+            '#'
+        else
+            obj.find_by(name: name)
+        end
     end
 
     def position_translater position

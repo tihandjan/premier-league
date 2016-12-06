@@ -6,6 +6,7 @@ class MainController < ApplicationController
         @articles = Article.order('created_at DESC').where("category = 'article'").first(4)
         @videos = Video.order('created_at DESC').first(5)
         @table = Table.all
+        @teams = Team.all
     
         @fixtures_en = Match.where(["DATE(date) = ? and league = ?", Time.current+3.hours, 'apl'])
         @fixtures_it = Match.where(["DATE(date) = ? and league = ?", Time.current+3.hours, 'seria-a'])
