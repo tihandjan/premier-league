@@ -1,21 +1,11 @@
-<% if @league == 'apl' %>
-    <%= render 'shared/index_leagues/apl_teams' %>
-<% elsif @league == 'laliga' %>
-    <%= render 'shared/index_leagues/laliga_teams' %>
-<% elsif @league == 'bundesliga' %>
-    <%= render 'shared/index_leagues/bundesliga_teams' %>
-<% elsif @league == 'seria-a' %>
-    <%= render 'shared/index_leagues/seria_a_teams' %>
-<% elsif @league == 'chempions-league' %>
-    <% @add_class = 'league-row-cl' %>
-    <%= render 'shared/index_leagues/chempions_league_teams' %>
-<% end %>
+
+<% @teams = Team.all %>
 
 <div class="row league-row <%= @add_class %>">
+    <h2 class="main-h1">h2 для таблицы</h2>
+    <hr class="main-hr">
     <div class="right-block col-md-9">
 
-        <h1 class="league-table-h1">Привет я буду h1 для </h1>
-        <hr>
         <div class="row row-table">
             <div class="panel panel-default">
             <!-- Default panel contents -->
@@ -48,7 +38,7 @@
                         <tr class="league-table-tr" style="background: <%= change_league_table_row_color params[:id], (@number+1) %>">
                             <td class="team-number"><%= @number += 1 %></td>
                             <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
                             <td></td>
                             <td></td>
                             <td class="team-td"><%= team.playedGames %></td>
@@ -86,7 +76,7 @@
                         <tr class="<%= change_row_color @number %>">
                             <td class="team-number"><%= team.position %></td><% @number += 1 %>
                             <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
                             <td></td>
                             <td></td>
                             <td class="team-td"><%= team.playedGames %></td>
@@ -121,7 +111,7 @@
                         <tr class="<%= change_row_color @number %>">
                             <td class="team-number"><%= team.position %></td><% @number += 1 %>
                             <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
                             <td></td>
                             <td></td>
                             <td class="team-td"><%= team.playedGames %></td>
@@ -156,7 +146,7 @@
                         <tr class="<%= change_row_color @number %>">
                             <td class="team-number"><%= team.position %></td><% @number += 1 %>
                             <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
                             <td></td>
                             <td></td>
                             <td class="team-td"><%= team.playedGames %></td>
@@ -191,7 +181,7 @@
                         <tr class="<%= change_row_color @number %>">
                             <td class="team-number"><%= team.position %></td><% @number += 1 %>
                             <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
                             <td></td>
                             <td></td>
                             <td class="team-td"><%= team.playedGames %></td>
@@ -226,7 +216,7 @@
                         <tr class="<%= change_row_color @number %>">
                             <td class="team-number"><%= team.position %></td><% @number += 1 %>
                             <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
                             <td></td>
                             <td></td>
                             <td class="team-td"><%= team.playedGames %></td>
@@ -261,7 +251,7 @@
                         <tr class="<%= change_row_color @number %>">
                             <td class="team-number"><%= team.position %></td><% @number += 1 %>
                             <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
                             <td></td>
                             <td></td>
                             <td class="team-td"><%= team.playedGames %></td>
@@ -296,7 +286,7 @@
                         <tr class="<%= change_row_color @number %>">
                             <td class="team-number"><%= team.position %></td><% @number += 1 %>
                             <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
                             <td></td>
                             <td></td>
                             <td class="team-td"><%= team.playedGames %></td>
@@ -331,7 +321,7 @@
                         <tr class="<%= change_row_color @number %>">
                             <td class="team-number"><%= team.position %></td><% @number += 1 %>
                             <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
-                            <td class="team-name"><%= full_team_translater(team.teamName) %></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
                             <td></td>
                             <td></td>
                             <td class="team-td"><%= team.playedGames %></td>

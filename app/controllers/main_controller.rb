@@ -29,6 +29,7 @@ class MainController < ApplicationController
     
     def change_my_team
         cookies[:user_team] = params[:team] 
+        @teams = Team.all
         respond_to do |format|
            format.html { redirect_to root_path }
            format.js

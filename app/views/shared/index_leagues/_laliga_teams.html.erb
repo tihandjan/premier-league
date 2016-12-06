@@ -2,37 +2,37 @@
     <div class="col-md-6 league-col">
         <% if (@teams = show_team_list_first_half('laliga', 'first')).any? %>
             <% @teams.each do |team| %>
-                <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %>"></i></a>
+                <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
             <% end %>
         <% else %>
-            <a href="#"><i class="sprite sprite-barselona"></i></a>
-            <a href="#"><i class="sprite sprite-real_m"></i></a>
-            <a href="#"><i class="sprite sprite-atletico"></i></a>
-            <a href="#"><i class="sprite sprite-sevilla"></i></a>
-            <a href="#"><i class="sprite sprite-valensia"></i></a>
-            <a href="#"><i class="sprite sprite-villareal"></i></a>
-            <a href="#"><i class="sprite sprite-deportivo"></i></a>
-            <a href="#"><i class="sprite sprite-espaniol"></i></a>
-            <a href="#"><i class="sprite sprite-ath_bilbao"></i></a>
-            <a href="#"><i class="sprite sprite-real_betis"></i></a>
+            <a href="#"><i class="sprite sprite-barselona icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-real_m icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-atletico icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-sevilla icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-valensia icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-villareal icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-deportivo icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-espaniol icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-ath_bilbao icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-real_betis icon-middle"></i></a>
         <% end %>
     </div>
     <div class="col-md-6 league-col">
         <% if (@teams = show_team_list_first_half('laliga', 'second')).any? %>
             <% @teams.each do |team| %>
-                <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %>"></i></a>
+                <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
             <% end %>
         <% else %>
-            <a href="#"><i class="sprite sprite-ossasuna"></i></a>
-            <a href="#"><i class="sprite sprite-eibar"></i></a>
-            <a href="#"><i class="sprite sprite-granada"></i></a>
-            <a href="#"><i class="sprite sprite-sporting"></i></a>
-            <a href="#"><i class="sprite sprite-real_sosiedad"></i></a>
-            <a href="#"><i class="sprite sprite-alaves"></i></a>
-            <a href="#"><i class="sprite sprite-leganes"></i></a>
-            <a href="#"><i class="sprite sprite-malaga"></i></a>
-            <a href="#"><i class="sprite sprite-las_palmas"></i></a>
-            <a href="#"><i class="sprite sprite-selta"></i></a>
+            <a href="#"><i class="sprite sprite-ossasuna icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-eibar icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-granada icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-sporting icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-real_sosiedad icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-alaves icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-leganes icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-malaga icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-las_palmas icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-selta icon-middle"></i></a>
         <% end %>
     </div>
 </div>
