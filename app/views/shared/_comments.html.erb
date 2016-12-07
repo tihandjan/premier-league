@@ -1,0 +1,40 @@
+<%= form_for :comment, 'comments_path', remote: true do |f| %>
+    <div class="media">
+        <div class="media-left">
+        <a href="#">
+            <img class="media-object" src="..." alt="...">
+        </a>
+        </div>
+        <div class="media-body">
+            <%= text_area :body, class: 'form-control', row: '10', cols: '3' %>
+        
+        </div>
+    </div>
+<% end %>
+<div class="comment-block">
+    <ul class="media-list">
+    <li class="media">
+        <div class="media-left">
+        <a href="#">
+            <img class="media-object" src="..." alt="...">
+        </a>
+        </div>
+        <div class="media-body">
+        <h4 class="media-heading">Igor Great</h4>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, expedita.
+            <div class="media">
+                <div class="media-left">
+                <a href="#">
+                    <img class="media-object" src="..." alt="...">
+                </a>
+                </div>
+                <div class="media-body">
+                <h4 class="media-heading">Igor Great</h4>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, expedita.
+                
+                </div>
+            </div>
+        </div>
+    </li>
+    </ul>
+</div>
