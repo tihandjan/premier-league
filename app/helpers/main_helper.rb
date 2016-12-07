@@ -448,7 +448,11 @@ module MainHelper
         if team.status == 'FINISHED' || team.status == "IN_PLAY"
             team.goalsHomeTeam.to_s + " - " + team.goalsAwayTeam.to_s
         else
-            team.date.strftime('%H:%M')
+            if (team.date..team.date+94.minutes).cover?(Time.current)
+                '?' + ' - ' + '?'
+            else
+                team.date.strftime('%H:%M')
+            end
         end
     end
     
