@@ -445,7 +445,7 @@ module MainHelper
     end
     
     def time_or_result team
-        if Time.current >= team.date
+        if team.status == 'FINISHED' || team.status == "IN_PLAY"
             team.goalsHomeTeam.to_s + " - " + team.goalsAwayTeam.to_s
         else
             team.date.strftime('%H:%M')
