@@ -419,9 +419,9 @@ module MainHelper
     end
     
     def in_play_or_finished team
-        if team.date >= Time.current && team.date <= Time.current+94.minutes
+        if (team.date..team.date+94.minutes).cover?(Time.current)
             '#e90052'
-        elsif team.date >= Time.current+94.minutes
+        elsif Time.current > team.date+94.minutes
             '#243843'
         end
     end
@@ -445,12 +445,8 @@ module MainHelper
     end
     
     def time_or_result team
-        if team.date >= Time.current
-            if team.goalsHomeTeam.blank? || team.goalsAwayTeam.blank?
-                "?" + " - " + "?"
-            else
-                team.goalsHomeTeam.to_s + " - " + team.goalsAwayTeam.to_s
-            end
+        if Time.current >= team.data
+            team.goalsHomeTeam.to_s + " - " + team.goalsAwayTeam.to_s
         else
             team.date.strftime('%H:%M')
         end
