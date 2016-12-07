@@ -123,8 +123,16 @@
            
        </div>
        
-       <div class="col-md-3 left-block"><%= render 'shared/onlain' %><%= render 'shared/my_team' %><%= render 'shared/last_news' %></div>
+       <div class="col-md-3 left-block"><span id="onlain"><%= render 'shared/onlain' %><%= render 'shared/my_team' %></span><%= render 'shared/last_news' %></div>
    </div>
+   
+    <script>
+        (function(){
+            setInterval(function(){
+                $('#onlain-submit').submit();
+            }, 240000);
+        })()
+    </script>
 
 
 
