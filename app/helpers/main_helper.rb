@@ -452,7 +452,7 @@ module MainHelper
                 team.goalsHomeTeam.to_s + " - " + team.goalsAwayTeam.to_s
             end
         else
-            team.strftime('%H:%M')
+            team.date.strftime('%H:%M')
         end
     end
     
