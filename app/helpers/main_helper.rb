@@ -418,10 +418,10 @@ module MainHelper
         return "sprite sprite-default_icon"
     end
     
-    def in_play_or_finished status
-        if status == "IN_PLAY" 
+    def in_play_or_finished team
+        if team.date >= Time.current && team.date <= Time.current+94.minutes
             '#e90052'
-        elsif status == "FINISHED"
+        elsif team.date >= Time.current+94.minutes
             '#243843'
         end
     end
@@ -444,11 +444,15 @@ module MainHelper
         cookies[:user_team].blank? ? "Выберите команду" : "Поменять команду"
     end
     
-    def time_or_result status, result1, result2, time
-        if status == 'FINISHED' || status == "IN_PLAY"
-            result1.to_s + " - " + result2.to_s
+    def time_or_result team
+        if team.date >= Time.current
+            if team.goalsHomeTeam.blank? || team.goalsAwayTeam.blank?
+                "?" + " - " + "?"
+            else
+                team.goalsHomeTeam.to_s + " - " + team.goalsAwayTeam.to_s
+            end
         else
-            time
+            time.strftime('%H:%M')
         end
     end
     
