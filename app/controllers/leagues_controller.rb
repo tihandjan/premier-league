@@ -1,6 +1,7 @@
 class LeaguesController < ApplicationController
 
   before_action :set_games_table_data
+  before_action :set_onlain_fixtures, only: [:show]
 
   def index
     redirect_to root_path
@@ -12,45 +13,30 @@ class LeaguesController < ApplicationController
     @videos = Video.order('created_at DESC').where(league: params[:id]).first(5)
     @league = params[:id]
     if params[:id] == 'seria-a'
-      @fixtures_it = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours, 'seria-a'])
-      @fixtures_it_was = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours-1.days, 'seria-a'])
-      @fixtures_it_will = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours+1.days, 'seria-a'])
       @table_data = Table.where(league: params[:id])
       @table_name = 'Привет h5 Таблица Серия А'
       @h2 = 'Привет я h2'
       @h4 = 'Привет я h4'
       render 'shared/index_league'
     elsif params[:id] == 'bundesliga'
-      @fixtures_ge = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours, 'bundesliga'])
-      @fixtures_ge_will = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours+1.days, 'bundesliga'])
-      @fixtures_ge_was = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours-1.days, 'bundesliga'])
       @table_data = Table.where(league: params[:id])
       @table_name = 'Привет h5 Таблица Бундеслиги'
       @h2 = 'Привет я h2'
       @h4 = 'Привет я h4'
       render 'shared/index_league'
     elsif params[:id] == 'laliga'
-      @fixtures_sp = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours, 'laliga'])
-      @fixtures_sp_will = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours+1.days, 'laliga'])
-      @fixtures_sp_was = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours-1.days, 'laliga'])
       @table_data = Table.where(league: params[:id])
       @table_name = 'Привет h5 Таблица Ла Лиги'
       @h2 = 'Привет я h2'
       @h4 = 'Привет я h4'
       render 'shared/index_league'
     elsif params[:id] == 'chempions-league'
-      @fixtures_cl = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours, 'chempions-league'])
-      @fixtures_cl_was = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours-1.days, 'chempions-league'])
-      @fixtures_cl_will = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours+1.days, 'chempions-league'])
       @table_data = Table.where(league: params[:id])
       @table_name = 'Привет h5 Таблица Лиги Чемпионов'
       @h2 = 'Привет я h2'
       @h4 = 'Привет я h4'
       render 'shared/index_league'
     elsif params[:id] == 'apl'
-      @fixtures_en = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours, 'apl'])
-      @fixtures_en_was = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours-1.days, 'apl'])
-      @fixtures_en_will = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours+1.days, 'apl'])
       @table_data = Table.where(league: params[:id])
       @table_name = 'Привет h5 Таблица Английской Премьер Лиги'
       @h2 = 'Привет я h2'
@@ -113,6 +99,26 @@ class LeaguesController < ApplicationController
         Match.delay.set_games
         Table.delay.set_table_data
     end
+  end
+
+  def set_onlain_fixtures
+      @fixtures_en = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours, 'apl'])
+      @fixtures_it = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours, 'seria-a'])
+      @fixtures_sp = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours, 'laliga'])
+      @fixtures_ge = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours, 'bundesliga'])
+      @fixtures_cl = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours, 'chempions-league'])
+
+      @fixtures_en_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days+2.hours, 'apl'])
+      @fixtures_it_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days+2.hours, 'seria-a'])
+      @fixtures_sp_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days+2.hours, 'laliga'])
+      @fixtures_ge_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days+2.hours, 'bundesliga'])
+      @fixtures_cl_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days+2.hours, 'chempions-league'])
+
+      @fixtures_en_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days+2.hours, 'apl'])
+      @fixtures_it_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days+2.hours, 'seria-a'])
+      @fixtures_sp_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days+2.hours, 'laliga'])
+      @fixtures_ge_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days+2.hours, 'bundesliga'])
+      @fixtures_cl_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days+2.hours, 'chempions-league'])
   end
 
 end
