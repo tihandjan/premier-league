@@ -1,3 +1,51 @@
-.comment-block {
+.comments-block {
     padding: 0 10px 0 25px;
+    .media-form {
+        .media-left {
+            a {
+                display: block;
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                overflow: hidden;
+                img {
+                    width: 70px;
+                }
+            }
+        }
+        .media-body {
+            .comment-form {
+                .comments-body {
+                    border-radius: 0;
+                }
+                .btn-email {
+                    border-radius: 0;
+                    margin-top: -10px;
+                    &:hover {
+                        color: #FFF;
+                    }
+                }
+            }
+        }
+    }
+    .custom-media-list {
+        border-top: 1px solid #c3c3c3;
+        margin-top: 10px;
+        .media-left {
+            padding-top: 15px;
+            a {
+                display: block;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+                img {
+                    width: 50px;
+                }
+            }
+        }
+        .media-body {
+            padding-top: 15px;
+        }
+    }
 }
