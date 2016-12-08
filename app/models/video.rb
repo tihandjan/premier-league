@@ -1,6 +1,10 @@
 class Video < ActiveRecord::Base
     has_many :taggings
     has_many :tags, through: :taggings
+<<<<<<< HEAD
+=======
+    has_many :comments, as: :commentable
+>>>>>>> comments
     mount_uploader :picture, PictureUploader
     validates :title, presence: true
     validates :code, presence: true
