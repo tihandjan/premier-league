@@ -419,9 +419,9 @@ module MainHelper
     end
     
     def in_play_or_finished team
-        if (team.date..team.date+94.minutes).cover?(Time.current)
+        if (team.date..team.date+120.minutes).cover?(Time.current)
             '#e90052'
-        elsif Time.current > team.date+94.minutes
+        elsif Time.current > team.date+120.minutes
             '#243843'
         end
     end
@@ -446,9 +446,13 @@ module MainHelper
     
     def time_or_result team
         if team.status == 'FINISHED' || team.status == "IN_PLAY"
-            team.goalsHomeTeam.to_s + " - " + team.goalsAwayTeam.to_s
+            if team.goalsHomeTeam == '-' || team.goalsAwayTeam == '-'
+                '?' + ' - ' + '?'
+            else
+                team.goalsHomeTeam.to_s + " - " + team.goalsAwayTeam.to_s
+            end
         else
-            if (team.date..team.date+94.minutes).cover?(Time.current)
+            if (team.date..team.date+120.minutes).cover?(Time.current)
                 '?' + ' - ' + '?'
             else
                 team.date.strftime('%H:%M')
