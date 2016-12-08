@@ -22,10 +22,24 @@ Rails.application.routes.draw do
       get 'fixtures'
       get 'results'
     end
+<<<<<<< HEAD
     resources :articles, only: [:show, :index]
     resources :videos, only: [:show, :index]
     resources :news, only: [:index]
   end
+=======
+    resources :articles, only: [:show, :index, :create] do
+      resources :comments, only: [:create]
+    end
+    resources :videos, only: [:show, :index] do
+      resources :comments, only:[:create]
+    end
+    resources :news, only: [:index]
+  end
+  resources :comments do
+    resources :comments
+  end
+>>>>>>> comments
 
   resources :teams, only: [:show, :index] do
   end
