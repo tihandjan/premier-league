@@ -579,4 +579,12 @@ module MainHelper
                   title
             end
       end
+
+      def avatar_to_comments user=nil
+          if user != nil && (user.avatar.presence || user.avatarc.presence) 
+              user.avatar.presence ? (image_tag current_user.avatar.url(:thumb)) : (image_tag user.avatarc)
+          else
+              (image_tag "/images/default-avatar.png")
+          end
+      end
 end

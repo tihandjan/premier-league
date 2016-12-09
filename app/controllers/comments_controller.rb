@@ -6,19 +6,24 @@ class CommentsController < ApplicationController
     end
 
     def create
-      @comment = @commentable.comments.new comment_params
-
-      if @comment.save
-        redirect_to :back, notice: 'Your comment was successfully posted!'
-      else
-        redirect_to :back, notice: "Your comment wasn't posted!"
+      @comment = @commentable.comments.create(comment_params)
+      @data = Article.find(params[:article_id]) if params[:article_id]
+      @data = Video.find(params[:video_id]) if params[:video_id]
+      if params[:comment_id]
+        @com = Comment.find(params[:comment_id]) 
+        @data = Article.find(@com.commentable_id) if @com.commentable_type == 'Article'
+        @data = Video.find(@com.commentable_id) if @com.commentable_type == 'Video'
+      end
+      respond_to do |format|
+          format.html { redirect_to :back }
+          format.js
       end
     end
 
     private
 
     def comment_params
-      params.require(:comment).permit(:body)
+      params.require(:comment).permit(:body, :user_id)
     end
 
     def find_commentable

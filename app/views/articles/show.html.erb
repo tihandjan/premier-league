@@ -54,52 +54,7 @@
             <hr>
 
 
-            <div class="comments-block">
-                <div class="comments-wrapper clearfix">
-                    <div class="media media-form">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object" src="/images/default-avatar.png" alt="...">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <%= form_for(Comment.new, url: league_article_comments_path(@article.league,@article.id), :html => {:class => "comment-form"}) do |f| %>
-                                <%= f.text_area :body,class: 'form-control comments-body', rows: '3', cols: '3', placeholder: "Оставьте комментарий" %><br/>
-                                <%= f.submit "Add Comment", class: 'btn btn-email pull-right' %>
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
-                
-                <ul class="media-list custom-media-list">
-                    <li class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object" src="/images/default-avatar.png" alt="...">
-                            </a>
-                            <i class="text-center">Рейтинг:</i>
-                            <i class="text-center carma">+40</i>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Igor Great</h4>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, expedita.
-                            <div class="media"> 
-                                <div class="media-left"> 
-                                    <a href="#"> 
-                                        <img alt="" class="media-object" src="/images/default-avatar.png" data-holder-rendered="true"> 
-                                    </a> 
-                                    <i class="text-center">Рейтинг:</i>
-                                    <i class="text-center carma">+35</i>
-                                </div> 
-                                <div class="media-body"> 
-                                    <h4 class="media-heading">Nested media heading</h4> 
-                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. 
-                                </div> 
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            <%= render 'shared/comments', data: @article, url: league_article_comments_path(@article.league,@article.id) %>
 
 
             <span class="show-read-more">Читайте также</span>
@@ -117,7 +72,7 @@
                                     <div class="caption custom-caption">
                                         <h3 class="index-h3"><strong><%= truncate(article.title, length: 55) %></strong></h3>
                                         <p><%= truncate(article.summary,length: 90) %></p>
-                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %></i></span> 
+                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %> назад</i></span> 
                                     </div>
                                 </div>
                             </a>

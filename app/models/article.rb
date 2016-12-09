@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
     has_many :comments, as: :commentable
     validates :title, presence: true, length: { minimum: 10, maximum: 150 }
     validates :summary, presence: true, length: { minimum: 10, maximum: 250 }
-    validates :description, presence: true, length: { minimum: 10, maximum: 5000 }
+    validates :description, presence: true, length: { minimum: 10, maximum: 10000 }
     validates :picture, presence: true
     validates :league, presence: true
     mount_uploader :picture, PictureUploader
@@ -34,10 +34,10 @@ class Article < ActiveRecord::Base
 
         # only this part right
         page_graph = Koala::Facebook::API.new('EAAHzbwanpNkBAF3pDmYuU3cRn7equ2QkpOISwdFdRCJXHsCp7FZBDPwWgGjinUfguvcZB6hxhkWbEjCZBdJkczWfAE1NH7BzZC8ZAzxR7slvtITsoYonzaLrdcpgsfZBnw3ZBnXXq3ZARCTZBQUHdNF3nNZCU9FfW2I8gZD')
-        page_graph.put_wall_post(self.title , {
+        page_graph.put_wall_post((self.title[0...80]) , {
         "link" => "http://ueroliga.herokuapp.com/#{Rails.application.routes.url_helpers.league_article_path(self.league, self)}",
-        "name" => self.summary,
-        "description" => self.description,
+        "name" => (self.summary[0...120]),
+        "description" => (self.description[0...100]),
         "picture" => Article.last.picture.url
         })
     end

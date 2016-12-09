@@ -4,7 +4,7 @@
 <div class="row">
 
     <div class="right-block col-md-9">
-        <div class="article-title"><a href="<%= league_videos_path(@video.league) %>">Видео</a></div>
+        <div class="statiy-title"><a href="<%= league_videos_path(@video.league) %>">Видео</a></div>
         <div class="show-article-wrapper">
             <h1 class="show-article-title"><%= @video.title %></h1>
             <span class="show-article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(@video.created_at, "%d %B %Y") %></i></span>
@@ -32,7 +32,8 @@
 
             <span class="show-read-more">Комментарии</span>
             <hr>
-            <%= render 'shared/comments' %>
+
+            <%= render 'shared/comments', data: @video, url: league_video_comments_path(@video.league,@video.id) %>
             
             <span class="show-read-more">Смотрите также</span>
             <hr>
@@ -49,7 +50,7 @@
                                     <div class="image-wrapper"><%= image_tag(video.picture.url(:mini), :alt => 'football') %></div>
                                     <div class="caption custom-caption">
                                         <h3 class="video-three-article-title"><strong><%= truncate(video.title, length: 65) %></strong></h3>
-                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(video.created_at) %></i></span> 
+                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(video.created_at) %> назад</i></span> 
                                         <span class="video-icon-four"><i class="glyphicon glyphicon-play"></i></span>
                                         <span class="video-icon-four video-icon-four-time">00:29</span>
                                     </div>
