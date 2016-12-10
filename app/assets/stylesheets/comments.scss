@@ -25,6 +25,9 @@
                     &:hover {
                         color: #FFF;
                     }
+                    &:focus {
+                        color: #FFF;
+                    }
                 }
                 .btn-cancel {
                     border-radius: 0;
@@ -64,6 +67,9 @@
             }
             .voting {
                 margin-top: 5px;
+                a {
+                    text-decoration: none;
+                }
                 i {
                     margin-right: 5px;
                     font-size: 16px;

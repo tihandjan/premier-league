@@ -75,7 +75,6 @@ gem 'omniauth-vkontakte'
 # image upload
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'carrierwave-imageoptimizer'
 # image upload amazon
 gem 'fog'
 
@@ -100,3 +99,6 @@ gem 'activerecord-import', '~> 0.4.0'
 
 # background procceses
 gem 'delayed_job_active_record'
+
+# voting system
+gem 'acts_as_votable', '~> 0.10.0'

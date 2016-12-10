@@ -1,9 +1,5 @@
 class CommentsController < ApplicationController
-    before_action :find_commentable
-
-    def new
-      @comment = Comment.new
-    end
+    before_action :find_commentable, only: [:create]
 
     def create
       @comment = @commentable.comments.create(comment_params)
@@ -17,6 +13,24 @@ class CommentsController < ApplicationController
       respond_to do |format|
           format.html { redirect_to :back }
           format.js
+      end
+    end
+
+    def upvote
+      @comment = Comment.find(params[:id])
+      @comment.upvote_from current_user
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
+    end
+
+    def downvote
+      @comment = Comment.find(params[:id])
+      @comment.downvote_from current_user
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
       end
     end
 

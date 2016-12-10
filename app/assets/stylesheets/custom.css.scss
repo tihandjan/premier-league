@@ -306,11 +306,13 @@ a {
 // article item 2 end
 
 .image-wrapper {
+    min-height: 110px;
     background: #000;
     img {
         opacity: 0.9;
     }
 }
+.image-article-wrapper {min-height: 210px;}
 
 // video start
 .video {

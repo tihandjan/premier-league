@@ -587,4 +587,9 @@ module MainHelper
               (image_tag "/images/default-avatar.png")
           end
       end
+
+      def carma user
+          carma = user.votes.up.size - user.votes.down.size
+          sprintf("%+d", carma)
+      end
 end

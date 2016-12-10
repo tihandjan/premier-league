@@ -3,9 +3,9 @@
 class PictureUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
-  include CarrierWave::ImageOptimizer
+  # include CarrierWave::ImageOptimizer
   
-  storage :fog
+  # storage :fog
   
   # include CarrierWave::MiniTypes
   # process :set_content_type
@@ -35,6 +35,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   
     
   process :resize_to_fit => [750, 500]
+  # process :optimize
   process :optimize
 
   version :thumb do
@@ -60,5 +61,18 @@ class PictureUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  def optimize
+    manipulate! do |img|
+        return img unless img.mime_type.match /image\/jpeg/
+        img.strip
+        img.combine_options do |c|
+            c.quality "80"
+            c.depth "8"
+            c.interlace "plane"
+        end
+        img
+    end
+  end
 
 end

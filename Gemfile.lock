@@ -58,6 +58,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_votable (0.10.0)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     arbre (1.1.1)
@@ -92,9 +93,6 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
-    carrierwave-imageoptimizer (1.4.0)
-      carrierwave (>= 0.8, < 2.0)
-      image_optimizer (~> 1.6)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -270,7 +268,6 @@ GEM
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
-    image_optimizer (1.7.0)
     inflecto (0.0.2)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
@@ -469,6 +466,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   activerecord-import (~> 0.4.0)
+  acts_as_votable (~> 0.10.0)
   autoprefixer-rails
   bootstrap-sass (~> 3.3.6)
   bootstrap-select-rails
@@ -476,7 +474,6 @@ DEPENDENCIES
   byebug
   capybara
   carrierwave
-  carrierwave-imageoptimizer
   database_cleaner
   delayed_job_active_record
   devise

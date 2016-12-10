@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
          
   mount_uploader :avatar, AvatarUploader
+
+  acts_as_voter
   
   
   

@@ -7,16 +7,31 @@
                     <%= avatar_to_comments comment.user %>
                 </a>
                 <i class="text-center">Рейтинг:</i>
-                <i class="text-center carma">+40</i>
+                <i class="text-center carma"><%= carma comment.user %></i>
             </div>
             <div class="media-body">
                 <h4 class="media-heading name"><%= comment.user.username if comment.user %> <i><%= time_ago_in_words(comment.created_at) %> назад</i></h4>
                 <%= comment.body %>
                 <div class="voting">
-                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                    <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                    <i class="voite-count">+0</i>
+                    <% if signed_in? && current_user %>
+                        <%= link_to like_comment_path(comment), method: :put, remote: true do %>
+                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <% end %>
+                        <i class="voite-count" id="voite-count-up-<%= comment.id %>"><%= comment.get_upvotes.size %></i>
+                        <%= link_to unlike_comment_path(comment), method: :put, remote: true do %>
+                            <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                        <% end %>
+                        <i class="voite-count" id="voite-count-down-<%= comment.id %>"><%= comment.get_downvotes.size %></i>
+                    <% else %>
+                        <a  href="#" data-toggle="modal" data-target="#authModal" rel="nofollow">
+                            <i class="fa fa-thumbs-up" aria-hidden="true"></i> 
+                        </a>
+                        <i class="voite-count" id="voite-count-up-<%= comment.id %>"><%= comment.get_upvotes.size %></i>
+                        <a  href="#" data-toggle="modal" data-target="#authModal" rel="nofollow">
+                            <i class="fa fa-thumbs-down" aria-hidden="true"></i> 
+                        </a>
+                        <i class="voite-count" id="voite-count-down-<%= comment.id %>"><%= comment.get_downvotes.size %></i>
+                    <% end %>
                     <% if signed_in? && current_user %>
                         <a class="reply" onclick="showForm('<%= 'reply-form-' + comment.id.to_s %>');">Ответить</a>
                     <% else %>
